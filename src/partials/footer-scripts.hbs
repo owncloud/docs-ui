@@ -1,3 +1,7 @@
 <script src="{{uiRootPath}}/js/site.js"></script>
+{{#if (eq site.docsearch.engine 'lunr')}}
+<script src="{{or uiRootPath themeRootPath}}/js/vendor/lunr.js"></script>
+{{/if}}
 <script src="{{uiRootPath}}/js/vendor/highlight.js"></script>
 <script>hljs.initHighlighting()</script>
+
