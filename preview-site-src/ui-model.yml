@@ -41,9 +41,6 @@ site:
     - url: '#'
       version: '2.0'
     latestVersion: *latest_version_123
-  docsearch:
-    enabled: true
-    engine: 'lunr'
 page:
   title: Hardware and Software Requirements
   url: /xyz/5.2/index.html
