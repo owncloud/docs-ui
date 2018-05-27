@@ -1,6 +1,7 @@
 <script src="{{uiRootPath}}/js/site.js"></script>
 {{#if (eq env.DOCSEARCH_ENGINE 'lunr')}}
 <script src="{{or uiRootPath themeRootPath}}/js/vendor/lunr.js"></script>
+<script>antoraLunr.init("{{uiRootPath}}/../search_index.json")</script>
 {{/if}}
 <script src="{{uiRootPath}}/js/vendor/highlight.js"></script>
 <script>hljs.initHighlighting()</script>
