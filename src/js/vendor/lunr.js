@@ -1,13 +1,13 @@
 /* eslint-env browser */
-;(function (lunr) {
+window.antoraLunr = (function (lunr) {
   var searchInput = document.getElementById('search-input')
   var searchResult = document.createElement('div')
   searchResult.classList.add('search-result-dropdown-menu')
   searchInput.parentNode.appendChild(searchResult)
 
-  function loadIndex (callback) {
+  function loadIndex (searchIndexPath, callback) {
     var xhr = new XMLHttpRequest()
-    xhr.open('GET', 'search_index.json')
+    xhr.open('GET', searchIndexPath)
     xhr.responseType = 'json'
     xhr.onload = function () {
       if (xhr.status === 200 || xhr.status === 0) {
@@ -182,11 +182,17 @@
     }
   }
 
-  loadIndex(function (index) {
-    var search = debounce(function () {
-      searchIndex(index.index, index.store, searchInput.value)
-    }, 100)
-    // TODO listen to blur, focus and input events
-    searchInput.addEventListener('keydown', search)
-  })
+  function init (searchIndexPath) {
+    loadIndex(searchIndexPath, function (index) {
+      var search = debounce(function () {
+        searchIndex(index.index, index.store, searchInput.value)
+      }, 100)
+      // TODO listen to blur, focus and input events
+      searchInput.addEventListener('keydown', search)
+    })
+  }
+
+  return {
+    init: init,
+  }
 })(require('lunr/lunr.js'))
