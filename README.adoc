@@ -8,6 +8,7 @@
 :uri-ci-pipelines: {uri-project}/pipelines
 :img-ci-status: {uri-project}/badges/master/pipeline.svg
 // External URIs:
+:uri-antora-default-ui: https://gitlab.com/antora/antora-ui-default
 :uri-antora: https://antora.org
 :uri-git: https://git-scm.com
 :uri-git-dl: {uri-git}/downloads
@@ -39,8 +40,7 @@ Read on to learn how to use your own build of the default UI.
 
 == Quickstart
 
-This section offers a basic tutorial for learning how to preview the default UI and bundle it for use with Antora.
-A more comprehensive tutorial will be made available in the documentation.
+This section offers a basic tutorial for learning how to preview the theme and bundle it for use with the ownCloud Antora docs.
 
 === Prerequisites
 
@@ -68,7 +68,7 @@ Next, make sure that you have Node 8 installed.
 If this command fails with an error, you don't have Node installed.
 If the command doesn't report a Node 8 version (e.g., v8.9.4), you don't have a suitable version of Node installed.
 
-While you can install Node from the official packages, we strongly recommend that you use {uri-nvm}[nvm] (Node Version Manager) to install and manage Node.
+While you can install Node from the official packages, we strongly recommend that you use {uri-nvm}[nvm] (_Node Version Manager_) to install and manage Node.
 Follow the {uri-nvm-install}[nvm installation instructions] to set up nvm on your machine.
 
 Once you've installed nvm, open a new terminal and install Node 8 using the following command:
@@ -112,7 +112,7 @@ Clone the default UI project using git:
  $ git clone {uri-project} &&
    cd "`basename $_`"
 
-The example above clones Antora's default UI project and then switches to the project folder on your filesystem.
+The example above clones the custom Antora ownCloud UI theme and then switches to the project folder on your filesystem.
 Stay in this project folder in order to initialize the project using Yarn.
 
 Use Yarn to install the project's dependencies.
