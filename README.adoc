@@ -26,7 +26,7 @@ To use the ownCloud Antora-based Docs Default UI with the ownCloud Antora docs, 
 [source,yaml,subs=attributes+]
 ----
 ui:
-  bundle: https://github.com/settermjd/docs-ui/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+  bundle: https://github.com/settermjd/docs-ui/releases/download/1.0.0/ui-bundle.zip
 ----
 
 == Quickstart
