@@ -1,4 +1,4 @@
-= Antora Default UI
+= ownCloud Antora-based Docs Default UI
 // Settings:
 :experimental:
 :hide-uri-scheme:
@@ -26,7 +26,7 @@ You can see a preview of the default UI at {uri-preview}.
 
 == Use the Default UI
 
-If you want to use the default UI for your Antora-generated site, add the following UI configuration to your playbook:
+To use the ownCloud Antora-based Docs Default UI with the ownCloud Antora docs, add the following UI configuration to your playbook:
 
 [source,yaml,subs=attributes+]
 ----
@@ -40,7 +40,7 @@ Read on to learn how to use your own build of the default UI.
 
 == Quickstart
 
-This section offers a basic tutorial for learning how to preview the theme and bundle it for use with the ownCloud Antora docs.
+This section offers a basic tutorial for learning how to preview the ownCloud Antora-based Docs Default UI and bundle it for use with the ownCloud Antora docs.
 
 === Prerequisites
 
@@ -112,7 +112,7 @@ Clone the default UI project using git:
  $ git clone {uri-project} &&
    cd "`basename $_`"
 
-The example above clones the custom Antora ownCloud UI theme and then switches to the project folder on your filesystem.
+The example above clones the ownCloud Antora-based Docs Default UI and then switches to the project folder on your filesystem.
 Stay in this project folder in order to initialize the project using Yarn.
 
 Use Yarn to install the project's dependencies.
