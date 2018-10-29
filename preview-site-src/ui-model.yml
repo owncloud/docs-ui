@@ -8,9 +8,9 @@ site:
     url: '#'
     versions:
     - &latest_version_abc
-      url: '#' 
+      url: '#'
       version: '1.1'
-    - url: '#' 
+    - url: '#'
       version: '1.0'
     latestVersion: *latest_version_abc
   - &component
@@ -22,11 +22,11 @@ site:
       url: /xyz/6.0/index.html
       version: '6.0'
     - &component_version
-      url: '#' 
+      url: '#'
       version: '5.2'
-    - url: '#' 
+    - url: '#'
       version: '5.1'
-    - url: '#' 
+    - url: '#'
       version: '5.0'
     latestVersion: *latest_version_xyz
   - name: 123
@@ -34,11 +34,11 @@ site:
     url: '#'
     versions:
     - &latest_version_123
-      url: '#' 
+      url: '#'
       version: '2.2'
-    - url: '#' 
+    - url: '#'
       version: '2.1'
-    - url: '#' 
+    - url: '#'
       version: '2.0'
     latestVersion: *latest_version_123
 page:

@@ -1,16 +1,12 @@
 {
-  "name": "antora-ui-default",
-  "description": "An archetype project that produces a UI for creating documentation sites with Antora",
-  "homepage": "https://gitlab.com/antora/antora-ui-default",
-  "license": "MPL-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/antora/antora-ui-default.git"
+  "name": "owncloud-docs-ui",
+  "version": "1.0.0",
+  "description": "The custom ownCloud Documentation UI Theme",
+  "directories": {
+    "doc": "docs"
   },
-  "engines": {
-    "node": ">= 8.0.0"
-  },
-  "devDependencies": {
+  "dependencies": {
+    "antora-lunr": "v0.1.0",
     "autoprefixer": "^7.1.6",
     "browserify": "^14.5.0",
     "chokidar": "^2.0.1",
@@ -33,6 +29,7 @@
     "handlebars": "^4.0.10",
     "highlight.js": "^9.12.0",
     "js-yaml": "^3.10.0",
+    "lunr": "^2.2.0",
     "map-stream": "^0.0.7",
     "merge-stream": "^1.0.1",
     "postcss-calc": "^6.0.1",
@@ -47,5 +44,26 @@
     "typeface-roboto-mono": "^0.0.44",
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^2.4.4"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owncloud/docs-ui.git"
+  },
+  "keywords": [
+    "owncloud",
+    "antora",
+    "asciidoc",
+    "documentation",
+    "lunr"
+  ],
+  "author": "Matthew Setter <matthew@matthewsetter.com>",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/owncloud/docs-ui/issues"
+  },
+  "homepage": "https://github.com/owncloud/doc-uis#readme"
 }
