@@ -320,16 +320,16 @@ body {
   color: #333;
   font-family: inherit;
   font-size: 0.95rem;
-  width: 150px;
   border: 1px solid #dbdbdb;
   border-radius: 0.1em;
   line-height: 1.5;
   padding: 0 0.25em;
+  width: 100%;
 }
 
 @media screen and (min-width: 769px) {
   #search-input {
-    width: 200px;
+    width: 100%;
   }
 }
 
@@ -381,11 +381,13 @@ body {
   padding-right: 0.5rem;
   color: #999;
   font-size: 0.8rem;
+  width: 40%;
 }
 
 .search-result-document-hit {
   padding-left: 1rem;
   font-size: 0.9rem;
+  width: 60%;
 }
 
 .search-result-document-hit > a {
