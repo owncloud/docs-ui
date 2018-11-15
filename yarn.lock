@@ -123,9 +123,9 @@ ansi-wrap@0.1.0, ansi-wrap@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/ansi-wrap/-/ansi-wrap-0.1.0.tgz#a82250ddb0015e9a27ca82e82ea603bbfa45efaf"
 
-"antora-lunr@git+https://github.com/mogztter/antora-lunr.git":
-  version "1.0.1"
-  resolved "git+https://github.com/mogztter/antora-lunr.git#a19e3a07cedbc385a78028041188d8c88bc4b9c9"
+antora-lunr@v0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/antora-lunr/-/antora-lunr-0.1.0.tgz#1d9e8e87529f74ca35119af2bd0d67596c242339"
   dependencies:
     cheerio "^1.0.0-rc.2"
     html-entities "^1.2.1"
