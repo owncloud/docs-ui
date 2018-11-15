@@ -2,8 +2,15 @@
   "name": "owncloud-docs-ui",
   "version": "1.0.0",
   "description": "The custom ownCloud Documentation UI Theme",
-  "directories": {
-    "doc": "docs"
+  "homepage": "https://github.com/owncloud/doc-uis#readme",
+  "author": "Matthew Setter <matthew@matthewsetter.com>",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/owncloud/docs-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owncloud/docs-ui.git"
   },
   "dependencies": {
     "antora-lunr": "v0.1.0",
@@ -45,13 +52,11 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^2.4.4"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/owncloud/docs-ui.git"
+  "scripts": {
+
   },
   "keywords": [
     "owncloud",
@@ -59,11 +64,5 @@
     "asciidoc",
     "documentation",
     "lunr"
-  ],
-  "author": "Matthew Setter <matthew@matthewsetter.com>",
-  "license": "AGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/owncloud/docs-ui/issues"
-  },
-  "homepage": "https://github.com/owncloud/doc-uis#readme"
+  ]
 }
