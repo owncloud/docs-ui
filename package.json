@@ -56,7 +56,11 @@
 
   },
   "scripts": {
-
+    "serve:before": "watch",
+    "emulate:before": "build",
+    "deploy:before": "build",
+    "build:before": "build",
+    "run:before": "build"
   },
   "keywords": [
     "owncloud",
