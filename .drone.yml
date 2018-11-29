@@ -20,22 +20,22 @@ pipeline:
       local: false
 
   frontend-deps:
-    image: webhippie/nodejs:latest
+    image: owncloudci/nodejs:latest
     pull: true
     commands:
       - yarn install
 
   frontend-lint:
-    image: webhippie/nodejs:latest
+    image: owncloudci/nodejs:latest
     pull: true
     commands:
-      - gulp lint
+      - yarn lint
 
   frontend-build:
-    image: webhippie/nodejs:latest
+    image: owncloudci/nodejs:latest
     pull: true
     commands:
-      - gulp pack
+      - yarn pack
 
   cache-rebuild:
     image: plugins/s3-cache:1
@@ -83,7 +83,7 @@ pipeline:
       event: [ tag ]
 
   notify-slack:
-    image: plugins/slack
+    image: plugins/slack:1
     secrets: [ slack_webhook ]
     channel: documentation
     when:
