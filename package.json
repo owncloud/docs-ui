@@ -56,7 +56,8 @@
 
   },
   "scripts": {
-
+    "lint": "gulp lint",
+    "bundle": "gulp pack"
   },
   "keywords": [
     "owncloud",
