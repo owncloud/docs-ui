@@ -35,7 +35,7 @@ pipeline:
     image: owncloudci/nodejs:latest
     pull: true
     commands:
-      - yarn pack
+      - yarn bundle
 
   cache-rebuild:
     image: plugins/s3-cache:1
