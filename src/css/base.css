@@ -18,7 +18,7 @@ body {
 
 html {
   box-sizing: border-box;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Font Awesome";
+  font-family: "Roboto", sans-serif;
   font-size: 1.1em;
   text-size-adjust: 100%;
 }
@@ -54,21 +54,4 @@ dt,
 strong,
 th {
   font-weight: 500;
-}
-
-::-webkit-scrollbar {
-  width: 0.3333rem;
-  height: 0.3333rem;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #c1c1c1;
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-  background: transparent;
 }

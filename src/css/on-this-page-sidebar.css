@@ -1,0 +1,18 @@
+/**
+ * Style an "On This Page" section
+ * This type of section is a stylised table of contents at the
+ * page-level.
+ */
+#toc .toc {
+  background-color: #fafafa;
+  padding: 10px 5px 10px 15px;
+}
+
+#toctitle .title {
+  font-size: 1.25em;
+  margin-bottom: 5px;
+}
+
+.sectlevel1 {
+  font-size: 0.9em;
+}

@@ -28,6 +28,15 @@
       menuState.expandedItems = getExpandedItems()
       saveNavState()
     })
+    var navItemSpan = findNextElement(btn, '.nav-text')
+    if (navItemSpan) {
+      navItemSpan.style.cursor = 'pointer'
+      navItemSpan.addEventListener('click', function () {
+        li.classList.toggle('is-active')
+        menuState.expandedItems = getExpandedItems()
+        saveNavState()
+      })
+    }
   })
 
   find('.nav-item', menuPanel).forEach(function (item, idx) {
@@ -128,13 +137,13 @@
     if (!el) return (parent.scrollTop = scrollPosition)
 
     var margin = 10
-    var overTheTop = el.offsetTop - scrollPosition < 0
-    var belowTheBottom = el.offsetTop - scrollPosition + el.offsetHeight > parent.offsetHeight
+    //var y = el.getBoundingClientRect().top - parent.getBoundingClientRect().top
+    var y = el.offsetTop
 
-    if (overTheTop) {
-      parent.scrollTop = el.offsetTop - margin
-    } else if (belowTheBottom) {
-      parent.scrollTop = el.offsetTop - (parent.offsetHeight - el.offsetHeight) + margin
+    if (y < scrollPosition) {
+      parent.scrollTop = y - margin
+    } else if (y - parent.offsetHeight + el.offsetHeight > scrollPosition) {
+      parent.scrollTop = y - parent.offsetHeight + el.offsetHeight + margin
     } else {
       parent.scrollTop = scrollPosition
     }
@@ -142,5 +151,16 @@
 
   function find (selector, from) {
     return [].slice.call((from || document).querySelectorAll(selector))
+  }
+
+  function findNextElement (from, selector) {
+    var el
+    if ('nextElementSibling' in from) {
+      el = from.nextElementSibling
+    } else {
+      el = from
+      while ((el = el.nextSibling) && el.nodeType !== 1);
+    }
+    return el && selector ? el[el.matches ? 'matches' : 'msMatchesSelector'](selector) && el : el
   }
 })()
