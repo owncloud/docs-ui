@@ -1,5 +1,7 @@
 # ownCloud Documentation UI
 
+[![Build Status](http://drone.owncloud.com/api/badges/owncloud/docs-ui/status.svg)](http://drone.owncloud.com/owncloud/docs-ui)
+
 [link-Antora-Default-UI]: https://gitlab.com/antora/antora-ui-default
 [link-Antora]: https://antora.org
 [link-ui_bundle.zip]: https://minio.owncloud.com/documentation/ui-bundle.zip
