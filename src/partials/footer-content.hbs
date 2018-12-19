@@ -43,5 +43,24 @@
      The source code for this UI is licensed under the terms of the MPL-2.0 license.<br />
      &copy; Copyright 2011-2018, The ownCloud developers.
    </p>
+  {{#if env.ALGOLIA_API_KEY}}
+  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <script>
+    function focusSearchInput () { document.querySelector('#search-input').focus() }
+    var search = docsearch({
+      {{#if env.ALGOLIA_APP_ID}}
+      appId: '{{env.ALGOLIA_APP_ID}}',
+      {{/if}}
+      apiKey: '{{env.ALGOLIA_API_KEY}}',
+      indexName: '{{env.ALGOLIA_INDEX_NAME}}',
+      inputSelector: '#search-input',
+      autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
+      algoliaOptions: { hitsPerPage: 10 }
+    }).autocomplete
+    search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+    focusSearchInput()
+    window.addEventListener('load', focusSearchInput)
+  </script>
+  {{/if}}
  </div>
 </footer>
