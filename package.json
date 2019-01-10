@@ -13,7 +13,6 @@
     "url": "git+https://github.com/owncloud/docs-ui.git"
   },
   "dependencies": {
-    "antora-lunr": "v0.1.0",
     "autoprefixer": "^7.1.6",
     "browserify": "^14.5.0",
     "chokidar": "^2.0.1",
@@ -36,7 +35,6 @@
     "handlebars": "^4.0.10",
     "highlight.js": "^9.12.0",
     "js-yaml": "^3.10.0",
-    "lunr": "^2.2.0",
     "map-stream": "^0.0.7",
     "merge-stream": "^1.0.1",
     "postcss-calc": "^6.0.1",
@@ -52,9 +50,6 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^2.4.4"
   },
-  "devDependencies": {
-
-  },
   "scripts": {
     "lint": "gulp lint",
     "bundle": "gulp pack"
@@ -63,7 +58,6 @@
     "owncloud",
     "antora",
     "asciidoc",
-    "documentation",
-    "lunr"
+    "documentation"
   ]
 }
