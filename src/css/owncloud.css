@@ -13,6 +13,23 @@ th {
 }
 
 /**
+ * Supplemental Image(-related) Styles
+ */
+div.paragraph div.title {
+  background-color: #f3f3f3;
+  color: #8c8c8c;
+  font-size: 85%;
+  font-style: italic;
+  padding: 2px;
+}
+
+div.paragraph p span.image img {
+  border-radius: 3px;
+  border: 1px solid #cecece;
+  padding: 2px;
+}
+
+/**
  * Supplemental Navigation Styles
  */
 li.nav-item.is-current-page.is-active a.nav-link {
