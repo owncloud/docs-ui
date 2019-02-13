@@ -89,4 +89,4 @@ pipeline:
     when:
       local: false
       event: [ push, tag ]
-      status: [ success, failure ]
+      status: [ failure, changed ]
