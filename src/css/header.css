@@ -170,7 +170,7 @@ body {
   margin: 0.25rem 0;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1200px) { /* Probably needs to be adjusted when the search is implemented */
   .navbar-brand .navbar-item {
     align-items: center;
     display: flex;
