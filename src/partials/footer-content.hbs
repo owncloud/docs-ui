@@ -1,7 +1,7 @@
 <footer class="footer">
-<div class="container">
-   <div class="row-full">
-     <div class="col-third">
+  <div class="container">
+    <div class="row-full">
+      <div class="col-third">
         <div class="footer-nav">
           <h4>About ownCloud</h4>
           <ul id="menu-about" class="menu">
@@ -12,8 +12,8 @@
             <li class="menu-imprint"><a href="https://owncloud.org/imprint/">Imprint</a></li>
           </ul>
         </div>
-     </div>
-     <div class="col-third">
+      </div>
+      <div class="col-third">
         <div class="footer-nav">
           <h4>Resources</h4>
           <ul id="menu-support-and-documentation" class="menu">
@@ -24,8 +24,8 @@
             <li class="menu-changelog"><a href="https://owncloud.org/changelog/">Changelog</a></li>
           </ul>
         </div>
-     </div>
-     <div class="col-third">
+      </div>
+      <div class="col-third">
         <div class="footer-nav">
           <h4>Interact</h4>
           <ul id="menu-interact" class="menu">
@@ -36,31 +36,10 @@
             <li class="menu-promote"><a href="https://owncloud.org/promote/">Discuss ownCloud with others</a></li>
           </ul>
         </div>
-     </div>
-   </div>
-   <p>
-     This page was built using the Antora default UI.<br />
-     The source code for this UI is licensed under the terms of the MPL-2.0 license.<br />
-     &copy; Copyright 2011-2018, The ownCloud developers.
-   </p>
-  {{#if env.ALGOLIA_SEARCH_KEY}}
-  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-  <script>
-    function focusSearchInput () { document.querySelector('#search-input').focus() }
-    var search = docsearch({
-      {{#if env.ALGOLIA_APP_ID}}
-      appId: '{{env.ALGOLIA_APP_ID}}',
-      {{/if}}
-      apiKey: '{{env.ALGOLIA_SEARCH_KEY}}',
-      indexName: '{{env.ALGOLIA_INDEX_NAME}}',
-      inputSelector: '#search-input',
-      autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
-      algoliaOptions: { hitsPerPage: 10 }
-    }).autocomplete
-    search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
-    focusSearchInput()
-    window.addEventListener('load', focusSearchInput)
-  </script>
-  {{/if}}
- </div>
+      </div>
+    </div>
+    <p>
+      &copy; Copyright 2011-2018, The ownCloud developers.
+    </p>
+  </div>
 </footer>
