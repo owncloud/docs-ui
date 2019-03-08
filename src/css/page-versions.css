@@ -34,8 +34,12 @@
 }
 
 .page-versions .versions-menu {
-  border: 1px solid transparent;
+  border: 1px solid #e4e4e4;
+  border-radius: 2px;
   background-color: #f0f0f0;
+  -moz-box-shadow: 3px 3px 6px 1px #ccc;
+  -webkit-box-shadow: 3px 3px 6px 1px #ccc;
+  box-shadow: 3px 3px 6px 1px #ccc;
   padding: 1.3rem 0.5rem 0.35rem;
   position: absolute;
   top: 0;
