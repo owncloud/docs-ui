@@ -76,6 +76,8 @@ $('#search').on('keyup focus', function () {
 
       $('.search .animation').css('display', 'none')
     })
+  } else {
+    $('.search .results').hide('')
   }
 })
 
