@@ -1,138 +1,71 @@
 'use strict';
+
 var $ = require('jquery');
+var Elasticsearch = require('elasticsearch-browser/elasticsearch');
+var Handlebars = require('handlebars');
 
-/**
-*
-*  Base64 encode / decode
-*  http://www.webtoolkit.info/
-*
-**/
-var Base64 = {
-    // private property
-    _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-    // public method for encoding
-    encode : function (input) {
-        var output = "";
-        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
-        var i = 0;
-        input = Base64._utf8_encode(input);
-        while (i < input.length) {
-            chr1 = input.charCodeAt(i++);
-            chr2 = input.charCodeAt(i++);
-            chr3 = input.charCodeAt(i++);
-            enc1 = chr1 >> 2;
-            enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
-            enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
-            enc4 = chr3 & 63;
-            if (isNaN(chr2)) {
-                enc3 = enc4 = 64;
-            } else if (isNaN(chr3)) {
-                enc4 = 64;
-            }
-            output = output +
-            this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
-            this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
-        }
-        return output;
-    },
-    // public method for decoding
-    decode : function (input) {
-        var output = "";
-        var chr1, chr2, chr3;
-        var enc1, enc2, enc3, enc4;
-        var i = 0;
-        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-        while (i < input.length) {
-            enc1 = this._keyStr.indexOf(input.charAt(i++));
-            enc2 = this._keyStr.indexOf(input.charAt(i++));
-            enc3 = this._keyStr.indexOf(input.charAt(i++));
-            enc4 = this._keyStr.indexOf(input.charAt(i++));
-            chr1 = (enc1 << 2) | (enc2 >> 4);
-            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-            chr3 = ((enc3 & 3) << 6) | enc4;
-            output = output + String.fromCharCode(chr1);
-            if (enc3 != 64) {
-                output = output + String.fromCharCode(chr2);
-            }
-            if (enc4 != 64) {
-                output = output + String.fromCharCode(chr3);
-            }
-        }        output = Base64._utf8_decode(output);
-        return output;
-    },
-    // private method for UTF-8 encoding
-    _utf8_encode : function (string) {
-        string = string.replace(/\r\n/g,"\n");
-        var utftext = "";
-        for (var n = 0; n < string.length; n++) {
-            var c = string.charCodeAt(n);            if (c < 128) {
-                utftext += String.fromCharCode(c);
-            } else if((c > 127) && (c < 2048)) {
-                utftext += String.fromCharCode((c >> 6) | 192);
-                utftext += String.fromCharCode((c & 63) | 128);
-            } else {
-                utftext += String.fromCharCode((c >> 12) | 224);
-                utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-                utftext += String.fromCharCode((c & 63) | 128);
-            }
-        }
-        return utftext;
-    },
-    // private method for UTF-8 decoding
-    _utf8_decode : function (utftext) {
-        var string = "";
-        var i = 0;
-        var c = c1 = c2 = 0;
-        while ( i < utftext.length ) {
-            c = utftext.charCodeAt(i);
-            if (c < 128) {
-                string += String.fromCharCode(c);
-                i++;
-            } else if((c > 191) && (c < 224)) {
-                c2 = utftext.charCodeAt(i+1);
-                string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-                i += 2;
-            } else {
-                c2 = utftext.charCodeAt(i+1);
-                c3 = utftext.charCodeAt(i+2);
-                string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-                i += 3;
-            }
-        }
-        return string;
-    }
-}
+Handlebars.registerHelper('raw', function(options) {
+  return options.fn(this);
+});
 
-var timeout;
+$('#search').on('keyup focus', function() {
+  var $search = $(this);
 
-$('#search').on('keyup', function() {
-    if (this.value.length > 3) {
-      clearTimeout(timeout);
-      timeout = setTimeout(function() {
-        $('.search-wrap .animation').css('display', 'flex');
+  if ($search.val().length >= 3) {
+    $('.search .animation').css('display', 'flex');
+    $('.search .results').html('');
 
-        $("ul.results li").remove()
-        var auth = "Basic " + Base64.encode('docs:cADL6DDAKEBrkFMrvfxXEtYm');
-        $.ajax
-          ({
-            type: "GET",
-            url: $('#search').attr('data-url') + '?q=' + $('#search').val(),
-            dataType: 'json',
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader ("Authorization", auth);
-            },
-            success: function (rdata){
-              $.each(rdata.hits.hits, function(index, hit) {
-                $("ul.results").append('<li><a href="' + hit._source.url + '"><label>' + hit._source.component + ' ' + hit._source.version + '</label>' +
-                '<div class="title">' + hit._source.title + '</div>' +
-                '<div class="text">' +
-                  hit._source.text.substr(0, 100) + ' ...' +
-                  '</div></a></li>');
-              })
+    var template = Handlebars.compile(
+      '{{#if error}}<p class="error">{{error}}</p>{{else}}<ul>{{#each matches}}<li><a href="{{url}}"><label>{{component}} :: {{version}}</label><span class="score">Score {{score}}</span><div class="head">{{head}}</div><div class="body">{{body}}</div></a></li>{{/each}}</ul>{{/if}}'
+    );
 
-              $('.results-wrap').show();
-            }
+    var client = new Elasticsearch.Client({
+      host: $search.data('host'),
+      httpAuth: $search.data('auth')
+    });
+
+    client.search({
+      q: $search.val()
+    }).then(function (body) {
+      var context = {
+        matches: [],
+        error: ''
+      };
+
+      $.each(body.hits.hits, function(index, hit) {
+        context.matches.push({
+          url: hit._source.url,
+          component: hit._source.component,
+          version: hit._source.version == 'master' ? 'latest' : hit._source.version,
+          head: hit._source.title,
+          body: hit._source.text.substr(0, 100) + ' ...',
+          score: Math.round(hit._score)
         });
-      }, 1000)
-    }
-})
+      });
+
+      if (context.matches.length == 0) {
+        context.error = 'No matching result found'
+      }
+
+      $('.search .results')
+        .html(template(context))
+        .show();
+    }, function (error) {
+      if (window.console) {
+        console.trace(error.message);
+      }
+
+      var context = {
+        error: 'Failed to load results'
+      };
+
+      $('.search .results')
+        .html(template(context))
+        .show();
+    });
+  }
+});
+
+$('#search').on('blur', function() {
+  $('.search .results').hide('');
+});
