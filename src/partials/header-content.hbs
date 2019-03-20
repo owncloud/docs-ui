@@ -2,31 +2,32 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{or site.url (or siteRootUrl siteRootPath)}}">{{site.title}}</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
         {{> header-nav}}
 
-          <div class="navbar-item search-wrap">
+        {{#if env.ELASTICSEARCH_HOST}}
+          <div class="navbar-item search">
             <span class="control">
               <input
                 id="search"
                 type="text"
                 placeholder="Search"
-                data-url="{{env.ELASTICSEARCH_PROTO}}://{{env.ELASTICSEARCH_HOST}}/{{env.ELASTICSEARCH_INDEX}}/_search"
-                data-auth="{{env.ELASTICSEARCH_READ_AUTH}}"
-                data-port="{{env.ELASTICSEARCH_PORT}}">
-                <div class="animation"></div>
+                data-host="{{env.ELASTICSEARCH_PROTO}}://{{env.ELASTICSEARCH_HOST}}:{{env.ELASTICSEARCH_PORT}}"
+                data-index="{{env.ELASTICSEARCH_INDEX}}"
+                data-auth="{{env.ELASTICSEARCH_READ_AUTH}}">
+              <div class="animation"></div>
             </span>
 
-            <div class="results-wrap">
-              <div class="quad"></div>
-              <ul class="results">
-              </ul>
-            </div>
-
+            <div class="results"></div>
           </div>
-
+        {{/if}}
       </div>
     </div>
   </nav>
