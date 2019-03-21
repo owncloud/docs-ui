@@ -1,25 +1,20 @@
-{{#if site.keys.googleAnalytics}}
-{{#with site.keys.googleAnalytics}}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{this}}"></script>
-    <script>dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','{{this}}')</script>
-{{/with}}
-{{/if}}
+{{#if env.MATOMO_SITE}}
+  <script type="text/javascript">
+    var _paq = _paq || [];
 
-{{#if site.keys.piwik}}
-{{#with site.keys.piwik}}
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-      _paq.push(["setCookieDomain", "*.doc.owncloud.com"]);
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//piwik.owncloud.com/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', '{{this}}']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-{{/with}}
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*.owncloud.com"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+
+    (function() {
+      var u="//piwik.owncloud.com/";
+
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', '{{env.MATOMO_SITE}}']);
+
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
 {{/if}}

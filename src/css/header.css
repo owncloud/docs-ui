@@ -170,7 +170,7 @@ body {
   margin: 0.25rem 0;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1319px) {
   .navbar-brand .navbar-item {
     align-items: center;
     display: flex;
@@ -188,13 +188,34 @@ body {
     overflow-y: auto;
   }
 
+  .navbar-menu.is-active a.navbar-item {
+    color: #222;
+  }
+
+  .navbar-menu.is-active a.navbar-item.button {
+    display: block;
+    align-items: center;
+    background-color: #fff;
+    border-width: 0;
+    max-height: calc(100vh - var(--navbar-height));
+    color: #222;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .navbar-menu a.navbar-item.button:hover,
   .navbar-menu a.navbar-item:hover,
   .navbar-menu .navbar-link:hover {
     background-color: #fafafa;
   }
+
+  .search {
+    display: none;
+  }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1320px) {
   .navbar,
   .navbar-menu,
   .navbar-end {
@@ -274,7 +295,7 @@ body {
   }
 }
 
-.navbar .button {
+.navbar .navbar-item.button {
   display: inline-flex;
   align-items: center;
   background-color: #fff;
@@ -284,4 +305,94 @@ body {
   color: #333;
   padding: 0 0.75em;
   white-space: nowrap;
+  margin: 0.7rem 1rem;
+}
+
+.navbar .navbar-item.button:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.search {
+  position: relative;
+}
+
+.search .animation {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  right: 20px;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  display: none;
+}
+
+.search .results {
+  position: absolute;
+  color: initial;
+  right: 20px;
+  top: 100%;
+  background: #fff;
+  border: 1px solid #fafafa;
+  border-radius: 0;
+  width: 30vw;
+  box-shadow: inset 0 0 1px #ddd;
+  padding: 0;
+  max-height: 75vh;
+  z-index: 999999;
+  display: none;
+  max-width: 100vh;
+  border-color: #ccc;
+  border-width: 0 1px 1px;
+}
+
+.search .results .error {
+  text-align: center;
+}
+
+.search .results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 75vh;
+  overflow-y: scroll;
+}
+
+.search .results li {
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #ececec;
+}
+
+.search .results li a {
+  color: initial;
+}
+
+.search .results li a:hover {
+  text-decoration: none;
+}
+
+.search .results li:hover {
+  background: #fafafa;
+}
+
+.search .results li label {
+  display: block;
+  font-size: 75%;
+  text-transform: capitalize;
+  float: left;
+}
+
+.search .results li .score {
+  float: right;
+  font-size: 75%;
+}
+
+.search .results li .head {
+  clear: both;
+}
+
+.search .results li .body {
+  font-size: 75%;
 }

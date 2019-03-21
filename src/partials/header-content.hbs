@@ -2,26 +2,32 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{or site.url (or siteRootUrl siteRootPath)}}">{{site.title}}</a>
-      {{#if env.ALGOLIA_SEARCH_KEY}}
-      <div class="navbar-item">
-        <input id="search-input" type="text" placeholder="Search docs">
-      </div>
-      {{/if}}
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="https://owncloud.org/news/">News</a>
-        <a class="navbar-item" href="https://owncloud.org/features/">Features</a>
-        <a class="navbar-item" href="https://demo.owncloud.org/">Demo</a>
-        <a class="navbar-item" href="/">Documentation</a>
-        <a class="navbar-item" href="https://owncloud.org/contribute/">Contribute</a>
-        <a class="navbar-item" href="https://owncloud.org/support">Support</a>
-        <a class="navbar-item" href="https://owncloud.com/">Enterprise Edition</a>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="https://owncloud.org/install/">Download</a>
-          </span>
-        </div>
+        {{> header-nav}}
+
+        {{#if env.ELASTICSEARCH_HOST}}
+          <div class="navbar-item search">
+            <span class="control">
+              <input
+                id="search"
+                type="text"
+                placeholder="Search"
+                data-host="{{env.ELASTICSEARCH_PROTO}}://{{env.ELASTICSEARCH_HOST}}:{{env.ELASTICSEARCH_PORT}}"
+                data-index="{{env.ELASTICSEARCH_INDEX}}"
+                data-auth="{{env.ELASTICSEARCH_READ_AUTH}}">
+              <div class="animation"></div>
+            </span>
+
+            <div class="results"></div>
+          </div>
+        {{/if}}
       </div>
     </div>
   </nav>

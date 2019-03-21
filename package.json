@@ -1,22 +1,43 @@
 {
-  "name": "owncloud-docs-ui",
+  "private": true,
+  "name": "owncloud-ui",
+  "description": "The ownCloud Core documentation",
   "version": "1.0.0",
-  "description": "The custom ownCloud Documentation UI Theme",
-  "homepage": "https://github.com/owncloud/doc-uis#readme",
-  "author": "Matthew Setter <matthew@matthewsetter.com>",
   "license": "AGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/owncloud/docs-ui/issues"
-  },
+  "author": "The ownCloud Team <docs@owncloud.com>",
+  "homepage": "https://github.com/owncloud/docs-ui#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/owncloud/docs-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/owncloud/docs-ui/issues"
+  },
+  "contributors": [
+    {
+      "name": "Matthew Setter",
+      "email": "matthew@matthewsetter.com"
+    },
+    {
+      "name": "Martin Mattel",
+      "email": "github@diemattels.at"
+    },
+    {
+      "name": "Thomas Boerger",
+      "email": "tboerger@owncloud.com"
+    }
+  ],
+  "scripts": {
+    "lint": "gulp lint",
+    "preview": "gulp preview",
+    "bundle": "gulp pack"
   },
   "dependencies": {
     "autoprefixer": "^7.1.6",
     "browserify": "^14.5.0",
     "chokidar": "^2.0.1",
     "cssnano": "^3.10.0",
+    "elasticsearch-browser": "^15.4.1",
     "eslint": "^4.11.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
@@ -34,6 +55,7 @@
     "gulp-vinyl-zip": "^2.1.0",
     "handlebars": "^4.0.10",
     "highlight.js": "^9.12.0",
+    "jquery": "^3.3.1",
     "js-yaml": "^3.10.0",
     "map-stream": "^0.0.7",
     "merge-stream": "^1.0.1",
@@ -49,10 +71,6 @@
     "typeface-roboto-mono": "^0.0.44",
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^2.4.4"
-  },
-  "scripts": {
-    "lint": "gulp lint",
-    "bundle": "gulp pack"
   },
   "keywords": [
     "owncloud",
