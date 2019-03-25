@@ -13,6 +13,8 @@
 [link-git-package]: https://git-scm.com/downloads
 [link-nvm]: https://github.com/creationix/nvm
 [link-nvm-installation-instructions]: https://github.com/creationix/nvm#installation
+[link-preview]: https://github.com/owncloud/docs/blob/master/docs/build-the-docs.md#viewing-the-html-documentation
+
 
 The `docs-ui` repository is a custom version of the [Antora Default UI][link-Antora-Default-UI], for the [Antora][link-Antora] version of the ownCloud documentation.
 
@@ -33,7 +35,7 @@ This will build a demo Antora (_not ownCloud_) documentation site which can be a
 
 ### Preview Changes Using ownCloud Documentation
 
-If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of ui-bundle.zip and use it when generating the ownCloud documentation in your local development machine.
+If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of `ui-bundle.zip` and use it when generating the ownCloud documentation in your local development machine.
 
 To do this, run the following command in the root directory of your `docs-ui` clone:
 
@@ -45,10 +47,12 @@ When built, the UI bundle will be available in directory `build/ui-bundle.zip`
 Assuming that your local copy of the docs-ui repository is at the same level as your local copy of the docs directory, then in your docs repository’s root directory, run the following command:
 
 ```
-antora \
-    --ui-bundle-url ../docs-ui/build/ui-bundle.zip \
-    site.yml
+yarn antora \
+    --url http://localhost:8080 \
+    --ui-bundle-url ../docs-ui/build/ui-bundle.zip 
 ```
+
+Follow the [instructions][link-preview] to preview the documentation with the changes made.
 
 ## Prerequisites
 
@@ -115,13 +119,9 @@ npm install -g gulp-cli
 
 ### Yarn
 
-You need Yarn, which is the preferred package manager for the Node ecosystem.
-You should install Yarn globally (which resolves to a location in your user directory if you're using NVM)
-using the following command:
-
-```
-npm install -g yarn
-```
+Your system must have installed `yarn`. If this is not the case,
+[install yarn](https://yarnpkg.com/lang/en/docs/install) following the installation
+notes on the referenced site.
 
 ### Install Dependencies
 
