@@ -23,7 +23,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1023px) {
   .navigation-container {
     font-size: 0.8125rem;
     flex: none;
@@ -46,7 +46,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1023px) {
   .navigation {
     top: var(--navbar-height);
     box-shadow: none;
