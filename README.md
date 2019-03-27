@@ -23,15 +23,45 @@ The `docs-ui` repository is a custom version of the [Antora Default UI][link-Ant
 If you want to make changes, create a "_feature_" branch off of master, make the required changes, and then create a Pull Request (PR) against the _master_ branch.
 If the PR is accepted and merged, a new `ui-bundle.zip` package file will be created and published to https://minio.owncloud.com/documentation/ui-bundle.zip as part of the build pipeline.
 
+## Prepared Yarn Commands
+
+To get all prepared yarn commands run following command:
+
+```console
+yarn run
+
+yarn run v1.15.2
+info Commands available from binary scripts: JSONStream, acorn, atob, bin-version-check, browser-pack, browserify, browserslist, color-support, deps-sort, eslint, esparse, esvalidate, executable, find-versions, gifsicle, gulp, handlebars, insert-module-globals, jpegtran, js-yaml, lpad-align, miller-rabin, mime, mkdirp, module-deps, optipng, prettier, rc, rimraf, seek-bunzip, seek-table, semver, sha.js, specificity, strip-bom, strip-dirs, strip-indent, stylelint, svgo, tsc, tsserver, uglifyjs, umd, user-home, uuid, which
+info Project commands
+   - bundle
+      gulp pack
+   - lint
+      gulp lint
+   - preview
+      gulp preview
+question Which command would you like to run?: 
+```
+Please see the [documentaion](https://yarnpkg.com/lang/en/docs/cli/run/)
+for more information about the the `yarn run` command.
+
 ## Previewing Changes Locally
+
+The following examples will build a demo Antora (_not ownCloud_) documentation site which can be accessed on your local development machine at http://localhost:5252.
+
 
 To view your changes as you are working on them, run the following command:
 
+```console
+yarn preview
 ```
-gulp preview
-```
+Please note that this command does not render the search bar.
+If you want to render and preview the result containing the search bar, run the following command:
 
-This will build a demo Antora (_not ownCloud_) documentation site which can be accessed on your local development machine at http://localhost:5252.
+```console
+ELASTICSEARCH_PROTO=https ELASTICSEARCH_HOST=search.owncloud.com \
+ ELASTICSEARCH_PORT=443 ELASTICSEARCH_READ_AUTH=docs:cADL6DDAKEBrkFMrvfxXEtYm \
+ ELASTICSEARCH_INDEX=docs yarn preview
+```
 
 ### Preview Changes Using ownCloud Documentation
 
@@ -39,14 +69,14 @@ If you want to preview your changes to the UI using the ownCloud documentation i
 
 To do this, run the following command in the root directory of your `docs-ui` clone:
 
-```
-gulp pack
+```console
+yarn pack
 ```
 
 When built, the UI bundle will be available in directory `build/ui-bundle.zip`
 Assuming that your local copy of the docs-ui repository is at the same level as your local copy of the docs directory, then in your docs repository’s root directory, run the following command:
 
-```
+```console
 yarn antora \
     --url http://localhost:8080 \
     --ui-bundle-url ../docs-ui/build/ui-bundle.zip 
