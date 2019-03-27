@@ -36,7 +36,7 @@ body {
   padding: 0 0.375rem;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 800px) {
   .navbar-end > .navbar-item,
   .navbar-end .navbar-link {
     color: var(--color-navbar-text);
@@ -170,7 +170,7 @@ body {
   margin: 0.25rem 0;
 }
 
-@media screen and (max-width: 1319px) {
+@media screen and (max-width: 799px) {
   .navbar-brand .navbar-item {
     align-items: center;
     display: flex;
@@ -215,7 +215,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1320px) {
+@media screen and (min-width: 800px) {
   .navbar,
   .navbar-menu,
   .navbar-end {
