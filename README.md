@@ -13,6 +13,8 @@
 [link-git-package]: https://git-scm.com/downloads
 [link-nvm]: https://github.com/creationix/nvm
 [link-nvm-installation-instructions]: https://github.com/creationix/nvm#installation
+[link-preview]: https://github.com/owncloud/docs/blob/master/docs/build-the-docs.md#viewing-the-html-documentation
+
 
 The `docs-ui` repository is a custom version of the [Antora Default UI][link-Antora-Default-UI], for the [Antora][link-Antora] version of the ownCloud documentation.
 
@@ -21,34 +23,66 @@ The `docs-ui` repository is a custom version of the [Antora Default UI][link-Ant
 If you want to make changes, create a "_feature_" branch off of master, make the required changes, and then create a Pull Request (PR) against the _master_ branch.
 If the PR is accepted and merged, a new `ui-bundle.zip` package file will be created and published to https://minio.owncloud.com/documentation/ui-bundle.zip as part of the build pipeline.
 
+## Prepared Yarn Commands
+
+To get all prepared yarn commands run following command:
+
+```console
+yarn run
+
+yarn run v1.15.2
+info Commands available from binary scripts: JSONStream, acorn, atob, bin-version-check, browser-pack, browserify, browserslist, color-support, deps-sort, eslint, esparse, esvalidate, executable, find-versions, gifsicle, gulp, handlebars, insert-module-globals, jpegtran, js-yaml, lpad-align, miller-rabin, mime, mkdirp, module-deps, optipng, prettier, rc, rimraf, seek-bunzip, seek-table, semver, sha.js, specificity, strip-bom, strip-dirs, strip-indent, stylelint, svgo, tsc, tsserver, uglifyjs, umd, user-home, uuid, which
+info Project commands
+   - bundle
+      gulp pack
+   - lint
+      gulp lint
+   - preview
+      gulp preview
+question Which command would you like to run?: 
+```
+Please see the [documentation](https://yarnpkg.com/lang/en/docs/cli/run/)
+for more information about the the `yarn run` command.
+
 ## Previewing Changes Locally
+
+The following examples will build a demo Antora (_not ownCloud_) documentation site which can be accessed on your local development machine at http://localhost:5252.
+
 
 To view your changes as you are working on them, run the following command:
 
+```console
+yarn preview
 ```
-gulp preview
-```
+Please note that this command does not render the search bar.
+If you want to render and preview the result containing the search bar, run the following command:
 
-This will build a demo Antora (_not ownCloud_) documentation site which can be accessed on your local development machine at http://localhost:5252.
+```console
+ELASTICSEARCH_PROTO=https ELASTICSEARCH_HOST=search.owncloud.com \
+ ELASTICSEARCH_PORT=443 ELASTICSEARCH_READ_AUTH=docs:cADL6DDAKEBrkFMrvfxXEtYm \
+ ELASTICSEARCH_INDEX=docs yarn preview
+```
 
 ### Preview Changes Using ownCloud Documentation
 
-If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of ui-bundle.zip and use it when generating the ownCloud documentation in your local development machine.
+If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of `ui-bundle.zip` and use it when generating the ownCloud documentation in your local development machine.
 
 To do this, run the following command in the root directory of your `docs-ui` clone:
 
-```
-gulp pack
+```console
+yarn pack
 ```
 
 When built, the UI bundle will be available in directory `build/ui-bundle.zip`
 Assuming that your local copy of the docs-ui repository is at the same level as your local copy of the docs directory, then in your docs repository’s root directory, run the following command:
 
+```console
+yarn antora \
+    --url http://localhost:8080 \
+    --ui-bundle-url ../docs-ui/build/ui-bundle.zip 
 ```
-antora \
-    --ui-bundle-url ../docs-ui/build/ui-bundle.zip \
-    site.yml
-```
+
+Follow the [instructions][link-preview] to preview the documentation with the changes made.
 
 ## Prerequisites
 
@@ -115,13 +149,9 @@ npm install -g gulp-cli
 
 ### Yarn
 
-You need Yarn, which is the preferred package manager for the Node ecosystem.
-You should install Yarn globally (which resolves to a location in your user directory if you're using NVM)
-using the following command:
-
-```
-npm install -g yarn
-```
+Your system must have installed `yarn`. If this is not the case,
+[install yarn](https://yarnpkg.com/lang/en/docs/install) following the installation
+notes on the referenced site.
 
 ### Install Dependencies
 
