@@ -41,7 +41,7 @@ info Project commands
       gulp preview
 question Which command would you like to run?: 
 ```
-Please see the [documentaion](https://yarnpkg.com/lang/en/docs/cli/run/)
+Please see the [documentation](https://yarnpkg.com/lang/en/docs/cli/run/)
 for more information about the the `yarn run` command.
 
 ## Previewing Changes Locally
