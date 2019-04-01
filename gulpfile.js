@@ -42,7 +42,7 @@ gulp.task('preview', ['build:preview', 'sass'], () =>
     livereload: process.env.LIVERELOAD === 'true',
     watch: {
       src: [srcDir, previewSiteSrcDir],
-      onChange: () => gulp.start['build:preview', 'sass'],
+      onChange: () => gulp.start('build:preview'),
     },
   })
 )
