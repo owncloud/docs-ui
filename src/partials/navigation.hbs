@@ -1,8 +1,6 @@
-<div class="navigation-container"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}>
-  <aside class="navigation">
-    <div class="panels">
-      {{> navigation-menu}}
-      {{> navigation-explore}}
-    </div>
+<div class="uk-width-1-5 uk-visible@m uk-background-secondary"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}>
+  <aside class="sidebar uk-overflow-auto" uk-height-viewport="offset-top: true" uk-sticky="offset: 80; bottom: true;">
+    {{> navigation-menu}}
+    {{> navigation-explore}}
   </aside>
 </div>

@@ -1,4 +1,8 @@
 // Custom variables
+$background-primary-background: #02172d;
+$background-secondary-background: #e9f3fd;
+$background-muted-background: #f9fafb;
+
 $navbar-background: #02172d;
 $navbar-nav-item-color: #258aef;
 $navbar-nav-item-hover-color: #84bdf6;
@@ -15,3 +19,6 @@ $logo-hover-color: #f9fbfe;
 
 // UIKit
 @import "../../node_modules/uikit/src/scss/uikit-theme.scss";
+
+// Custom styles
+@import "./custom.scss";
