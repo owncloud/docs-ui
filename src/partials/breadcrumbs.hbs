@@ -1,6 +1,6 @@
-<nav class="crumbs" aria-label="breadcrumbs">
+<nav aria-label="breadcrumbs">
   {{#if page.breadcrumbs}}
-    <ul>
+    <ul class="uk-breadcrumb">
       {{#with page.componentVersion}}
         {{#if (and ./title (not (or ./root (eq @root.page.breadcrumbs.0.content ./title))))}}
           <li class="crumb">
