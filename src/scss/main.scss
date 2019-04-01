@@ -1,4 +1,11 @@
 // Custom variables
+$navbar-background: #02172d;
+$navbar-nav-item-color: #258aef;
+$navbar-nav-item-hover-color: #84bdf6;
+$navbar-nav-item-font-size: 15px;
+
+$logo-color: #e9f3fd;
+$logo-hover-color: #f9fbfe;
 
 // Default UIKit variables and mixins
 @import "../../node_modules/uikit/src/scss/variables-theme.scss";

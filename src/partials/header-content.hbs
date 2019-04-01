@@ -1,34 +1,29 @@
 <header class="header" role="banner">
-  <nav class="navbar">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{{or site.url (or siteRootUrl siteRootPath)}}">{{site.title}}</a>
-      <button class="navbar-burger" data-target="topbar-nav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <div class="navbar-end">
-        {{> header-nav}}
+  <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <nav class="uk-navbar-container uk-navbar">
+        <a class="uk-navbar-item uk-logo" href="{{or site.url (or siteRootUrl siteRootPath)}}">{{site.title}}</a>
+      <div id="topbar-nav" class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            {{> header-nav}}
 
-        {{#if env.ELASTICSEARCH_HOST}}
-          <div class="navbar-item search">
-            <span class="control">
-              <input
-                id="search"
-                type="text"
-                placeholder="Search"
-                data-host="{{env.ELASTICSEARCH_PROTO}}://{{env.ELASTICSEARCH_HOST}}:{{env.ELASTICSEARCH_PORT}}"
-                data-index="{{env.ELASTICSEARCH_INDEX}}"
-                data-auth="{{env.ELASTICSEARCH_READ_AUTH}}">
-              <div class="animation"></div>
-            </span>
+          {{#if env.ELASTICSEARCH_HOST}}
+            <div class="navbar-item search">
+              <span class="control">
+                <input
+                  id="search"
+                  type="text"
+                  placeholder="Search"
+                  data-host="{{env.ELASTICSEARCH_PROTO}}://{{env.ELASTICSEARCH_HOST}}:{{env.ELASTICSEARCH_PORT}}"
+                  data-index="{{env.ELASTICSEARCH_INDEX}}"
+                  data-auth="{{env.ELASTICSEARCH_READ_AUTH}}">
+                <div class="animation"></div>
+              </span>
 
-            <div class="results"></div>
-          </div>
-        {{/if}}
+              <div class="results"></div>
+            </div>
+          {{/if}}
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
