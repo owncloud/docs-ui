@@ -35,14 +35,14 @@ gulp.task('build:preview', ['build'], () =>
   buildPreview(srcDir, destDir, previewSiteSrcDir, previewSiteDestDir, connect.reload)
 )
 
-gulp.task('preview', ['build:preview'], () =>
+gulp.task('preview', ['build:preview', 'sass'], () =>
   preview(previewSiteDestDir, {
     host: '0.0.0.0',
     port: 5252,
     livereload: process.env.LIVERELOAD === 'true',
     watch: {
       src: [srcDir, previewSiteSrcDir],
-      onChange: () => gulp.start('build:preview'),
+      onChange: () => gulp.start['build:preview', 'sass'],
     },
   })
 )
