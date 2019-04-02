@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
   var navbarToggles = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
   if (navbarToggles.length === 0) return
   navbarToggles.forEach(function (el) {
@@ -10,3 +10,4 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
 })
+*/

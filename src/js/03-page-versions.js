@@ -1,4 +1,4 @@
-;(function () {
+/*;(function () {
   'use strict'
 
   var toggle = document.querySelector('.page-versions .versions-menu-toggle')
@@ -16,3 +16,4 @@
     selector.classList.remove('is-active')
   })
 })()
+*/

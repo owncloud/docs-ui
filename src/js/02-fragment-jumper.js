@@ -1,4 +1,4 @@
-;(function () {
+/*;(function () {
   'use strict'
 
   var article = document.querySelector('article.doc')
@@ -36,3 +36,4 @@
     }
   })
 })()
+*/

@@ -1,4 +1,4 @@
-;(function () {
+/*;(function () {
   'use strict'
 
   var navContainer = document.querySelector('.navigation-container')
@@ -164,3 +164,4 @@
     return el && selector ? el[el.matches ? 'matches' : 'msMatchesSelector'](selector) && el : el
   }
 })()
+*/
