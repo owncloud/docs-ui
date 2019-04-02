@@ -1,5 +1,5 @@
 {{#if navigation.length}}
-  <ul class="uk-nav-sub">
+  <ul{{#if (big ./level 0)}} class="uk-nav-sub"{{/if}}>
     {{#each navigation}}
       <li class="uk-parent{{#if (eq @root.page.url ./url)}} uk-active{{/if}}" data-depth="{{or ../level 0}}">
         {{#if ./content}}
