@@ -21,9 +21,11 @@ $logo-hover-color: #f9fbfe;
 
 // Custom mixins
 
-@import "./oc-components/footer/oc-footer";
-@import "./oc-components/footer/oc-footer-nav-title";
-@import "./oc-components/footer/oc-footer-nav-link";
+@import "./oc-components/sidebar/oc-sidebar.scss";
+
+@import "./oc-components/footer/oc-footer.scss";
+@import "./oc-components/footer/oc-footer-nav-title.scss";
+@import "./oc-components/footer/oc-footer-nav-link.scss";
 @import "./oc-components/footer/oc-footer-copyright.scss";
 
 // UIKit

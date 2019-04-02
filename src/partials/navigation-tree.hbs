@@ -1,14 +1,14 @@
 {{#if navigation.length}}
-  <ul class="uk-nav-sub">
+  <ul{{#if (big ./level 0)}} class="uk-nav-sub"{{/if}}>
     {{#each navigation}}
-      <li class="{{#if (eq @root.page.url ./url)}} uk-active{{/if}}" data-depth="{{or ../level 0}}">
+      <li class="uk-parent{{#if (eq @root.page.url ./url)}} uk-active{{/if}}" data-depth="{{or ../level 0}}">
         {{#if ./content}}
           {{#if ./url}}
-            <a class="nav-link" href="
+            <a href="
               {{~#if (eq ./urlType 'internal')}}{{{relativize @root.page.url ./url}}}
               {{~else}}{{{./url}}}{{~/if}}">{{{./content}}}</a>
           {{else}}
-            <span class="nav-text">{{{./content}}}</span>
+            <span>{{{./content}}}</span>
           {{/if}}
         {{/if}}
         {{> navigation-tree navigation=./items level=(increment ../level)}}

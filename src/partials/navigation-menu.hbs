@@ -1,7 +1,7 @@
 {{#if page.navigation}}
-  <div class="navigation-menu is-active" data-panel="menu">
-    <nav class="uk-nav">
-      <h3 class="uk-nav-header"><a href="{{relativize page.url page.componentVersion.url}}">{{page.component.title}}</a></h3>
+  <div data-panel="menu">
+    <nav class="uk-nav-parent-icon" uk-nav>
+      <!--<h3 class="uk-nav-header uk-padding-remove"><a href="{{relativize page.url page.componentVersion.url}}">{{page.component.title}}</a></h3>-->
       {{> navigation-tree navigation=page.navigation}}
     </nav>
   </div>
