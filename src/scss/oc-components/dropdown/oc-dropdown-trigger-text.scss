@@ -1,0 +1,12 @@
+.oc-dropdown-trigger-text {
+  border: none;
+  outline: none;
+  margin-right: $margin-margin !important;
+  background: none;
+  color: $global-color;
+  font-size: $global-font-size;
+  cursor: pointer;
+  &:hover {
+    text-decoration: $base-link-hover-text-decoration;
+  }
+}

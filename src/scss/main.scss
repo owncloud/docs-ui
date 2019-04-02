@@ -21,6 +21,8 @@ $logo-hover-color: #f9fbfe;
 
 // Custom mixins
 
+@import "./oc-components/dropdown/oc-dropdown-trigger-text";
+
 @import "./oc-components/footer/oc-footer";
 @import "./oc-components/footer/oc-footer-nav-title";
 @import "./oc-components/footer/oc-footer-nav-link";

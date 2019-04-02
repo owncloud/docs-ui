@@ -1,7 +1,7 @@
 {{#if page.versions}}
   <div class="page-versions uk-inline">
-    <button type="button" class="versions-menu-toggle" title="Show other versions of page">{{page.version}}</button>
-    <div class="versions-menu" uk-dropdown="mode: click; animation: uk-animation-slide-top-small; duration: 500">
+    <button class="oc-dropdown-trigger-text" title="Show other versions of page" uk-icon="chevron-down">{{page.version}} version</button>
+    <div class="versions-menu" uk-dropdown="mode: click; animation: uk-animation-slide-top-small; duration: 500; pos: bottom-justify;">
       <ul class="uk-nav uk-dropdown-nav">
         {{#each page.versions}}
           <li><a class="version
