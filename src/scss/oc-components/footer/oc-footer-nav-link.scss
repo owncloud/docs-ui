@@ -1,0 +1,6 @@
+.oc-footer-nav-link {
+  color: $footer-nav-link-color;
+  &:hover, &:focus {
+    color: $footer-nav-title-color-hover;
+  }
+}

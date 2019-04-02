@@ -1,12 +1,16 @@
 // Custom variables
-$background-primary-background: #02172d;
-$background-secondary-background: #e9f3fd;
-$background-muted-background: #f9fafb;
+$background-primary-background: #1c283c;
+$background-muted-background: #f7f7f9;
 
-$navbar-background: #02172d;
-$navbar-nav-item-color: #258aef;
-$navbar-nav-item-hover-color: #84bdf6;
+$navbar-background: #1c283c;
+$navbar-nav-item-color: #ffffff;
+$navbar-nav-item-hover-color: #e9f3fd;
 $navbar-nav-item-font-size: 15px;
+
+$footer-nav-title-color: #ffffff;
+$footer-nav-link-color: #e9f3fd;
+$footer-nav-title-color-hover: #f9fbfe;
+$footer-copyright-color: #ffffff;
 
 $logo-color: #e9f3fd;
 $logo-hover-color: #f9fbfe;
@@ -17,8 +21,10 @@ $logo-hover-color: #f9fbfe;
 
 // Custom mixins
 
+@import "./oc-components/footer/oc-footer";
+@import "./oc-components/footer/oc-footer-nav-title";
+@import "./oc-components/footer/oc-footer-nav-link";
+@import "./oc-components/footer/oc-footer-copyright.scss";
+
 // UIKit
 @import "../../node_modules/uikit/src/scss/uikit-theme.scss";
-
-// Custom styles
-@import "./custom.scss";
