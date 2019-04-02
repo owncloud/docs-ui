@@ -1,11 +1,14 @@
-<div class="toolbar uk-background-secondary" role="navigation">
-  <button class="navigation-toggle uk-hidden@m"></button>
+<div class="toolbar uk-background-muted uk-container uk-container-expand uk-flex uk-padding-small" role="navigation" uk-sticky="offset: 80;">
+  <!-- TODO: Fix aligning when using flexbox
+  <button class="navigation-toggle uk-hidden@m"></button>-->
   {{#if site.homeUrl}}
     <a href="{{relativize page.url site.homeUrl}}" class="home-link{{#if page.home}} is-current{{/if}}"></a>
   {{/if}}
   {{> breadcrumbs}}
-  {{> page-versions}}
-  {{#if page.editUrl}}
-    <div class="edit-this-page"><a href="{{page.editUrl}}" rel="noopener noreferrer" target="_blank">Edit this Page</a></div>
-  {{/if}}
+  <div class="uk-flex uk-flex-1 uk-flex-right">
+    {{> page-versions}}
+    {{#if page.editUrl}}
+      <div class="edit-this-page"><a href="{{page.editUrl}}" rel="noopener noreferrer" target="_blank">Edit this Page</a></div>
+    {{/if}}
+  </div>
 </div>
