@@ -1,0 +1,9 @@
+.oc-current-version {
+  @extend .uk-flex;
+  @extend .uk-flex-between;
+  @extend .uk-padding-small;
+  @extend .uk-padding-remove-horizontal;
+  @extend .uk-padding-remove-bottom;
+
+  border-top: 1px solid $navbar-nav-item-color;
+}

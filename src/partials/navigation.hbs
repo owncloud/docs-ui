@@ -1,6 +1,6 @@
-<div id="sidebar" class="uk-width-3-4 uk-width-1-5@m uk-background-muted uk-padding-small uk-container uk-container-expand uk-position-fixed" uk-height-viewport="offset-top: true"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}>
-  <aside class="oc-sidebar">
+<aside class="uk-width-3-4 uk-width-1-5@m uk-background-muted"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}>
+  <div id="sidebar" class="oc-sidebar">
     {{> navigation-menu}}
     {{> navigation-explore}}
-  </aside>
-</div>
+  </div>
+</aside>

@@ -1,0 +1,10 @@
+.oc-sidebar {
+  @extend .uk-position-fixed;
+  @extend .uk-flex;
+  @extend .uk-flex-column;
+  @extend .uk-flex-between;
+  @extend .uk-width-1-5;
+  @extend .uk-position-z-index;
+
+  top: $navbar-nav-item-height;
+}

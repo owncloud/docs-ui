@@ -13,8 +13,10 @@ function checkSidebarPosition() {
   distanceFromBottom = bodyHeight - (scrollPosition + windowSize);
   if (distanceFromBottom <= footerHeight) {
     sidebar.style.bottom = (footerHeight - distanceFromBottom) + "px";
+    sidebar.style.height = "calc(100vh - 80px - " + (footerHeight - distanceFromBottom) + "px";
   } else {
     sidebar.style.bottom = "0";
+    sidebar.style.height = "calc(100vh - 80px)";
   }
 }
 
