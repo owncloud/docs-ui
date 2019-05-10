@@ -7331,10 +7331,10 @@ typeface-roboto-mono@^0.0.44:
   resolved "https://registry.yarnpkg.com/typeface-roboto-mono/-/typeface-roboto-mono-0.0.44.tgz#dbce32d7c59c73de61e0259531e527257413d0a3"
   integrity sha512-JvMBF7qr7KaexD3+RDOlLWMlZQebktsINDMzUdoALxkEWD0phTsngj0e9OaVEBja7eDqcQQ5V8tUZgSmLD80HA==
 
-typeface-roboto@^0.0.45:
-  version "0.0.45"
-  resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.45.tgz#4686bdd505b2db3b7ba0a980d216eb3d5aec4788"
-  integrity sha512-hf9xzwtRqlRDjUU0SjunFDbfBHEqGNXap2sW0V4CHfQ+czoy+mTMBylQCGKw+Cnc8jlC/cRinj6lFSE57f4wIg==
+typeface-roboto@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.54.tgz#8f02c9a18d1cfa7f49381a6ff0d21ff061f38ad2"
+  integrity sha512-sOFA1FXgP0gOgBYlS6irwq6hHYA370KE3dPlgYEJHL3PJd5X8gQE0RmL79ONif6fL5JZuGDj+rtOrFeOqz5IZQ==
 
 typescript-eslint-parser@^16.0.0:
   version "16.0.1"
