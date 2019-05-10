@@ -82,6 +82,9 @@ $('#search').on('keyup focus', function () {
 })
 
 $('#search').on('blur', function () {
+  if ($('.search .results').is(':hover')) {
+    return
+  }
   $('.search .results').hide('')
   $('.search .animation').css('display', 'none')
 })
