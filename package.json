@@ -60,7 +60,7 @@
     "map-stream": "^0.0.7",
     "merge-stream": "^1.0.1",
     "postcss-calc": "^6.0.1",
-    "postcss-custom-properties": "^6.1.0",
+    "postcss-custom-properties": "^9.0.2",
     "postcss-import": "^11.0.0",
     "postcss-url": "^7.1.2",
     "prettier-eslint": "^8.2.0",
