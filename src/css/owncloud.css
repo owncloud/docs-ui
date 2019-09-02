@@ -99,6 +99,10 @@ blockquote::before {
   font-size: 1em;
 }
 
+.videoblock {
+  margin-top: 20px;
+}
+
 /**
  * Supplemental Responsive Styles
  */
