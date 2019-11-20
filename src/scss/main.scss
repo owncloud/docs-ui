@@ -21,6 +21,8 @@ $logo-hover-color: #f9fbfe;
 
 // Custom mixins
 
+@import "./oc-utilities/oc-highlight.scss";
+
 @import "./oc-components/sidebar/oc-sidebar.scss";
 
 @import "./oc-components/footer/oc-footer.scss";

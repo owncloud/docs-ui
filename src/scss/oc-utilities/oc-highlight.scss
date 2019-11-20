@@ -1,0 +1,95 @@
+/*! GitHub style for highlight.js (c) Vasily Polovnyov <vast@whiteants.net> */
+/*
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+*/
+
+// Colors
+$highlight-quote-color: #998;
+$highlight-keyword-color: #333;
+$highlight-variable-color: #008080;
+$highlight-string-color: #d14;
+$highlight-title-color: #998;
+$highlight-class-color: #998;
+$highlight-attribute-color: #998;
+$highlight-link-color: #998;
+$highlight-symbol-color: #998;
+$highlight-builtin-color: #998;
+$highlight-meta-color: #998;
+$highlight-deletion-color: #998;
+$highlight-addition-color: #998;
+
+.hljs-comment, .hljs-quote {
+  color: $highlight-quote-color;
+  font-style: italic;
+}
+
+.hljs-keyword, .hljs-selector-tag, .hljs-subst {
+  color: $highlight-keyword-color;
+  font-weight: 500;
+}
+
+.hljs-number, .hljs-literal, .hljs-variable, .hljs-template-variable, .hljs-tag .hljs-attr {
+  color: $highlight-variable-color;
+}
+
+.hljs-string, .hljs-doctag {
+  color: $highlight-string-color;
+}
+
+.hljs-title, .hljs-section, .hljs-selector-id {
+  color: $highlight-title-color;
+  font-weight: 500;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type, .hljs-class .hljs-title {
+  color: $highlight-class-color;
+  font-weight: 500;
+}
+
+.hljs-tag, .hljs-name, .hljs-attribute {
+  color: $highlight-attribute-color;
+  font-weight: normal;
+}
+
+.hljs-regexp, .hljs-link {
+  color: $highlight-link-color;
+}
+
+.hljs-symbol, .hljs-bullet {
+  color: $highlight-symbol-color;
+}
+
+.hljs-built_in, .hljs-builtin-name {
+  color: $highlight-builtin-color;
+}
+
+.hljs-meta {
+  color: $highlight-meta-color;
+  font-weight: 500;
+}
+
+.hljs-deletion {
+  background: $highlight-deletion-color;
+}
+
+.hljs-addition {
+  background: $highlight-addition-color;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 500;
+}
