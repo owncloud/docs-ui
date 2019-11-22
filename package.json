@@ -39,7 +39,7 @@
     "cssnano": "^4.1.10",
     "elasticsearch-browser": "^16.5.0",
     "eslint": "^4.11.0",
-    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^4.2.1",
