@@ -37,7 +37,7 @@
     "browserify": "^16.5.0",
     "chokidar": "^3.3.0",
     "cssnano": "^4.1.10",
-    "elasticsearch-browser": "^16.5.0",
+    "elasticsearch-browser": "^16.6.0",
     "eslint": "^6.7.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.18.2",
