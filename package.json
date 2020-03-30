@@ -35,7 +35,7 @@
   "dependencies": {
     "autoprefixer": "^9.7.5",
     "browserify": "^16.5.0",
-    "chokidar": "^3.3.0",
+    "chokidar": "^3.3.1",
     "cssnano": "^4.1.10",
     "elasticsearch-browser": "^16.7.1",
     "eslint": "^6.8.0",
