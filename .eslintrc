@@ -2,7 +2,7 @@
   "extends": "standard",
   "rules": {
     "arrow-parens": ["error", "always"],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": ["error", "only-multiline"],
     "max-len": [1, 120, 2],
     "spaced-comment": "off"
   }
