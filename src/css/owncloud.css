@@ -103,6 +103,14 @@ blockquote::before {
   margin-top: 20px;
 }
 
+.outdated-documentation {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  border: 1px solid #efefef;
+  margin-top: 10px;
+  padding: 5px 5px 0 10px;
+}
+
 /**
  * Supplemental Responsive Styles
  */
