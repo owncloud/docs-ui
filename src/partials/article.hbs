@@ -1,12 +1,10 @@
-{{#if (and env.latestVersion page.version)}}
-  {{#if (neq env.latestVersion page.version) }}
-    <div class="outdated-documentation">
-      You are viewing an outdated version of the documentation.
-      Please use <a 
-        href="{{rewriteUrl @root.page.url env.latestVersion page.version}}"
-        >the latest version</a>.
-    </div>
-  {{/if}}
+{{#if (showOutdatedNotice env.latestVersion page.version)}}
+  <div class="outdated-documentation">
+    You are viewing an outdated version of the documentation.
+    Please use
+      <a href="{{rewriteUrl @root.page.url env.latestVersion page.version}}"
+         >the latest version</a>.
+  </div>
 {{/if}}
 <article class="doc">
   {{#if (eq page.layout '404')}}
