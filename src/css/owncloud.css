@@ -103,18 +103,6 @@ blockquote::before {
   margin-top: 20px;
 }
 
-.outdated-documentation {
-  background-color: #0382c0;
-  padding: 10px 5px 10px 15px;
-  color: #fff;
-}
-
-.outdated-documentation a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
 /**
  * Supplemental Responsive Styles
  */
