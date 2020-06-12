@@ -52,7 +52,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp-stylelint": "^6.0.0",
     "gulp-uglify": "^3.0.0",
-    "gulp-vinyl-zip": "^2.2.0",
+    "gulp-vinyl-zip": "^2.2.1",
     "handlebars": "^4.7.6",
     "highlight.js": "^9.18.1",
     "jquery": "^3.5.0",
