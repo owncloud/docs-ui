@@ -33,7 +33,7 @@
     "bundle": "gulp pack"
   },
   "dependencies": {
-    "autoprefixer": "^9.8.4",
+    "autoprefixer": "^9.8.5",
     "browserify": "^16.5.1",
     "chokidar": "^3.4.0",
     "cssnano": "^4.1.10",
