@@ -68,7 +68,7 @@
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
     "typeface-roboto": "^0.0.75",
-    "typeface-roboto-mono": "^0.0.75",
+    "typeface-roboto-mono": "^1.1.13",
     "vinyl-buffer": "^1.0.0",
     "vinyl-fs": "^3.0.3"
   },
