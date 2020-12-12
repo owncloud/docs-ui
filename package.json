@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "autoprefixer": "^9.8.6",
-    "browserify": "^16.5.2",
+    "browserify": "^17.0.0",
     "chokidar": "^3.4.3",
     "cssnano": "^4.1.10",
     "elasticsearch-browser": "^16.7.1",
@@ -62,7 +62,7 @@
     "postcss-custom-properties": "^10.0.0",
     "postcss-calc": "^7.0.5",
     "postcss-import": "^12.0.1",
-    "postcss-url": "^8.0.0",
+    "postcss-url": "^9.0.0",
     "prettier-eslint": "^9.0.1",
     "require-from-string": "^2.0.1",
     "stylelint": "^8.2.0",
