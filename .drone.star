@@ -160,5 +160,11 @@ def main(ctx):
                     ]
                 },
             },
-        ]
+        ],
+        'trigger': {
+            'ref': [
+                'refs/heads/master',
+                'refs/pull/**',
+            ],
+        },
     }
