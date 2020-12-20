@@ -68,7 +68,7 @@ def main(ctx):
                       'node_modules',
                     ],
                 },
-                'trigger': {
+                'when': {
                     'event': [
                         'push',
                     ]
@@ -91,7 +91,7 @@ def main(ctx):
                     'flush': True,
                     'flush_age': 14,
                 },
-                'trigger': {
+                'when': {
                     'event': [
                         'push',
                     ]
@@ -115,7 +115,7 @@ def main(ctx):
                     'source': 'build/ui-bundle.zip',
                     'target': '/',
                 },
-                'trigger': {
+                'when': {
                     'event': [
                         'push',
                     ]
@@ -133,7 +133,7 @@ def main(ctx):
                         'from_secret': 'github_token',
                     },
                 },
-                'trigger': {
+                'when': {
                     'event': [
                         'tag',
                     ]
@@ -149,7 +149,7 @@ def main(ctx):
                     },
                     'channel': 'documentation',
                 },
-                'trigger': {
+                'when': {
                     'event': [
                         'push',
                         'tag',
