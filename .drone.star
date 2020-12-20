@@ -99,15 +99,15 @@ def main(ctx):
             },
             {
                 'name': 'Upload artifact',
-                'image': 'plugins/s3-cache:1',
+                'image': 'plugins/s3:1',
                 'pull': 'always',
                 'settings': {
                     'endpoint': 'https://minio.owncloud.com',
                     'access_key': {
-                        'from_secret': 'cache_s3_access_key',
+                        'from_secret': 'aws_access_key_id',
                     },
                     'secret_key': {
-                        'from_secret': 'cache_s3_secret_key',
+                        'from_secret': 'aws_secret_access_key',
                     },
                     'bucket': 'documentation',
                     'path_style': True,
