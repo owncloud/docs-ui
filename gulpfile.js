@@ -23,17 +23,18 @@ const jsFiles = ['gulpfile.js', 'tasks/**/*.js', path.join(srcDir, '{helpers,js}
 
 gulp.task('lint:css', () => lintCss(`${srcDir}/css/**/*.css`))
 gulp.task('lint:js', () => lintJs(jsFiles))
-gulp.task('lint', ['lint:css', 'lint:js'])
+gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
 
 gulp.task('format', () => format(jsFiles))
 
 gulp.task('build', () => build(srcDir, destDir))
 
-gulp.task('build:preview', ['build'], () =>
+gulp.task('build:preview', gulp.series('build', () =>
   buildPreview(srcDir, destDir, previewSiteSrcDir, previewSiteDestDir, connect.reload)
 )
+)
 
-gulp.task('preview', ['build:preview'], () =>
+gulp.task('preview', gulp.series('build:preview', () =>
   preview(previewSiteDestDir, {
     host: '0.0.0.0',
     port: 5252,
@@ -44,7 +45,8 @@ gulp.task('preview', ['build:preview'], () =>
     },
   })
 )
+)
 
-gulp.task('pack', ['build', 'lint'], () => pack(destDir, buildDir, bundleName))
+gulp.task('pack', gulp.series('lint', 'build', () => pack(destDir, buildDir, bundleName)))
 
-gulp.task('default', ['build'])
+gulp.task('default', gulp.series('build'))
