@@ -57,7 +57,7 @@ This is an example paragraph.
     file.contents = browserify(file.relative, { basedir: 'src', detectGlobals: false }).bundle()
   }))
   .pipe(buffer())
-  .pipe(uglify())
+  .pipe(terser())
   .pipe(gulp.dest('build'))</code></pre>
 </div>
 </div>
