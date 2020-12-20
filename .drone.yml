@@ -20,19 +20,19 @@ pipeline:
       local: false
 
   frontend-deps:
-    image: owncloudci/nodejs:latest
+    image: webhippie/nodejs:latest
     pull: true
     commands:
       - yarn install
 
   frontend-lint:
-    image: owncloudci/nodejs:latest
+    image: webhippie/nodejs:latest
     pull: true
     commands:
       - yarn lint
 
   frontend-build:
-    image: owncloudci/nodejs:latest
+    image: webhippie/nodejs:latest
     pull: true
     commands:
       - yarn bundle
