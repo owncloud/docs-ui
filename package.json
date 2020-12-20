@@ -78,5 +78,8 @@
     "antora",
     "asciidoc",
     "documentation"
-  ]
+  ],
+  "devDependencies": {
+    "core-js": "^3.8.1"
+  }
 }
