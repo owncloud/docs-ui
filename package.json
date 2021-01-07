@@ -80,6 +80,6 @@
   ],
   "devDependencies": {
     "core-js": "^3.8.2",
-    "gulp-terser": "^2.0.0"
+    "gulp-terser": "^2.0.1"
   }
 }
