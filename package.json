@@ -83,6 +83,6 @@
     "gulp-terser": "^2.0.1"
   },
   "resolutions": {
-    "eslint": "^7.17.0"
+    "gulp-eslint/eslint": "^7.17.0"
   }
 }
