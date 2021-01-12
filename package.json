@@ -39,7 +39,7 @@
     "cssnano": "^4.1.10",
     "elasticsearch-browser": "^16.7.1",
     "eslint": "^7.17.0",
-    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -81,5 +81,8 @@
   "devDependencies": {
     "core-js": "^3.8.2",
     "gulp-terser": "^2.0.1"
+  },
+  "resolutions": {
+    "gulp-eslint/eslint": "^7.17.0"
   }
 }
