@@ -4,6 +4,7 @@
     "arrow-parens": ["error", "always"],
     "comma-dangle": ["error", "only-multiline"],
     "max-len": [1, 120, 2],
-    "spaced-comment": "off"
+    "spaced-comment": "off",
+    "no-var": "off"
   }
 }
