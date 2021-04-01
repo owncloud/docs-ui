@@ -59,7 +59,7 @@
     "js-yaml": "^4.0.0",
     "map-stream": "^0.0.7",
     "merge-stream": "^2.0.0",
-    "postcss-calc": "^7.0.5",
+    "postcss-calc": "^8.0.0",
     "postcss-custom-properties": "^10.0.0",
     "postcss-import": "^12.0.1",
     "postcss-url": "^9.0.0",
