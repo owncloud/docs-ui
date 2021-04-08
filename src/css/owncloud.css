@@ -13,7 +13,7 @@ th {
 }
 
 /**
- * Supplemental Image(-related) Styles
+ * Supplemental Image(-related) Styles, text is forced to be aligned left
  */
 div.paragraph div.title {
   background-color: #f3f3f3;
@@ -21,12 +21,21 @@ div.paragraph div.title {
   font-size: 85%;
   font-style: italic;
   padding: 2px;
+  text-align: left;
 }
 
 div.paragraph p span.image img {
   border-radius: 3px;
   border: 1px solid #cecece;
   padding: 2px;
+}
+
+/**
+ * The table caption text is forced to be aligned left (standard = center)
+ */
+caption {
+  display: table-caption;
+  text-align: left;
 }
 
 /**

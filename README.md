@@ -7,7 +7,7 @@
 [link-ui_bundle.zip]: https://minio.owncloud.com/documentation/ui-bundle.zip
 [link-README]: https://github.com/owncloud/docs
 [link-git]: https://git-scm.com
-[link-Node-8]: https://nodejs.org
+[link-Node]: https://nodejs.org
 [link-Gulp-CLI]: http://gulpjs.com
 [link-Yarn]: https://yarnpkg.com
 [link-git-package]: https://git-scm.com/downloads
@@ -70,7 +70,7 @@ If you want to preview your changes to the UI using the ownCloud documentation i
 To do this, run the following command in the root directory of your `docs-ui` clone:
 
 ```console
-yarn pack
+gulp pack
 ```
 
 When built, the UI bundle will be available in directory `build/ui-bundle.zip`
@@ -89,7 +89,7 @@ Follow the [instructions][link-preview] to preview the documentation with the ch
 To preview the UI changes or to create a local version of a `ui-bundle.zip`, you need to install the following software on your computer.
 
 * [git][link-git] (command: `git`)
-* [Node 8][link-Node-8] (command: `node`)
+* [Node][link-Node] (command: `node`)
 * [Gulp CLI][link-Gulp-CLI] (command: `gulp`)
 * [Yarn][link-Yarn] (command: `yarn`)
 
@@ -103,38 +103,37 @@ git --version
 
 If git is not installed, download and install the [git package][link-git-package] for your system.
 
-### Node 8
+### Node
 
-Next, make sure that you have Node 8 installed.
+Next, make sure that you have Node installed.
 
 ```
 node --version
 ```
 
 If this command fails with an error, you don't have Node installed.
-If the command doesn't report a Node 8 version (e.g., v8.9.4), you don't have a suitable version of Node installed.
 While you can install Node from the official packages, we strongly recommend that you use [NVM][link-nvm] (Node Version Manager) to install and manage Node.
 
 Follow the [NVM installation instructions][link-nvm-installation-instructions] to set up NVM on your machine.
-Once you've installed NVM, open a new terminal and install Node 8 using the following command:
+Once you've installed NVM, open a new terminal and install Node using the following command:
 
 ```
-nvm install 8
+nvm install
 ```
 
 You can switch to this version of Node at any time using the following command:
 
 ```
-nvm use 8
+nvm use 10
 ```
 
-To make Node 8 the default in new terminals, type:
+To make Node 10 the default in new terminals, type:
 
 ```
-nvm alias default 8
+nvm alias default 10
 ```
 
-Now that you have Node 8 installed, you can proceed with installing the Gulp CLI and Yarn.
+Now that you have Node installed, you can proceed with installing the Gulp CLI and Yarn.
 
 ### Gulp CLI
 
