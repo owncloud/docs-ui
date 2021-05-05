@@ -144,8 +144,13 @@
   padding: 0.5rem;
 }
 
+/**
+ * table headlines slight gray frame line and background
+ * border-bottom: 2.5px solid #ddd;
+ */
 .doc table.tableblock th {
-  border-bottom: 2.5px solid #ddd;
+  border-bottom: 2.5px solid #f7f8f7;
+  background: #f7f8f7;
 }
 
 .doc table.tableblock td {

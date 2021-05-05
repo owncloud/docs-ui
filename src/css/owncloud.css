@@ -13,11 +13,23 @@ th {
 }
 
 /**
- * Supplemental Image(-related) Styles, text is forced to be aligned left
+ * Supplemental (Image-related) Styles, text is forced to be aligned left
+ * background-color: #f3f3f3;
+ * color: #8c8c8c;
  */
 div.paragraph div.title {
-  background-color: #f3f3f3;
-  color: #8c8c8c;
+  color: #7a2518;
+  font-size: 85%;
+  font-style: italic;
+  padding: 2px;
+  text-align: left;
+}
+
+/**
+ * dlist title same as div.paragraph title
+ */
+div.dlist div.title {
+  color: #7a2518;
   font-size: 85%;
   font-style: italic;
   padding: 2px;
@@ -32,10 +44,12 @@ div.paragraph p span.image img {
 
 /**
  * The table caption text is forced to be aligned left (standard = center)
+ * and has the same color of div.title as above
  */
 caption {
   display: table-caption;
   text-align: left;
+  color: #7a2518;
 }
 
 /**
