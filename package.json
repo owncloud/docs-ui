@@ -79,7 +79,7 @@
     "documentation"
   ],
   "devDependencies": {
-    "core-js": "^3.11.3",
+    "core-js": "^3.12.0",
     "gulp-terser": "^2.0.1"
   },
   "resolutions": {
