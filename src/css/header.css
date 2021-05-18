@@ -26,6 +26,30 @@ body {
   text-decoration: none;
 }
 
+.navbar-item,
+.navbar-link {
+  color: var(--color-text);
+  display: block;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.navbar-item {
+  flex: none;
+}
+
+.navbar-dropdown .navbar-item {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.search .results li a {
+  padding: 0.5em 1em;
+  display: block;
+  color: initial;
+}
+
 .navbar-brand .navbar-item:first-child,
 .navbar-brand .navbar-item:first-child a {
   color: var(--color-navbar-text);
@@ -127,19 +151,6 @@ body {
   display: none;
 }
 
-.navbar-item,
-.navbar-link {
-  color: var(--color-text);
-  display: block;
-  line-height: 1.5;
-  padding: 0.5rem 1rem;
-  position: relative;
-}
-
-.navbar-item {
-  flex: none;
-}
-
 .navbar-item.has-dropdown {
   padding: 0;
 }
@@ -156,11 +167,6 @@ body {
 
 .navbar-dropdown {
   font-size: 0.875rem;
-}
-
-.navbar-dropdown .navbar-item {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 .navbar-divider {
@@ -237,6 +243,17 @@ body {
     align-items: stretch;
   }
 
+  .navbar-dropdown {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    display: none;
+    font-size: 0.875rem;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    position: absolute;
+  }
+
   .navbar-item.is-hoverable:hover .navbar-dropdown {
     display: block;
   }
@@ -263,17 +280,6 @@ body {
   .navbar-end {
     justify-content: flex-end;
     margin-left: auto;
-  }
-
-  .navbar-dropdown {
-    background-color: #fff;
-    border: 1px solid #e1e1e1;
-    display: none;
-    font-size: 0.875rem;
-    top: 100%;
-    left: 0;
-    min-width: 100%;
-    position: absolute;
   }
 
   .navbar-dropdown .navbar-item {
@@ -362,12 +368,6 @@ body {
 
 .search .results li {
   border-bottom: 1px solid #ececec;
-}
-
-.search .results li a {
-  padding: 0.5em 1em;
-  display: block;
-  color: initial;
 }
 
 .search .results li a:hover {

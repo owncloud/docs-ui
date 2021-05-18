@@ -7,10 +7,7 @@ html.is-clipped--nav {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-}
-
-/* help Chrome calculate the height correctly; must match .navigation value minus height of drawer */
-.navigation-menu {
+  /* help Chrome calculate the height correctly; must match .navigation value minus height of drawer */
   height: calc(100vh - var(--navbar-height) - var(--toolbar-height) - var(--drawer-height));
 }
 
@@ -20,16 +17,16 @@ html.is-clipped--nav {
   }
 }
 
-.navigation-menu:not(.is-active) {
-  display: none;
-}
-
 .navigation-menu::-webkit-scrollbar {
   width: 0.25rem;
 }
 
 .navigation-menu::-webkit-scrollbar-thumb {
   background-color: #c1c1c1;
+}
+
+.navigation-menu:not(.is-active) {
+  display: none;
 }
 
 .nav-menu {
@@ -73,14 +70,14 @@ html.is-clipped--nav {
   padding-bottom: 0.125rem;
 }
 
+.nav-item:not(.is-active) > .nav-list {
+  display: none;
+}
+
 /* matches list without a title */
 .nav-item[data-depth="0"] > .nav-list:first-child {
   display: block;
   margin: 0;
-}
-
-.nav-item:not(.is-active) > .nav-list {
-  display: none;
 }
 
 .nav-toggle {
