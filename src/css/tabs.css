@@ -25,14 +25,14 @@
   position: relative;
 }
 
+.tabs li + li {
+  margin-top: 0;
+}
+
 .tabs.ulist li {
   margin-bottom: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-}
-
-.tabs li + li {
-  margin-top: 0;
 }
 
 .tabset.is-loading .tabs li:not(:first-child),

@@ -182,6 +182,17 @@
   vertical-align: middle;
 }
 
+.doc p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.doc p,
+.doc .tableblock,
+.doc .content {
+  hyphens: auto;
+}
+
 .doc .tableblock p {
   font-size: inherit;
 }
@@ -193,6 +204,10 @@
 .doc .admonitionblock p,
 .doc .admonitionblock td.content {
   font-size: 0.9rem;
+}
+
+.doc .exampleblock > .content > :first-child {
+  margin-top: 0;
 }
 
 .doc .admonitionblock td.content > :first-child {
@@ -285,8 +300,8 @@
   max-width: 100%;
 }
 
-#preamble + .sect1,
-.doc .sect1 + .sect1 {
+.doc .sect1 + .sect1,
+#preamble + .sect1 {
   margin-top: 2.5rem;
 }
 
@@ -295,17 +310,6 @@
   margin-left: -1rem;
   margin-right: -1rem;
   padding: 0.4rem 1rem 0.1rem;
-}
-
-.doc p {
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.doc p,
-.doc .tableblock,
-.doc .content {
-  hyphens: auto;
 }
 
 /*
@@ -330,9 +334,9 @@
   padding: 0;
 }
 
-.doc table.tableblock .admonitionblock,
 .doc .ulist .admonitionblock,
-.doc .olist .admonitionblock {
+.doc .olist .admonitionblock,
+.doc table.tableblock .admonitionblock {
   padding: 0;
 }
 
@@ -409,10 +413,6 @@
   padding: 0.75rem;
 }
 
-.doc .exampleblock > .content > :first-child {
-  margin-top: 0;
-}
-
 .doc .sidebarblock {
   background-color: #ebebeb;
   padding: 0.75rem 1.5rem;
@@ -430,12 +430,6 @@
   margin-top: 0;
 }
 
-/* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
-.doc .tableblock pre,
-.doc .listingblock.wrap pre {
-  white-space: pre-wrap;
-}
-
 .doc pre:not(.highlight),
 .doc pre.highlight code {
   background-color: #fafafa;
@@ -443,6 +437,12 @@
   display: block;
   overflow-x: auto;
   padding: 0.75rem;
+}
+
+/* NEEDS REVIEW prevent pre in table from causing article to exceed bounds */
+.doc .tableblock pre,
+.doc .listingblock.wrap pre {
+  white-space: pre-wrap;
 }
 
 /* NOTE assume pre.highlight contains code[data-lang] */
