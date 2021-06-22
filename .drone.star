@@ -27,7 +27,7 @@ def main(ctx):
             },
             {
                 'name': 'Dependencies',
-                'image': 'webhippie/nodejs:latest',
+                'image': 'owncloudci/nodejs:14',
                 'pull': 'always',
                 'commands': [
                     'yarn install',
@@ -35,7 +35,7 @@ def main(ctx):
             },
             {
                 'name': 'Lint',
-                'image': 'webhippie/nodejs:latest',
+                'image': 'owncloudci/nodejs:14',
                 'pull': 'always',
                 'commands': [
                     'yarn lint',
@@ -43,7 +43,7 @@ def main(ctx):
             },
             {
                 'name': 'Build',
-                'image': 'webhippie/nodejs:latest',
+                'image': 'owncloudci/nodejs:14',
                 'pull': 'always',
                 'commands': [
                     'yarn bundle',
