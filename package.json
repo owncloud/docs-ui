@@ -84,5 +84,8 @@
   },
   "resolutions": {
     "gulp-eslint/eslint": "^7.17.0"
-  }
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
 }

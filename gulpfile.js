@@ -29,6 +29,8 @@ gulp.task("lint:css", () => lintCss(`${srcDir}/css/**/*.css`));
 gulp.task("lint:js", () => lintJs(jsFiles));
 gulp.task("lint", gulp.parallel("lint:css", "lint:js"));
 
+gulp.task("bundle", () => pack(destDir, buildDir, bundleName));
+
 gulp.task("format", () => format(jsFiles));
 
 gulp.task("build", () => build(srcDir, destDir));
@@ -61,9 +63,6 @@ gulp.task(
   )
 );
 
-gulp.task(
-  "pack",
-  gulp.series("lint", "build", () => pack(destDir, buildDir, bundleName))
-);
+gulp.task("pack", gulp.series("lint", "build", "bundle"));
 
 gulp.task("default", gulp.series("build"));

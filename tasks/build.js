@@ -44,7 +44,7 @@ module.exports = (src, dest) => {
     ]),
     postcssVar(),
     postcssCalc(),
-    autoprefixer({ browsers: ["last 2 versions"] }),
+    autoprefixer(),
     cssnano({ preset: "default" }),
   ];
 
