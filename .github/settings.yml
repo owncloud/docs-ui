@@ -1,6 +1,7 @@
 ---
 repository:
   name: docs-ui
+  description: Custom Antora UI theme for the official ownCloud documentation.
 
   private: false
   has_issues: true
