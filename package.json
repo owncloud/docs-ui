@@ -54,7 +54,7 @@
     "gulp-util": "^3.0.8",
     "gulp-vinyl-zip": "^2.2.1",
     "handlebars": "^4.7.7",
-    "highlight.js": "^10.7.2",
+    "highlight.js": "^11.0.1",
     "jquery": "^3.6.0",
     "js-yaml": "^4.1.0",
     "map-stream": "^0.0.7",
@@ -84,5 +84,8 @@
   },
   "resolutions": {
     "gulp-eslint/eslint": "^7.17.0"
-  }
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
 }
