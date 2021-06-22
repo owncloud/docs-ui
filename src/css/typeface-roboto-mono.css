@@ -2,9 +2,7 @@
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 400;
-  src:
-    local("Roboto Mono"),
-    local("RobotoMono-Regular"),
+  src: local("Roboto Mono"), local("RobotoMono-Regular"),
     url(~typeface-roboto-mono/files/roboto-mono-latin-400.woff2) format("woff2"),
     url(~typeface-roboto-mono/files/roboto-mono-latin-400.woff) format("woff");
 }
@@ -13,9 +11,7 @@
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 500;
-  src:
-    local("Roboto Mono Medium"),
-    local("RobotoMono-Medium"),
+  src: local("Roboto Mono Medium"), local("RobotoMono-Medium"),
     url(~typeface-roboto-mono/files/roboto-mono-latin-500.woff2) format("woff2"),
     url(~typeface-roboto-mono/files/roboto-mono-latin-500.woff) format("woff");
 }

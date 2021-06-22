@@ -2,9 +2,7 @@
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
-  src:
-    local("Open Sans Regular"),
-    local("Open Sans-Regular"),
+  src: local("Open Sans Regular"), local("Open Sans-Regular"),
     url(~typeface-open-sans/files/open-sans-latin-400.woff2) format("woff2"),
     url(~typeface-open-sans/files/open-sans-latin-400.woff) format("woff");
 }
@@ -13,10 +11,9 @@
   font-family: "Open Sans";
   font-style: italic;
   font-weight: 400;
-  src:
-    local("Open Sans Italic"),
-    local("Open Sans-Italic"),
-    url(~typeface-open-sans/files/open-sans-latin-400italic.woff2) format("woff2"),
+  src: local("Open Sans Italic"), local("Open Sans-Italic"),
+    url(~typeface-open-sans/files/open-sans-latin-400italic.woff2)
+      format("woff2"),
     url(~typeface-open-sans/files/open-sans-latin-400italic.woff) format("woff");
 }
 
@@ -24,9 +21,7 @@
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 600;
-  src:
-    local("Open Sans Medium"),
-    local("Open Sans-Medium"),
+  src: local("Open Sans Medium"), local("Open Sans-Medium"),
     url(~typeface-open-sans/files/open-sans-latin-600.woff2) format("woff2"),
     url(~typeface-open-sans/files/open-sans-latin-600.woff) format("woff");
 }
@@ -35,9 +30,8 @@
   font-family: "Open Sans";
   font-style: italic;
   font-weight: 600;
-  src:
-    local("Open Sans Medium Italic"),
-    local("Open Sans-MediumItalic"),
-    url(~typeface-open-sans/files/open-sans-latin-600italic.woff2) format("woff2"),
+  src: local("Open Sans Medium Italic"), local("Open Sans-MediumItalic"),
+    url(~typeface-open-sans/files/open-sans-latin-600italic.woff2)
+      format("woff2"),
     url(~typeface-open-sans/files/open-sans-latin-600italic.woff) format("woff");
 }
