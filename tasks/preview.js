@@ -1,29 +1,29 @@
-'use strict'
+"use strict";
 
-const connect = require('gulp-connect')
-const chokidar = require('chokidar')
+const connect = require("gulp-connect");
+const chokidar = require("chokidar");
 
 module.exports = (serveDir, opts) => {
-  let watch
+  let watch;
   if (opts) {
-    opts = Object.assign({}, opts)
-    watch = opts.watch
-    delete opts.watch
+    opts = Object.assign({}, opts);
+    watch = opts.watch;
+    delete opts.watch;
   } else {
-    opts = {}
+    opts = {};
   }
 
-  let onStart
+  let onStart;
   if (watch && watch.src && watch.onChange) {
     onStart = () => {
       chokidar
         .watch(watch.src, { ignoreInitial: true })
-        .on('add', watch.onChange)
-        .on('change', watch.onChange)
-        .on('unlink', watch.onChange)
-    }
+        .on("add", watch.onChange)
+        .on("change", watch.onChange)
+        .on("unlink", watch.onChange);
+    };
   }
 
-  opts.root = serveDir
-  connect.server(opts, onStart)
-}
+  opts.root = serveDir;
+  connect.server(opts, onStart);
+};

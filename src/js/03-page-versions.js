@@ -1,18 +1,18 @@
-;(function () {
-  'use strict'
+(function () {
+  "use strict";
 
-  var toggle = document.querySelector('.page-versions .versions-menu-toggle')
-  if (!toggle) return
+  var toggle = document.querySelector(".page-versions .versions-menu-toggle");
+  if (!toggle) return;
 
-  var selector = document.querySelector('.page-versions')
+  var selector = document.querySelector(".page-versions");
 
-  toggle.addEventListener('click', function (e) {
-    selector.classList.toggle('is-active')
+  toggle.addEventListener("click", function (e) {
+    selector.classList.toggle("is-active");
     // don't let this event get smothered
-    e.stopPropagation()
-  })
+    e.stopPropagation();
+  });
 
-  window.addEventListener('click', function () {
-    selector.classList.remove('is-active')
-  })
-})()
+  window.addEventListener("click", function () {
+    selector.classList.remove("is-active");
+  });
+})();
