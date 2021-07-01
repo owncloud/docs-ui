@@ -3579,10 +3579,10 @@ gulp-util@^3.0.8:
     through2 "^2.0.0"
     vinyl "^0.5.0"
 
-gulp-vinyl-zip@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/gulp-vinyl-zip/-/gulp-vinyl-zip-2.2.1.tgz#24a60230afeb3b88b1efba06d31653ef7145dfd8"
-  integrity sha512-9lwCZUkrENzP649hVQB2r+8GgeGtVrqA2fEeVDX6aYr6+yJjdczWu0r1C6WvbZdzhXcA61MtR5MEyjR9a3D7cw==
+gulp-vinyl-zip@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/gulp-vinyl-zip/-/gulp-vinyl-zip-2.5.0.tgz#73eef9c067b8775b1ad07a34a41384e1c7b0041a"
+  integrity sha512-KPi5/2SUmkXXDvKU4L2U1dkPOP03SbhONTOgNZlL23l9Yopt+euJ1bBXwWrSMbsyh3JLW/TYuC8CI4c4Kq4qrw==
   dependencies:
     queue "^4.2.1"
     through "^2.3.8"
