@@ -46,7 +46,7 @@ function loadSampleUiModel(siteSrc) {
   return promisify(fs.readFile)(
     path.join(siteSrc, "ui-model.yml"),
     "utf8"
-  ).then((contents) => yaml.safeLoad(contents));
+  ).then((contents) => yaml.load(contents));
 }
 
 function registerPartials(src) {
