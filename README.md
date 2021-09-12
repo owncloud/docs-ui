@@ -118,7 +118,7 @@ yarn install
 
 ## Prepared Yarn Commands
 
-To get all prepared yarn commands run following command:
+To get all prepared yarn commands run the following command:
 
 ```console
 yarn run
