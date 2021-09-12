@@ -161,7 +161,7 @@ Follow the [instructions][link-preview] to preview the documentation with the ch
 
 ## Previewing Changes Locally
 
-The following examples will runs a demo Antora **build** (_not ownCloud_) for the documentation site which can be **accessed** on your local development machine at `http://localhost:5252`.
+The following example runs a demo Antora **build** (_not ownCloud_) for the documentation site which can be **accessed** on your local development machine at `http://localhost:5252`.
 
 To view your changes as you are working on them, run the following command:
 
