@@ -80,7 +80,7 @@
   ],
   "devDependencies": {
     "core-js": "^3.18.1",
-    "gulp-terser": "^2.0.1"
+    "gulp-terser": "^2.1.0"
   },
   "resolutions": {
     "gulp-eslint/eslint": "^7.17.0"
