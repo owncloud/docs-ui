@@ -89,7 +89,8 @@
     "glob-parent": "^5.1.2",
     "set-value": "^4.0.1",
     "nth-check": "^2.0.1",
-    "ansi-regex": "^5.0.1"
+    "ansi-regex": "^5.0.1",
+    "yargs-parser": "^20.2.3"
   },
   "browserslist": [
     "last 2 version"
