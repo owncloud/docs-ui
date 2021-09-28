@@ -6,7 +6,8 @@ const buffer = require("vinyl-buffer");
 const concat = require("gulp-concat");
 const cssnano = require("cssnano");
 const fs = require("fs");
-const imagemin = require("gulp-imagemin");
+const squoosh = require("gulp-squoosh");
+const svgo = require("gulp-svgo");
 const map = require("map-stream");
 const merge = require("merge-stream");
 const mkdirp = require("mkdirp");
@@ -70,7 +71,17 @@ module.exports = (src, dest) => {
 
     vfs.src("font/*.woff*(2)", opts),
 
-    vfs.src("img/**/*.{jpg,ico,png,svg}", opts).pipe(imagemin()),
+    vfs.src("img/**", opts).pipe(svgo()),
+
+    vfs.src("img/**/*.{jpg,png}", opts).pipe(
+      squoosh(({ width, height, size, filePath }) => ({
+        encodeOptions: {
+          ...(path.extname(filePath) === ".png"
+            ? { oxipng: {} }
+            : { mozjpeg: {} }),
+        },
+      }))
+    ),
 
     vfs.src("helpers/*.js", opts),
 
