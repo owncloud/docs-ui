@@ -1,6 +1,6 @@
 "use strict";
 
-const { PluginError } = require("gulp-util");
+const PluginError = require("plugin-error");
 const prettierEslint = require("prettier-eslint");
 const map = require("map-stream");
 
