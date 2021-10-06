@@ -10,7 +10,7 @@ def main(ctx):
         "steps": [
             {
                 "name": "Cache restore",
-                "image": "plugins/s3-cache:1",
+                "image": "plugins/s3-cache",
                 "pull": "always",
                 "settings": {
                     "endpoint": {
@@ -51,7 +51,7 @@ def main(ctx):
             },
             {
                 "name": "Cache rebuild",
-                "image": "plugins/s3-cache:1",
+                "image": "plugins/s3-cache",
                 "pull": "always",
                 "settings": {
                     "endpoint": {
@@ -76,7 +76,7 @@ def main(ctx):
             },
             {
                 "name": "Cache Flush",
-                "image": "plugins/s3-cache:1",
+                "image": "plugins/s3-cache",
                 "pull": "always",
                 "settings": {
                     "endpoint": {
@@ -99,7 +99,7 @@ def main(ctx):
             },
             {
                 "name": "Upload artifact",
-                "image": "plugins/s3:1",
+                "image": "plugins/s3",
                 "pull": "always",
                 "settings": {
                     "endpoint": "https://minio.owncloud.com",
