@@ -1167,7 +1167,7 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1, chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -1346,11 +1346,6 @@ colord@^2.0.1, colord@^2.6:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/colord/-/colord-2.8.0.tgz#64fb7aa03de7652b5a39eee50271a104c2783b12"
   integrity sha512-kNkVV4KFta3TYQv0bzs4xNwLaeag261pxgzGQSh4cQ1rEhYjcTJfFRP0SDlbhLONg0eSoLzrDd79PosjbltufA==
-
-colorette@^1.2.2:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.4.0.tgz#5190fbb87276259a86ad700bff2c6d6faa3fca40"
-  integrity sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g==
 
 combine-source-map@^0.8.0, combine-source-map@~0.8.0:
   version "0.8.0"
@@ -2985,13 +2980,13 @@ gulp-postcss@^9.0.1:
     postcss-load-config "^3.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp-squoosh@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/gulp-squoosh/-/gulp-squoosh-0.8.0.tgz#a2f8dc01f4b4994af3663fa7e271900e79088ebc"
-  integrity sha512-frB6sulr/Mgx4wcwXPIXNgZu+GsiSEg6iCcrPjlPDL1oHlKmJXgLqv5De478CDAQrC/Ezm0Xth0poIo/aaK1aA==
+gulp-squoosh@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/gulp-squoosh/-/gulp-squoosh-0.9.0.tgz#aa31fd49a13e21c94e419fc498464e046820a5c4"
+  integrity sha512-SCl9o+DTx++w7Ff8ei4CKl6oVKbfbtgPaalUB7N1WAVO7XbB7doLrSfxnTPYpYu4RnEyZ0GPI8n3dRlIRJ0ijA==
   dependencies:
     "@squoosh/lib" "^0.3.1"
-    colorette "^1.2.2"
+    chalk "^4.1.2"
     fancy-log "^1.3.3"
     plugin-error "^1.0.1"
     through2 "^4.0.2"
