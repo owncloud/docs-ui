@@ -1,7 +1,7 @@
 "use strict";
 
 const vfs = require("vinyl-fs");
-const stylelint = require("gulp-stylelint");
+const stylelint = require("@ronilaukkarinen/gulp-stylelint");
 
 module.exports = (files) =>
   vfs.src(files).pipe(

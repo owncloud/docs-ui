@@ -1,9 +1,3 @@
 {
-  "extends": "stylelint-config-standard",
-  "rules": {
-    "comment-empty-line-before": null,
-    "declaration-colon-newline-after": null,
-    "value-list-comma-newline-after": null,
-    "indentation": null
-  }
+  "extends": "stylelint-prettier/recommended"
 }
