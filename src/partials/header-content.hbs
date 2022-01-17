@@ -12,14 +12,14 @@
       <div class="navbar-end">
         {{> header-nav}}
 
-        {{#if env.ELASTICSEARCH_HOST}}
+        {{#if env.ELASTICSEARCH_NODE}}
           <div class="navbar-item search">
             <span class="control">
               <input
                 id="search"
                 type="text"
                 placeholder="Search"
-                data-host="{{env.ELASTICSEARCH_PROTO}}://{{env.ELASTICSEARCH_HOST}}:{{env.ELASTICSEARCH_PORT}}"
+                data-host="{{env.ELASTICSEARCH_NODE}}"
                 data-index="{{env.ELASTICSEARCH_INDEX}}"
                 data-auth="{{env.ELASTICSEARCH_READ_AUTH}}">
               <div class="animation"></div>

@@ -55,7 +55,7 @@ While you can install Node from the official packages, we strongly recommend tha
 Follow the [NVM installation instructions][link-nvm-installation-instructions] to set up NVM on your machine.
 Once you've installed NVM, open a new terminal and install Node using the following command:
 
-```
+```consle
 nvm ls-remote | grep "Latest LTS"
 
          v4.9.1   (Latest LTS: Argon)
@@ -65,16 +65,17 @@ nvm ls-remote | grep "Latest LTS"
        v12.22.1   (Latest LTS: Erbium)
        v14.17.0   (Latest LTS: Fermium)
 ```
+
 Then install a suitable LTS version. You can install as many versions as you like or need, see example below.
 
-```
+```consle
 nvm install 10.23.0
 nvm install 14.17.0
 ```
 
 List the installed versions
 
-```
+```consle
 nvm ls
        v10.23.0
        v12.18.2
@@ -89,14 +90,15 @@ default -> 10.23.0 (-> v10.23.0)
 
 Switch to a specific installed version of Node at any time, use the following command:
 
-```
+```consle
 nvm use 14.17.0
 ```
+
 **Important:** If you have additional concurrent terminals open, you must close these terminals first and reopen them to use the new setup.
 
 To make a particular Node version default in new terminals, type:
 
-```
+```consle
 nvm alias default 14.17.0
 ```
 
@@ -173,7 +175,6 @@ Please note that this command does not render the search bar.
 If you want to render and preview the result containing the search bar, run the following command:
 
 ```console
-ELASTICSEARCH_PROTO=https ELASTICSEARCH_HOST=search.owncloud.com \
-  ELASTICSEARCH_PORT=443 ELASTICSEARCH_READ_AUTH=docs:cADL6DDAKEBrkFMrvfxXEtYm \
+ELASTICSEARCH_NODE=https://search.owncloud.com ELASTICSEARCH_READ_AUTH=docs:cADL6DDAKEBrkFMrvfxXEtYm \
   ELASTICSEARCH_INDEX=docs yarn preview
 ```
