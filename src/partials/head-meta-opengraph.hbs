@@ -1,6 +1,12 @@
-<meta property="og:locale" content="en_us" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="{{page.title}}" />
-<meta property="og:description" content="{{page.description}}" />
-<meta property="og:url" content="{{page.canonicalUrl}}" />
-<meta property="og:site_name" content="{{#if site.title}}{{site.title}}{{/if}}" />
+    <meta property="og:locale" content="en_us" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{page.title}}" />
+    <meta property="og:description" content="{{page.description}}" />
+    <meta property="og:url" content="{{page.canonicalUrl}}" />
+    <meta property="og:site_name" content="{{#if site.title}}{{site.title}}{{/if}}" />
+{{#if (contains page.component.name page.attributes.component-build-list word=true)}}
+    <meta property="og:image" content="{{site.url}}/opengraph-{{page.component.name}}.png" />
+{{else}}
+    <meta property="og:image" content="{{site.url}}/opengraph-default.png" />
+{{/if}}
+    <meta property="og:image:alt" content="The {{page.component.title}} documentation" />

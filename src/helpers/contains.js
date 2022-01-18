@@ -1,16 +1,40 @@
 "use strict";
 
-module.exports = (collection, value, startIndex, options) => {
-  if (typeof startIndex === "object") {
-    options = startIndex;
-    startIndex = undefined;
+module.exports = (needle, haystack, options) => {
+// searches for a needle in haystack
+// mandatory arguments are needle and haystack
+// optional named arguments like "startIndex" and "word" are in options.hash.name
+// startIndex is only for indexOf
+// word is only to go for whole words. blanks and commas separates words (regex \b)
+// word just needs to have a value which is converted to true (set) or false (absent)
+
+  var startIndex;
+  var word = false;
+
+  if (typeof options.hash.startIndex !== "undefined") {
+    startIndex = options.hash.startIndex;
+    if (!Number.isInteger(startIndex)) {
+      startIndex = undefined;
+    }
   }
-  return contains(collection, value, startIndex);
+  if (typeof options.hash.word !== "undefined") {
+    word = options.hash.word;
+  }
+
+  return contains(needle, haystack, startIndex, word);
 };
 
-function contains(val, obj, start) {
-  if (val == null || obj == null || isNaN(val.length)) {
+function contains(needle, haystack, startIndex, word) {
+  if (needle == null || haystack == null || isNaN(needle.length)) {
     return false;
   }
-  return val.indexOf(obj, start) !== -1;
+
+  if (word) {
+    var regex = new RegExp("\\b" + needle + "\\b", "g");
+    // no matches gives you null, which is converted to false
+    // one or more matches gives you an array, which is converted to true
+    return !!haystack.match(regex);
+  } else {
+    return haystack.indexOf(needle, startIndex) !== -1;
+  }
 }
