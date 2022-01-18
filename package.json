@@ -42,7 +42,7 @@
     "@ronilaukkarinen/gulp-stylelint": "^14.0.5",
     "autoprefixer": "^10.4.2",
     "browserify": "^17.0.0",
-    "chokidar": "^3.5.2",
+    "chokidar": "^3.5.3",
     "core-js": "^3.20.3",
     "cssnano": "^5.0.15",
     "eslint": "^8.7.0",
