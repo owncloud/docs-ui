@@ -44,7 +44,7 @@
     "browserify": "^17.0.0",
     "chokidar": "^3.5.3",
     "core-js": "^3.20.3",
-    "cssnano": "^5.0.15",
+    "cssnano": "^5.0.16",
     "eslint": "^8.7.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
