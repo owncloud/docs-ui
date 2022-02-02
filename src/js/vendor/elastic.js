@@ -45,7 +45,7 @@ $('#search').on('keyup focus', function () {
         context.matches.push({
           url: hit._source.url,
           component: hit._source.component,
-          version: hit._source.version === 'master' ? 'latest' : hit._source.version,
+          version: hit._source.version,
           head: hit._source.title,
           body: hit._source.text.substr(0, 100) + ' ...',
           score: Math.round(hit._score),
