@@ -92,12 +92,6 @@
   font-weight: 500;
 }
 
-/*
-.navigation-explore .component .is-latest a::after {
-  content: " (latest)";
-}
-*/
-
 .navigation-explore .component .version + .version {
   padding-left: 0.375em;
 }
