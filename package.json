@@ -43,7 +43,7 @@
     "autoprefixer": "^10.4.2",
     "browserify": "^17.0.0",
     "chokidar": "^3.5.3",
-    "core-js": "^3.21.0",
+    "core-js": "^3.21.1",
     "cssnano": "^5.0.17",
     "eslint": "^8.9.0",
     "eslint-config-standard": "^16.0.3",
