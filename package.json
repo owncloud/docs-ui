@@ -39,7 +39,7 @@
     "jquery": "^3.6.0"
   },
   "devDependencies": {
-    "@ronilaukkarinen/gulp-stylelint": "^14.0.5",
+    "@ronilaukkarinen/gulp-stylelint": "^14.0.6",
     "autoprefixer": "^10.4.2",
     "browserify": "^17.0.0",
     "chokidar": "^3.5.3",
