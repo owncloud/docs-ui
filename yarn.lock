@@ -118,17 +118,16 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@ronilaukkarinen/gulp-stylelint@^14.0.5":
-  version "14.0.5"
-  resolved "https://registry.yarnpkg.com/@ronilaukkarinen/gulp-stylelint/-/gulp-stylelint-14.0.5.tgz#8fef5a81b777723f22d4ea46f66014ddab078d77"
-  integrity sha512-E2FmF8rop7V+fOsXAFKj8GJ89elqpKyNR+BYQ/2HpjUXm9QPYKeX1gbT9kBbBTd8UMZOBy4zP7q2RD+eu93EBA==
+"@ronilaukkarinen/gulp-stylelint@^14.0.6":
+  version "14.0.6"
+  resolved "https://registry.yarnpkg.com/@ronilaukkarinen/gulp-stylelint/-/gulp-stylelint-14.0.6.tgz#ead63df43fd385d56d3cd0b32756d8e5d9584e92"
+  integrity sha512-MqN6esUpq7IZNvy2mH7FcH0HUQHpXj+SGyOGGdxO6OGLhnUUCOrGcwuu9EG6cN3VKuIVqF5/HAAuedSJIb6rMw==
   dependencies:
     chalk "^4.1.2"
     fancy-log "^1.3.3"
     plugin-error "^1.0.1"
     source-map "^0.7.3"
     strip-ansi "^6.0.0"
-    through2 "^4.0.2"
 
 "@squoosh/lib@^0.3.1":
   version "0.3.1"
