@@ -45,7 +45,7 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
 
 /* Add the additional keywords to the bash language
- * Refernces https://github.com/highlightjs/highlight.js/wiki/Adding-keywords-to-a-language-at-runtime
+ * References: https://github.com/highlightjs/highlight.js/wiki/Adding-keywords-to-a-language-at-runtime
  * Layout used and defined in highlight.css at .hljs-built_in
 */
   hljs.getLanguage('bash').keywords.built_in.push(...CUSTOM_KEYWORDS);
