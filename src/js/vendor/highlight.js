@@ -1,6 +1,11 @@
 ;(function () {
   'use strict'
 
+// the following are additional keywords to be highlighted, particulary when using bash
+const CUSTOM_KEYWORDS = ['occ', 'apt', 'apt-get', 'systemctl', 'service', 'sudo',
+'dpkg', 'wget', 'tar', 'mysql', 'php', 'grep', 'pecl', 'pear', 'make', 
+'phpenmod', 'phpdismod', 'a2enmod', 'a2dismod', 'a2ensite', 'a2dissite'];
+
 var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('apache', require('highlight.js/lib/languages/apache'))
   hljs.registerLanguage('asciidoc', require('highlight.js/lib/languages/asciidoc'))
@@ -38,6 +43,21 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('swift', require('highlight.js/lib/languages/swift'))
   hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
   hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
+
+/* Add the additional keywords to the bash language
+ * Refernces https://github.com/highlightjs/highlight.js/wiki/Adding-keywords-to-a-language-at-runtime
+ * Layout used and defined in highlight.css at .hljs-built_in
+*/
+  hljs.getLanguage('bash').keywords.built_in.push(...CUSTOM_KEYWORDS);
+  // console.log(hljs.getLanguage('bash').keywords);
+
+/* To eliminate the security messages in the browser telling:
+ * "One of your code blocks includes unescaped HTML. This is a potentially serious security risk"
+ * See: https://github.com/highlightjs/highlight.js/wiki/security
+ * A hljs command has been added in partials/footer-scripts.hbs
+ * hljs.configure({ ignoreUnescapedHTML: true })
+ * This is not a security issue for us as we have a static site
+*/
   ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
     hljs.highlightElement(node)
   })

@@ -465,9 +465,11 @@
   display: flex;
   visibility: hidden;
   position: absolute;
-  top: 0.25rem;
+  /* move things up for more distance, original top: 0.25rem; */
+  top: -0.5rem;
   right: 0.5rem;
-  color: var(--pre-annotation-font-color);
+  /* same color as in css/highlight.css hljs-built_in */
+  color: #0086b3;
   font-family: var(--body-font-family);
   font-size: calc(13.5 / var(--rem-base) * 1rem);
   line-height: 1;
@@ -551,6 +553,13 @@
   transition: none;
 }
 
+/* When using language console, a bash prompt (like > or $ or % or # or [test@ubuntu ~]$ ect.)
+ * will activate the meta css tag which results that this part can`t be selected manually in the 
+ * browser. This is also true up to 3 leading blanks at the beginning and then a prompt symbol!
+ * Rule: if the text to highlight starts with a bash prompt, choose shell (or console),
+ * otherwise choose bash. Using console but the line does not start with a bash prompt,
+ * highlighting will not work. Therefore check the language used carefully.
+*/
 .doc .language-console .hljs-meta {
   user-select: none;
 }
