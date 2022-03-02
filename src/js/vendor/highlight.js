@@ -1,18 +1,20 @@
 ;(function () {
   'use strict'
 
-// the following are additional keywords to be highlighted, particulary when using bash
-const CUSTOM_KEYWORDS = ['occ', 'apt', 'apt-get', 'systemctl', 'service', 'sudo',
-'dpkg', 'wget', 'tar', 'mysql', 'php', 'grep', 'pecl', 'pear', 'make', 
-'phpenmod', 'phpdismod', 'a2enmod', 'a2dismod', 'a2ensite', 'a2dissite'];
+// Additional keywords to be highlighted when using the bash language
+// Note that with version 9 of highlight.js, many keywords are missing compared to v10+
+const kwds_bash =
+'occ apt apt-get diff cat chown chmod dpkg exec mkdir systemctl service sudo ssh  touch ' +
+'docker docker-compose find grep make mysql openssl pecl pear php rsync tar wget ' + 
+'a2ensite a2dissite a2enmod a2dismod phpdismod phpenmod';
 
-var hljs = (window.hljs = require('highlight.js/lib/core'))
+// var hljs = (window.hljs = require('highlight.js/lib/core'))
+var hljs = require('highlight.js/lib/highlight')
   hljs.registerLanguage('apache', require('highlight.js/lib/languages/apache'))
   hljs.registerLanguage('asciidoc', require('highlight.js/lib/languages/asciidoc'))
   hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'))
   hljs.registerLanguage('clojure', require('highlight.js/lib/languages/clojure'))
   hljs.registerLanguage('cpp', require('highlight.js/lib/languages/cpp'))
-  hljs.registerLanguage('csharp', require('highlight.js/lib/languages/csharp'))
   hljs.registerLanguage('css', require('highlight.js/lib/languages/css'))
   hljs.registerLanguage('diff', require('highlight.js/lib/languages/diff'))
   hljs.registerLanguage('dockerfile', require('highlight.js/lib/languages/dockerfile'))
@@ -44,22 +46,21 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
   hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
 
-/* Add the additional keywords to the bash language
- * References: https://github.com/highlightjs/highlight.js/wiki/Adding-keywords-to-a-language-at-runtime
+/* Add additional keywords to the bash language
+ * Derived from: https://github.com/highlightjs/highlight.js/wiki/Adding-keywords-to-a-language-at-runtime
+ * Note that this is a special version for of highlight.js 9.x which uses strings instead of an array
  * Layout used and defined in highlight.css at .hljs-built_in
 */
-  hljs.getLanguage('bash').keywords.built_in.push(...CUSTOM_KEYWORDS);
-  // console.log(hljs.getLanguage('bash').keywords);
+  hljs.getLanguage('bash').keywords.built_in += ' ' + kwds_bash;
+  // console.log(hljs.getLanguage('bash').keywords.built_in);
 
-/* To eliminate the security messages in the browser telling:
- * "One of your code blocks includes unescaped HTML. This is a potentially serious security risk"
- * See: https://github.com/highlightjs/highlight.js/wiki/security
- * A hljs command has been added in partials/footer-scripts.hbs
- * hljs.configure({ ignoreUnescapedHTML: true })
- * This is not a security issue for us as we have a static site
+/* Do the same pattern matching as with version 11 of highlight.js
+ * See: https://github.com/highlightjs/highlight.js/pull/3494
 */
+  hljs.getLanguage('bash').lexemes = /\b[a-z][a-z0-9._-]+\b/;
+  // console.log(hljs.getLanguage('bash').lexemes);
+
   ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
-    hljs.highlightElement(node)
+    hljs.highlightBlock(node)
   })
 })()
-

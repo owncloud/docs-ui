@@ -2,6 +2,6 @@
 {{#if env.ELASTICSEARCH_NODE}}
   <script src="{{uiRootPath}}/js/vendor/elastic.js"></script>
 {{/if}}
-<script src="{{uiRootPath}}/js/vendor/highlight.js"></script>
-<script>hljs.highlightAll()</script>
-<script>hljs.configure({ ignoreUnescapedHTML: true })</script>
+<script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
+{{! This is highlight.js v9.x syntax DON NOT upgrade to 10+}}
+{{! Also see package.json for details}}

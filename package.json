@@ -2,7 +2,7 @@
   "private": true,
   "name": "owncloud-ui",
   "description": "The ownCloud Core documentation",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "AGPL-3.0",
   "author": "The ownCloud Team <docs@owncloud.com>",
   "homepage": "https://github.com/owncloud/docs-ui#readme",
@@ -35,8 +35,13 @@
   "dependencies": {
     "elasticsearch-browser": "^16.7.1",
     "handlebars": "^4.7.7",
-    "highlight.js": "^11.4.0",
+    "highlight.js": "9.18.3",
     "jquery": "^3.6.0"
+  },
+  "dependenciesComments": {
+    "1": "DO NOT use ^9.18.3 for highlight.js because of a compatibility issue with Antora",
+    "2": "Upgrading to a release higher than 9.x will open a XSS vector because the incompatibility",
+    "3": "https://antora.zulipchat.com/#narrow/stream/282400-users/topic/Escape.20content.20in.20source.20block"
   },
   "devDependencies": {
     "@ronilaukkarinen/gulp-stylelint": "^14.0.6",
