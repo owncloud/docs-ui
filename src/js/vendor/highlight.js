@@ -4,7 +4,7 @@
 // Additional keywords to be highlighted when using the bash language
 // Note that with version 9 of highlight.js, many keywords are missing compared to v10+
 const kwds_bash =
-'occ apt apt-get diff cat chown chmod dpkg exec mkdir systemctl service sudo ssh  touch ' +
+'occ apt apt-get diff cat chown chmod dpkg exec mkdir systemctl sed service sudo ssh touch ' +
 'docker docker-compose find grep make mysql openssl pecl pear php rsync tar wget ' + 
 'a2ensite a2dissite a2enmod a2dismod phpdismod phpenmod';
 
