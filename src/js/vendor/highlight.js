@@ -2,9 +2,16 @@
   'use strict'
 
 // the following are additional keywords to be highlighted, particulary when using bash
-const CUSTOM_KEYWORDS = ['occ', 'apt', 'apt-get', 'systemctl', 'service', 'sudo',
-'dpkg', 'wget', 'tar', 'mysql', 'php', 'grep', 'pecl', 'pear', 'make', 
-'phpenmod', 'phpdismod', 'a2enmod', 'a2dismod', 'a2ensite', 'a2dissite'];
+const kwds_bash = [
+'occ', 'apt', 'apt-get', 'curl', 'diff', 'dpkg', 'find', 'grep',
+'make', 'mysql', 'openssl', 'pear', 'pecl', 'php', 'rsync',
+'service', 'systemctl', 'ssl', 'ssh', 'sudo', 'tar', 'wget',
+'phpenmod', 'phpdismod', 'a2enmod', 'a2dismod', 'a2ensite', 'a2dissite'
+];
+
+const kwds_docker = [
+'docker', 'docker-compose'
+];
 
 var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('apache', require('highlight.js/lib/languages/apache'))
@@ -44,11 +51,12 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'))
   hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
 
-/* Add the additional keywords to the bash language
+/* Add the additional keywords to languages
  * References: https://github.com/highlightjs/highlight.js/wiki/Adding-keywords-to-a-language-at-runtime
  * Layout used and defined in highlight.css at .hljs-built_in
 */
-  hljs.getLanguage('bash').keywords.built_in.push(...CUSTOM_KEYWORDS);
+  hljs.getLanguage('bash').keywords.built_in.push(...kwds_bash);
+  hljs.getLanguage('dockerfile').keywords.push(...kwds_docker);
   // console.log(hljs.getLanguage('bash').keywords);
 
 /* To eliminate the security messages in the browser telling:
@@ -56,10 +64,9 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
  * See: https://github.com/highlightjs/highlight.js/wiki/security
  * A hljs command has been added in partials/footer-scripts.hbs
  * hljs.configure({ ignoreUnescapedHTML: true })
- * This is not a security issue for us as we have a static site
+ * For details see: https://github.com/owncloud/docs-ui/pull/438#issuecomment-1057878336
 */
   ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
     hljs.highlightElement(node)
   })
 })()
-
