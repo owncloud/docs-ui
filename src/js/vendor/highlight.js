@@ -3,9 +3,10 @@
 
 // the following are additional keywords to be highlighted, particulary when using bash
 const kwds_bash = [
-'occ', 'apt', 'apt-get', 'curl', 'diff', 'dpkg', 'find', 'grep',
+'occ', 'apt', 'apt-get', 'curl', 'diff', 'dpkg', 'find', 'grep', 'install',
 'make', 'mysql', 'openssl', 'pear', 'pecl', 'php', 'rsync',
 'service', 'systemctl', 'ssl', 'ssh', 'sudo', 'tar', 'wget',
+'yum', 'zypper',
 'phpenmod', 'phpdismod', 'a2enmod', 'a2dismod', 'a2ensite', 'a2dissite'
 ];
 
@@ -39,6 +40,7 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('objectivec', require('highlight.js/lib/languages/objectivec'))
   hljs.registerLanguage('perl', require('highlight.js/lib/languages/perl'))
   hljs.registerLanguage('php', require('highlight.js/lib/languages/php'))
+  hljs.registerLanguage('plaintext', require('highlight.js/lib/languages/properties'))
   hljs.registerLanguage('properties', require('highlight.js/lib/languages/properties'))
   hljs.registerLanguage('puppet', require('highlight.js/lib/languages/puppet'))
   hljs.registerLanguage('python', require('highlight.js/lib/languages/python'))
