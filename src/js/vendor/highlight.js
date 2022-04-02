@@ -3,7 +3,8 @@
 
 // the following are additional keywords to be highlighted, particulary when using bash
 const kwds_bash = [
-'occ', 'apt', 'apt-get', 'curl', 'diff', 'dpkg', 'find', 'grep', 'install',
+'occ', 'ocis',
+'apt', 'apt-get', 'curl', 'diff', 'dpkg', 'find', 'grep', 'install',
 'make', 'mysql', 'openssl', 'pear', 'pecl', 'php', 'rsync',
 'service', 'systemctl', 'ssl', 'ssh', 'sudo', 'tar', 'wget',
 'yum', 'zypper',
