@@ -102,7 +102,7 @@
   background-color: #fafafa;
   padding: 0.075rem 0.25rem 0.125rem;
   border-radius: 0.2rem;
-  word-break: break-all;
+  word-break: keep-all;
   /* font-weight: 300; */
 }
 
