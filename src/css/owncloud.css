@@ -36,11 +36,13 @@ div.dlist div.title {
   text-align: left;
 }
 
-div.paragraph p span.image img {
-  border-radius: 3px;
-  border: 1px solid #cecece;
-  padding: 2px;
-}
+/**
+ * div.paragraph p span.image img {
+ * border-radius: 3px;
+ * border: 1px solid #cecece;
+ * padding: 2px;
+ * }
+ */
 
 /**
  * The table caption text is forced to be aligned left (standard = center)
