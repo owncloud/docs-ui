@@ -118,6 +118,14 @@ Finally, run the following command to install all dependencies:
 yarn install
 ```
 
+### Add Packages
+
+If a new package needs to be added, type the following:
+
+```Shell
+yarn add <package-name>
+```
+
 ## Prepared Yarn Commands
 
 To get all prepared yarn commands run the following command:
