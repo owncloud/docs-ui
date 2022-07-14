@@ -35,7 +35,7 @@
   "dependencies": {
     "elasticsearch-browser": "^16.7.1",
     "handlebars": "^4.7.7",
-    "highlight.js": "^11.5.1",
+    "highlight.js": "^11.6.0",
     "jquery": "^3.6.0",
     "medium-zoom": "^1.0.6"
   },
