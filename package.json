@@ -46,7 +46,7 @@
     "chokidar": "^3.5.3",
     "core-js": "^3.23.4",
     "cssnano": "^5.1.12",
-    "eslint": "^8.19.0",
+    "eslint": "^8.20.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
