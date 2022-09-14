@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@ronilaukkarinen/gulp-stylelint": "^14.0.6",
-    "autoprefixer": "^10.4.10",
+    "autoprefixer": "^10.4.11",
     "browserify": "^17.0.0",
     "chokidar": "^3.5.3",
     "core-js": "^3.25.1",
