@@ -44,7 +44,7 @@
     "autoprefixer": "^10.4.11",
     "browserify": "^17.0.0",
     "chokidar": "^3.5.3",
-    "core-js": "^3.25.1",
+    "core-js": "^3.25.2",
     "cssnano": "^5.1.13",
     "eslint": "^8.23.1",
     "eslint-config-standard": "^16.0.3",
