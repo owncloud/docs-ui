@@ -15,6 +15,10 @@ const kwds_docker = [
 'docker', 'docker-compose'
 ];
 
+const kwds_kubernetes = [
+'minikube', 'kubectl', 'helm', 'start', 'addons' , 'apply'
+];
+
 var hljs = (window.hljs = require('highlight.js/lib/core'))
   hljs.registerLanguage('apache', require('highlight.js/lib/languages/apache'))
   hljs.registerLanguage('asciidoc', require('highlight.js/lib/languages/asciidoc'))
@@ -60,6 +64,7 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
  * Layout used and defined in highlight.css at .hljs-built_in
 */
   hljs.getLanguage('bash').keywords.built_in.push(...kwds_bash);
+  hljs.getLanguage('bash').keywords.built_in.push(...kwds_kubernetes);
   hljs.getLanguage('dockerfile').keywords.push(...kwds_docker);
   // console.log(hljs.getLanguage('bash').keywords);
 
