@@ -3797,10 +3797,10 @@ mdn-data@2.0.4:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
   integrity sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA==
 
-medium-zoom@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-1.0.7.tgz#38100a4b7588226330c0658fae53fe7f86c619c8"
-  integrity sha512-otDp0YidvLr6lAatPt6v3aEBxFE8YyWOksbCdfrR83KFY+8wluk7rblE6RKW18mY+FdBXhi9reVY0JTmoIt7SA==
+medium-zoom@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/medium-zoom/-/medium-zoom-1.0.8.tgz#2bd1fbcf2961fa7b0e318fe284462aa9b8608ed2"
+  integrity sha512-CjFVuFq/IfrdqesAXfg+hzlDKu6A2n80ZIq0Kl9kWjoHh9j1N9Uvk5X0/MmN0hOfm5F9YBswlClhcwnmtwz7gA==
 
 meow@^9.0.0:
   version "9.0.0"
