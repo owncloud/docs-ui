@@ -1,3 +1,10 @@
 {
-  "extends": "stylelint-prettier/recommended"
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "comment-empty-line-before": null,
+    "no-descending-specificity": null,
+    "color-function-notation": legacy,
+    "alpha-value-notation": number,
+    "selector-class-pattern": null,
+  }
 }

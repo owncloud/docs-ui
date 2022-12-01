@@ -1,8 +1,8 @@
 (function () {
   "use strict";
 
-  var article = document.querySelector("article.doc");
-  var toolbar = document.querySelector(".toolbar");
+  const article = document.querySelector("article.doc");
+  const toolbar = document.querySelector(".toolbar");
 
   function computePosition(el, sum) {
     if (article.contains(el)) {
@@ -24,7 +24,7 @@
   }
 
   window.addEventListener("load", function jumpOnLoad(e) {
-    var hash, target;
+    let hash, target;
     if (
       (hash = window.location.hash) &&
       (target = document.getElementById(hash.slice(1)))
@@ -38,7 +38,7 @@
   Array.prototype.slice
     .call(document.querySelectorAll('a[href^="#"]'))
     .forEach(function (el) {
-      var hash, target;
+      let hash, target;
       if (
         (hash = el.hash.slice(1)) &&
         (target = document.getElementById(hash))

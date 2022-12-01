@@ -1,26 +1,26 @@
 (function () {
   "use strict";
 
-  var navContainer = document.querySelector(".navigation-container");
-  var navToggle = document.querySelector(".navigation-toggle");
+  const navContainer = document.querySelector(".navigation-container");
+  const navToggle = document.querySelector(".navigation-toggle");
 
   navToggle.addEventListener("click", toggleNavigation);
   // don't let click events propagate outside of navigation container
   navContainer.addEventListener("click", concealEvent);
 
-  var menuPanel = navContainer.querySelector("[data-panel=menu]");
+  const menuPanel = navContainer.querySelector("[data-panel=menu]");
   if (!menuPanel) return;
 
-  var navState = getNavState();
-  var menuState = getMenuState(
+  const navState = getNavState();
+  const menuState = getMenuState(
     navState,
     navContainer.dataset.component,
     navContainer.dataset.version
   );
 
   navContainer.querySelector(".context").addEventListener("click", function () {
-    var currentPanel = navContainer.querySelector(".is-active[data-panel]");
-    var activatePanel =
+    const currentPanel = navContainer.querySelector(".is-active[data-panel]");
+    const activatePanel =
       currentPanel.dataset.panel === "menu" ? "explore" : "menu";
     currentPanel.classList.toggle("is-active");
     navContainer
@@ -29,13 +29,13 @@
   });
 
   find(".nav-toggle", menuPanel).forEach(function (btn) {
-    var li = btn.parentElement;
+    const li = btn.parentElement;
     btn.addEventListener("click", function () {
       li.classList.toggle("is-active");
       menuState.expandedItems = getExpandedItems();
       saveNavState();
     });
-    var navItemSpan = findNextElement(btn, ".nav-text");
+    const navItemSpan = findNextElement(btn, ".nav-text");
     if (navItemSpan) {
       navItemSpan.style.cursor = "pointer";
       navItemSpan.addEventListener("click", function () {
@@ -50,7 +50,7 @@
     item.setAttribute("data-id", "menu-" + item.dataset.depth + "-" + idx);
   });
 
-  var expandedItems = menuState.expandedItems || (menuState.expandedItems = []);
+  const expandedItems = menuState.expandedItems || (menuState.expandedItems = []);
 
   if (expandedItems.length) {
     find(
@@ -65,7 +65,7 @@
     });
   }
 
-  var currentPageItem = menuPanel.querySelector(".is-current-page");
+  const currentPageItem = menuPanel.querySelector(".is-current-page");
   if (currentPageItem) {
     activateCurrentPath(currentPageItem).forEach(function (itemId) {
       if (expandedItems.indexOf(itemId) < 0) expandedItems.push(itemId);
@@ -86,9 +86,9 @@
   });
 
   function activateCurrentPath(navItem) {
-    var ids = [navItem.dataset.id];
-    var ancestorClasses;
-    var ancestor = navItem.parentNode;
+    const ids = [navItem.dataset.id];
+    let ancestorClasses;
+    let ancestor = navItem.parentNode;
     while (!(ancestorClasses = ancestor.classList).contains("nav-menu")) {
       if (ancestor.tagName === "LI" && ancestorClasses.contains("nav-item")) {
         ancestorClasses.add("is-active", "is-current-path");
@@ -131,14 +131,14 @@
   }
 
   function getNavState() {
-    var data = window.sessionStorage.getItem("nav-state");
+    let data = window.sessionStorage.getItem("nav-state");
     return data && (data = JSON.parse(data)).__version__ === "1"
       ? data
       : { __version__: "1" };
   }
 
   function getMenuState(navState, component, version) {
-    var key = version + "@" + component;
+    const key = version + "@" + component;
     return navState[key] || (navState[key] = {});
   }
 
@@ -149,9 +149,9 @@
   function scrollItemIntoView(scrollPosition, parent, el) {
     if (!el) return (parent.scrollTop = scrollPosition);
 
-    var margin = 10;
+    const margin = 10;
     //var y = el.getBoundingClientRect().top - parent.getBoundingClientRect().top
-    var y = el.offsetTop;
+    const y = el.offsetTop;
 
     if (y < scrollPosition) {
       parent.scrollTop = y - margin;
@@ -167,7 +167,7 @@
   }
 
   function findNextElement(from, selector) {
-    var el;
+    let el;
     if ("nextElementSibling" in from) {
       el = from.nextElementSibling;
     } else {

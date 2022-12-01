@@ -13,7 +13,7 @@ body {
 .navbar {
   background-color: var(--color-navbar-bg);
   color: var(--color-navbar-text);
-  font-size: 0.83333rem;
+  font-size: 0.8333rem;
   height: var(--navbar-height);
   position: fixed;
   top: 0;

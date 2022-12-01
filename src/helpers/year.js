@@ -13,7 +13,7 @@
 "use strict";
 
 module.exports = (pattern) => {
-  var year = new Date().getUTCFullYear().toString();
+  const year = new Date().getUTCFullYear().toString();
 
   if (typeof pattern !== "string") {
     return year;

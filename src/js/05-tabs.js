@@ -1,16 +1,16 @@
 (function () {
   "use strict";
 
-  var hash = window.location.hash;
+  const hash = window.location.hash;
   find(".tabset").forEach(function (tabset) {
-    var active;
-    var tabs = tabset.querySelector(".tabs");
+    let active;
+    const tabs = tabset.querySelector(".tabs");
     if (tabs) {
-      var first;
+      let first;
       find("li", tabs).forEach(function (tab, idx) {
-        var id = (tab.querySelector("a[id]") || tab).id;
+        const id = (tab.querySelector("a[id]") || tab).id;
         if (!id) return;
-        var pane = getPane(id, tabset);
+        const pane = getPane(id, tabset);
         if (!idx) first = { tab: tab, pane: pane };
         if (!active && hash === "#" + id && (active = true)) {
           tab.classList.add("is-active");
@@ -33,8 +33,8 @@
   });
 
   function activateTab(e) {
-    var tab = this.tab;
-    var pane = this.pane;
+    const tab = this.tab;
+    const pane = this.pane;
     find(".tabs li, .tab-pane", this.tabset).forEach(function (it) {
       it === tab || it === pane
         ? it.classList.add("is-active")

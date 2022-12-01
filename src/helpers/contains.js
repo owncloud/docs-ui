@@ -8,8 +8,8 @@ module.exports = (needle, haystack, options) => {
 // word is only to go for whole words. blanks and commas separates words (regex \b)
 // word just needs to have a value which is converted to true (set) or false (absent)
 
-  var startIndex;
-  var word = false;
+  let startIndex;
+  let word = false;
 
   if (typeof options.hash.startIndex !== "undefined") {
     startIndex = options.hash.startIndex;
@@ -30,7 +30,7 @@ function contains(needle, haystack, startIndex, word) {
   }
 
   if (word) {
-    var regex = new RegExp("\\b" + needle + "\\b", "g");
+    const regex = new RegExp("\\b" + needle + "\\b", "g");
     // no matches gives you null, which is converted to false
     // one or more matches gives you an array, which is converted to true
     return !!haystack.match(regex);

@@ -1,13 +1,21 @@
 {
   "extends": "standard",
   "rules": {
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double", { "avoidEscape": true }],
+    "prefer-const": ["warn", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+    }],
     "arrow-parens": ["error", "always"],
-    "comma-dangle": ["error", "only-multiline"],
+    "comma-dangle": ["error", {
+      "arrays": "only-multiline",
+      "objects": "only-multiline",
+      "imports": "only-multiline",
+      "exports": "only-multiline"
+    }],
     "max-len": [1, 120, 2],
     "spaced-comment": "off",
-    "no-var": "off",
-    "quotes": ["error", "double", { "avoidEscape": true }],
-    "semi": ["error", "always"],
     "space-before-function-paren": "off",
     "curly": 0
   }
