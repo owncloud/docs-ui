@@ -33,7 +33,7 @@
 }
 
 .navigation-explore .context .version {
-  background-image: url(../img/chevron.svg);
+  background-image: url("../img/chevron.svg");
   background-repeat: no-repeat;
   background-position: right 0.5rem top 50%;
   background-size: auto 0.75em;

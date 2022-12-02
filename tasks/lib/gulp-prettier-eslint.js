@@ -29,11 +29,11 @@ module.exports = () => {
 
   function format(file, next) {
     if (file.isNull()) return next();
-    if (file.isStream())
+    if (file.isStream()) {
       return next(
         new PluginError("gulp-prettier-eslint", "Streaming not supported")
       );
-
+    }
     const input = file.contents.toString();
     const output = prettierEslint({ text: input });
 

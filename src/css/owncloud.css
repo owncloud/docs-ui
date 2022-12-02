@@ -111,8 +111,6 @@ blockquote::before {
 }
 
 #search {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   background-color: #fff;
   border: 1px solid #e1e1e1;

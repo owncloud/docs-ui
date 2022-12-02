@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var navbarToggles = Array.prototype.slice.call(
+  const navbarToggles = Array.prototype.slice.call(
     document.querySelectorAll(".navbar-burger"),
     0
   );
