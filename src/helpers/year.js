@@ -10,12 +10,12 @@
  * Licensed under the MIT license.
  */
 
-"use strict";
+'use strict';
 
 module.exports = (pattern) => {
   const year = new Date().getUTCFullYear().toString();
 
-  if (typeof pattern !== "string") {
+  if (typeof pattern !== 'string') {
     return year;
   }
 

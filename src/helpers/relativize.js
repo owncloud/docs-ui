@@ -1,6 +1,9 @@
-"use strict";
+/* do not overwrite or replace this content with the one of the default ui as it will break the navigation */
+/* https://gitlab.com/mmattel/antora-ui-default/-/blob/master/src/helpers/relativize.js */
+/* needs more investigation to fix */
+'use strict'
 
-const { posix: path } = require("path");
+const { posix: path } = require('path')
 
 // TODO memoize
 module.exports = (from, to) => {
@@ -19,8 +22,7 @@ module.exports = (from, to) => {
       (isDir(to) ? "/" + hash : hash)
     );
   }
-};
-
+}
 function isDir(str) {
   return str.charAt(str.length - 1) === "/";
 }
