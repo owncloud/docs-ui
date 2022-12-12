@@ -1,0 +1,23 @@
+/* this file is a preparation for vars in other css defined via :root
+ * these vars should be moved from existing css into one file
+ * BUT some of these vars are also used in other css defined locally without global scope
+ * causing a mess when just activated - needs single treatment, css, by css, by var...
+ * see default ui vars.css from https://gitlab.com/antora/antora-ui-default/-/blob/master/src/css/vars.css */
+
+:root {
+  /* base.css
+  --color-text: #1f2939;
+  --color-navbar-bg: #1b223d;
+  --color-navbar-bg-focus: #0e152d;
+  --color-navbar-text: #fff;
+   */
+  /* header.css
+  --navbar-height: 3.25rem;
+   */
+  /* navigation.css
+  --drawer-height: 2.5rem;
+   */
+  /* toolbar.css
+  --toolbar-height: 2.5rem;
+  */
+}

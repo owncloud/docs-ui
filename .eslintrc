@@ -1,12 +1,13 @@
 {
   "extends": "standard",
   "rules": {
-    "semi": ["warn", "always"],
-    "quotes": ["warn", "double", { "avoidEscape": true }],
-    "prefer-const": ["warn", {
-        "destructuring": "any",
-        "ignoreReadBeforeAssign": false
-    }],
+    "curly": "off",
+    "semi": "off",
+    "no-var": "off",
+    "array-callback-return": "off",
+    "quotes": "off",
+    "prefer-const": "off",
+    "spaced-comment": "off",
     "arrow-parens": ["error", "always"],
     "comma-dangle": ["error", {
       "arrays": "only-multiline",
@@ -15,8 +16,6 @@
       "exports": "only-multiline"
     }],
     "max-len": [1, 120, 2],
-    "spaced-comment": "off",
-    "space-before-function-paren": "off",
-    "curly": 0
+    "space-before-function-paren": "off"
   }
 }

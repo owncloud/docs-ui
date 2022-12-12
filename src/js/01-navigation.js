@@ -1,4 +1,11 @@
-(function () {
+/* do not use the content of the script from the default ui */
+/* https://gitlab.com/mmattel/antora-ui-default/-/tree/master/src/js */
+/* it currently breaks the navigation (no clicking possible) most likely */
+/* because the referenced names are different in css */
+/* this needs an in depth investigation and update including a lot of testing */
+/* to avoid any accidental updates, the script has a different name compared to the default ui*/
+
+;(function () {
   "use strict";
 
   const navContainer = document.querySelector(".navigation-container");

@@ -1,6 +1,9 @@
 /*! Asciidoctor Tabs | Copyright (c) 2018-present Dan Allen | MIT License */
 /*! https://github.com/asciidoctor/asciidoctor-tabs */
-/*! As for 2022.12, some adoptions have been made which are commented */
+/* Some adoptions have been made which are commented */
+.tabset {
+  margin-bottom: 1.25em;
+}
 
 .tabs > ul {
   display: flex;
@@ -11,9 +14,8 @@
 }
 
 .tabs > ul li {
+  background-color: #f0f0f0; /* set the bg color to light gray to make the active tab better visible */
   align-items: center;
-  /*! set the bg color to light gray to make the active tab better visible */
-  background-color: #f0f0f0;
   border: 1px solid black;
   border-bottom: 0;
   cursor: pointer;
@@ -21,35 +23,31 @@
   font-weight: bold;
   height: 2em;
   line-height: 1;
-  margin-right: 0.25em;
   padding: 0 1em;
   position: relative;
 }
 
-.tabs > ul li,
+.tabs.ulist > ul li {
+  margin: 0;
+}
+
 .tabs > ul p {
   margin-bottom: 0;
 }
 
-.tabs > ul li + li[id] {
-  margin-top: 0;
-}
-
-.tabset {
-  margin-bottom: 1.25em;
+.tabs.ulist > ul li + li {
+  margin-left: 0.25em;
 }
 
 .tabset.is-loading .tabs li:not(:first-child),
 .tabset:not(.is-loading) .tabs li:not(.is-active) {
-  /*! set the bg color to white and text color to black */
-  background-color: white;
+  background-color: white;  /* set the bg color of inactive tabs to white and text color to black */
   color: black;
 }
 
 .tabset.is-loading .tabs li:first-child::after,
-.tabs li.is-active::after {
-  /*! set the bg color to light gray to make the active tab better visible */
-  background-color: #f0f0f0;
+.tabset:not(.is-loading) .tabs li.is-active::after {
+  background-color: #f0f0f0; /* set the bg color to light gray to make the active tab better visible */
   content: "";
   display: block;
   height: 3px; /* Chrome doesn't always paint the line accurately, so add a little extra */
@@ -59,13 +57,13 @@
   right: 0;
 }
 
-.tabset > .content {
+.tabset > .tabs + .content {
   border: 1px solid gray;
   padding: 1.25em;
-  /*! make it an inline block + right margin. this fits the border to the content */
-  /*! plus some space to the right to have the border line visible in the browser */
-  /*! if not set, the right borderline will possibly go thru long content e.g. when using tables */
-  /*! with this setting, the border not only extends but also shrinks to fit around content */
+  /* make it an inline block + right margin. this fits the border to the content */
+  /* plus some space to the right to have the border line visible in the browser */
+  /* if not set, the right borderline will possibly go thru long content e.g. when using tables */
+  /* with this setting, the border not only extends but also shrinks to fit around content */
   display: inline-block;
   margin-right: 50px;
 }
