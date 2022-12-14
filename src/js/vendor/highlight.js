@@ -71,10 +71,14 @@ var hljs = (window.hljs = require('highlight.js/lib/core'))
 /* To eliminate the security messages in the browser telling:
  * "One of your code blocks includes unescaped HTML. This is a potentially serious security risk"
  * See: https://github.com/highlightjs/highlight.js/wiki/security
- * A hljs command has been added in partials/footer-scripts.hbs
+ * A hljs.configure command to ignore the message can either be added in partials/footer-scripts.hbs or here
  * hljs.configure({ ignoreUnescapedHTML: true })
  * For details see: https://github.com/owncloud/docs-ui/pull/438#issuecomment-1057878336
 */
+  hljs.configure({ ignoreUnescapedHTML: true })
+
+  hljs.highlightAll();
+
   ;[].slice.call(document.querySelectorAll('pre code.hljs')).forEach(function (node) {
     hljs.highlightElement(node)
   })

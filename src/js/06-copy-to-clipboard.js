@@ -54,7 +54,10 @@
       copy.appendChild(toast)
       toolbox.appendChild(copy)
     }
-    pre.parentNode.appendChild(toolbox)
+    // pre.parentNode.appendChild(toolbox) // code from default UI but it does not show the copy on hoover
+    // see chat with a hint to fix:
+    // https://antora.zulipchat.com/#narrow/stream/282400-users/topic/copy-to-clipboard.20question
+    pre.appendChild(toolbox) // our former code works
     if (copy) copy.addEventListener('click', writeToClipboard.bind(copy, code))
   })
 
