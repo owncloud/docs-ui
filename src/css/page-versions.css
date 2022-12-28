@@ -12,8 +12,8 @@
 
 .page-versions .version-menu-toggle {
   color: inherit;
-  font-family: inherit;
-  font-size: inherit;
+  font-family: inherit; /* align the fonts */
+  font-size: inherit; /* else it is smaller than the text on the right */
   background: url("../img/chevron.svg") no-repeat;
   background-position: right 0.5rem top 50%;
   background-size: auto 0.75em;
