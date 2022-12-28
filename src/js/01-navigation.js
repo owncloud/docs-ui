@@ -1,7 +1,7 @@
 /* do not use the content of the script from the default ui */
-/* https://gitlab.com/mmattel/antora-ui-default/-/tree/master/src/js */
+/* https://gitlab.com/antora/antora-ui-default/-/blob/master/src/js/01-nav.js */
 /* it currently breaks the navigation (no clicking possible) most likely */
-/* because the referenced names are different in css */
+/* because the referenced names are different in css/hbs */
 /* this needs an in depth investigation and update including a lot of testing */
 /* to avoid any accidental updates, the script has a different name compared to the default ui*/
 
