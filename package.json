@@ -40,7 +40,7 @@
     "medium-zoom": "^1.0.8"
   },
   "devDependencies": {
-    "@ronilaukkarinen/gulp-stylelint": "^14.0.9",
+    "@ronilaukkarinen/gulp-stylelint": "^14.1.1",
     "autoprefixer": "^10.4.13",
     "browserify": "^17.0.0",
     "chokidar": "^3.5.3",
