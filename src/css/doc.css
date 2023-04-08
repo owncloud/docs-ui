@@ -247,23 +247,28 @@
 }
 
 .doc .admonitionblock.caution .icon {
+  /* base.css */
   background-color: #a0439c;
 }
 
 .doc .admonitionblock.important .icon {
-  background-color: #d32f2f;
+  /* orange */
+  background-color: #e18114;
 }
 
 .doc .admonitionblock.note .icon {
+  /* blue */
   background-color: #217ee7;
 }
 
 .doc .admonitionblock.tip .icon {
+  /* green */
   background-color: #41af46;
 }
 
 .doc .admonitionblock.warning .icon {
-  background-color: #e18114;
+  /* red */
+  background-color: #d32f2f;
 }
 
 .doc .admonitionblock .icon i {
