@@ -66,7 +66,7 @@
     "merge-stream": "^2.0.0",
     "plugin-error": "^2.0.1",
     "postcss": "8",
-    "postcss-calc": "^8.2.4",
+    "postcss-calc": "^9.0.1",
     "postcss-custom-properties": "^13.1.5",
     "postcss-import": "^15.1.0",
     "postcss-url": "^10.1.3",
