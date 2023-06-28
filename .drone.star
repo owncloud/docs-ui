@@ -11,7 +11,6 @@ def main(ctx):
             {
                 "name": "Cache restore",
                 "image": "plugins/s3-cache",
-                "pull": "always",
                 "settings": {
                     "endpoint": {
                         "from_secret": "cache_s3_endpoint",
@@ -28,7 +27,6 @@ def main(ctx):
             {
                 "name": "Dependencies",
                 "image": "owncloudci/nodejs:16",
-                "pull": "always",
                 "commands": [
                     "yarn install",
                 ],
@@ -36,7 +34,6 @@ def main(ctx):
             {
                 "name": "Lint",
                 "image": "owncloudci/nodejs:16",
-                "pull": "always",
                 "commands": [
                     "yarn lint",
                 ],
@@ -44,7 +41,6 @@ def main(ctx):
             {
                 "name": "Build",
                 "image": "owncloudci/nodejs:16",
-                "pull": "always",
                 "commands": [
                     "yarn bundle",
                 ],
@@ -52,7 +48,6 @@ def main(ctx):
             {
                 "name": "Cache rebuild",
                 "image": "plugins/s3-cache",
-                "pull": "always",
                 "settings": {
                     "endpoint": {
                         "from_secret": "cache_s3_endpoint",
@@ -78,7 +73,6 @@ def main(ctx):
             {
                 "name": "Cache Flush",
                 "image": "plugins/s3-cache",
-                "pull": "always",
                 "settings": {
                     "endpoint": {
                         "from_secret": "cache_s3_endpoint",
@@ -102,7 +96,6 @@ def main(ctx):
             {
                 "name": "Upload artifact",
                 "image": "plugins/s3",
-                "pull": "always",
                 "settings": {
                     "endpoint": "https://minio.owncloud.com",
                     "access_key": {
@@ -121,6 +114,26 @@ def main(ctx):
                     "ref": [
                         "refs/heads/master",
                         "refs/tags/**",
+                    ],
+                },
+            },
+            {
+                "name": "Notify",
+                "image": "plugins/slack",
+                "settings": {
+                    "webhook": {
+                        "from_secret": "slack_webhook",
+                    },
+                    "channel": "documentation",
+                },
+                "when": {
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
+                    ],
+                    "status": [
+                        "success",
+                        "failure",
                     ],
                 },
             },
