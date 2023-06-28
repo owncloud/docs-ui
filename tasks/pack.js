@@ -1,10 +1,10 @@
 "use strict";
 
-const vfs = require("vinyl-fs");
-const zip = require("gulp-vinyl-zip");
+const gulp = require("gulp");
+const zip = require("gulp-zip");
 
 module.exports = (src, dest, bundleName) =>
-  vfs
+  gulp
     .src("**/*", { base: src, cwd: src })
-    .pipe(zip.zip(`${bundleName}-bundle.zip`))
-    .pipe(vfs.dest(dest));
+    .pipe(zip(`${bundleName}-bundle.zip`))
+    .pipe(gulp.dest(dest));

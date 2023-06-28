@@ -60,7 +60,7 @@
     "gulp-squoosh": "^0.11.0",
     "gulp-svgo": "^2.2.1",
     "gulp-terser": "^2.1.0",
-    "gulp-vinyl-zip": "^2.5.0",
+    "gulp-zip": "^5.1.0",
     "js-yaml": "^4.1.0",
     "map-stream": "^0.0.7",
     "merge-stream": "^2.0.0",
@@ -79,8 +79,7 @@
     "stylelint-prettier": "^3.0.0",
     "typeface-open-sans": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-fs": "^4.0.0"
+    "vinyl-buffer": "^1.0.0"
   },
   "keywords": [
     "owncloud",

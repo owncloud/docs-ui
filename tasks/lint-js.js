@@ -1,10 +1,10 @@
 "use strict";
 
-const vfs = require("vinyl-fs");
+const gulp = require("gulp");
 const eslint = require("gulp-eslint");
 
 module.exports = (files) =>
-  vfs
+  gulp
     .src(files)
     .pipe(eslint())
     .pipe(eslint.format())
