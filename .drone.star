@@ -11,7 +11,6 @@ def main(ctx):
             {
                 "name": "Cache restore",
                 "image": "plugins/s3-cache",
-                "pull": "always",
                 "settings": {
                     "endpoint": {
                         "from_secret": "cache_s3_endpoint",
@@ -28,7 +27,6 @@ def main(ctx):
             {
                 "name": "Dependencies",
                 "image": "owncloudci/nodejs:16",
-                "pull": "always",
                 "commands": [
                     "yarn install",
                 ],
@@ -36,7 +34,6 @@ def main(ctx):
             {
                 "name": "Lint",
                 "image": "owncloudci/nodejs:16",
-                "pull": "always",
                 "commands": [
                     "yarn lint",
                 ],
@@ -44,7 +41,6 @@ def main(ctx):
             {
                 "name": "Build",
                 "image": "owncloudci/nodejs:16",
-                "pull": "always",
                 "commands": [
                     "yarn bundle",
                 ],
@@ -52,7 +48,6 @@ def main(ctx):
             {
                 "name": "Cache rebuild",
                 "image": "plugins/s3-cache",
-                "pull": "always",
                 "settings": {
                     "endpoint": {
                         "from_secret": "cache_s3_endpoint",
@@ -69,15 +64,15 @@ def main(ctx):
                     ],
                 },
                 "when": {
-                    "event": [
-                        "push",
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
                     ],
                 },
             },
             {
                 "name": "Cache Flush",
                 "image": "plugins/s3-cache",
-                "pull": "always",
                 "settings": {
                     "endpoint": {
                         "from_secret": "cache_s3_endpoint",
@@ -92,15 +87,15 @@ def main(ctx):
                     "flush_age": 14,
                 },
                 "when": {
-                    "event": [
-                        "push",
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
                     ],
                 },
             },
             {
                 "name": "Upload artifact",
                 "image": "plugins/s3",
-                "pull": "always",
                 "settings": {
                     "endpoint": "https://minio.owncloud.com",
                     "access_key": {
@@ -116,33 +111,15 @@ def main(ctx):
                     "target": "/",
                 },
                 "when": {
-                    "event": [
-                        "push",
-                    ],
-                },
-            },
-            {
-                "name": "GitHub release",
-                "image": "plugins/github-release:1",
-                "pull": "always",
-                "settings": {
-                    "files": [
-                        "build/ui-bundle.zip",
-                    ],
-                    "api_key": {
-                        "from_secret": "github_token",
-                    },
-                },
-                "when": {
-                    "event": [
-                        "tag",
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
                     ],
                 },
             },
             {
                 "name": "Notify",
-                "image": "plugins/slack:1",
-                "pull": "always",
+                "image": "plugins/slack",
                 "settings": {
                     "webhook": {
                         "from_secret": "slack_webhook",
@@ -150,9 +127,9 @@ def main(ctx):
                     "channel": "documentation",
                 },
                 "when": {
-                    "event": [
-                        "push",
-                        "tag",
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
                     ],
                     "status": [
                         "success",
@@ -164,6 +141,7 @@ def main(ctx):
         "trigger": {
             "ref": [
                 "refs/heads/master",
+                "refs/tags/**",
                 "refs/pull/**",
             ],
         },
