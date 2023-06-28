@@ -69,8 +69,9 @@ def main(ctx):
                     ],
                 },
                 "when": {
-                    "event": [
-                        "push",
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
                     ],
                 },
             },
@@ -92,8 +93,9 @@ def main(ctx):
                     "flush_age": 14,
                 },
                 "when": {
-                    "event": [
-                        "push",
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
                     ],
                 },
             },
@@ -116,47 +118,9 @@ def main(ctx):
                     "target": "/",
                 },
                 "when": {
-                    "event": [
-                        "push",
-                    ],
-                },
-            },
-            {
-                "name": "GitHub release",
-                "image": "plugins/github-release:1",
-                "pull": "always",
-                "settings": {
-                    "files": [
-                        "build/ui-bundle.zip",
-                    ],
-                    "api_key": {
-                        "from_secret": "github_token",
-                    },
-                },
-                "when": {
-                    "event": [
-                        "tag",
-                    ],
-                },
-            },
-            {
-                "name": "Notify",
-                "image": "plugins/slack:1",
-                "pull": "always",
-                "settings": {
-                    "webhook": {
-                        "from_secret": "slack_webhook",
-                    },
-                    "channel": "documentation",
-                },
-                "when": {
-                    "event": [
-                        "push",
-                        "tag",
-                    ],
-                    "status": [
-                        "success",
-                        "failure",
+                    "ref": [
+                        "refs/heads/master",
+                        "refs/tags/**",
                     ],
                 },
             },
@@ -164,6 +128,7 @@ def main(ctx):
         "trigger": {
             "ref": [
                 "refs/heads/master",
+                "refs/tags/**",
                 "refs/pull/**",
             ],
         },
