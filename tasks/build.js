@@ -18,7 +18,7 @@ const postcssImport = require("postcss-import");
 const postcssUrl = require("postcss-url");
 const postcssVar = require("postcss-custom-properties");
 const terser = require("gulp-terser");
-const vfs = require("vinyl-fs");
+const gulp = require("gulp");
 
 module.exports = (src, dest) => {
   const opts = { base: src, cwd: src };
@@ -50,9 +50,12 @@ module.exports = (src, dest) => {
   ];
 
   return merge([
-    vfs.src("js/+([0-9])-*.js", opts).pipe(terser()).pipe(concat("js/site.js")),
+    gulp
+      .src("js/+([0-9])-*.js", opts)
+      .pipe(terser())
+      .pipe(concat("js/site.js")),
 
-    vfs
+    gulp
       .src("js/vendor/*.js", Object.assign({ read: false }, opts))
       .pipe(
         // see https://gulpjs.org/recipes/browserify-multiple-destination.html
@@ -67,13 +70,13 @@ module.exports = (src, dest) => {
       .pipe(buffer())
       .pipe(terser()),
 
-    vfs.src("css/site.css", opts).pipe(postcss(postcssPlugins)),
+    gulp.src("css/site.css", opts).pipe(postcss(postcssPlugins)),
 
-    vfs.src("font/*.woff*(2)", opts),
+    gulp.src("font/*.woff*(2)", opts),
 
-    vfs.src("img/**", opts).pipe(svgo()),
+    gulp.src("img/**", opts).pipe(svgo()),
 
-    vfs.src("img/**/*.{jpg,png}", opts).pipe(
+    gulp.src("img/**/*.{jpg,png}", opts).pipe(
       squoosh(({ width, height, size, filePath }) => ({
         encodeOptions: {
           ...(path.extname(filePath) === ".png"
@@ -83,10 +86,10 @@ module.exports = (src, dest) => {
       }))
     ),
 
-    vfs.src("helpers/*.js", opts),
+    gulp.src("helpers/*.js", opts),
 
-    vfs.src("layouts/*.hbs", opts),
+    gulp.src("layouts/*.hbs", opts),
 
-    vfs.src("partials/*.hbs", opts),
-  ]).pipe(vfs.dest(dest));
+    gulp.src("partials/*.hbs", opts),
+  ]).pipe(gulp.dest(dest));
 };

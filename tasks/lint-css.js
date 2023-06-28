@@ -1,10 +1,10 @@
 "use strict";
 
-const vfs = require("vinyl-fs");
+const gulp = require("gulp");
 const stylelint = require("@ronilaukkarinen/gulp-stylelint");
 
 module.exports = (files) =>
-  vfs.src(files).pipe(
+  gulp.src(files).pipe(
     stylelint({
       reporters: [{ formatter: "string", console: true }],
     })

@@ -37,7 +37,8 @@
     "handlebars": "^4.7.7",
     "highlight.js": "^11.8.0",
     "jquery": "^3.7.0",
-    "medium-zoom": "^1.0.8"
+    "medium-zoom": "^1.0.8",
+    "nth-check": "^2.0.1"
   },
   "devDependencies": {
     "@ronilaukkarinen/gulp-stylelint": "^14.1.1",
@@ -51,7 +52,6 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
-    "eslint-plugin-standard": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.2.0",
@@ -60,7 +60,7 @@
     "gulp-squoosh": "^0.11.0",
     "gulp-svgo": "^2.2.1",
     "gulp-terser": "^2.1.0",
-    "gulp-vinyl-zip": "^2.5.0",
+    "gulp-zip": "^5.1.0",
     "js-yaml": "^4.1.0",
     "map-stream": "^0.0.7",
     "merge-stream": "^2.0.0",
@@ -79,8 +79,7 @@
     "stylelint-prettier": "^3.0.0",
     "typeface-open-sans": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-fs": "^4.0.0"
+    "vinyl-buffer": "^1.0.0"
   },
   "keywords": [
     "owncloud",

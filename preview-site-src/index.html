@@ -58,7 +58,7 @@ This is an example paragraph.</code></pre>
       <div class="content">
         <pre
           class="highlightjs highlight"
-        ><code class="language-js hljs" data-lang="js">vfs
+        ><code class="language-js hljs" data-lang="js">gulp
   .src('js/vendor/*.js', { cwd: 'src', cwdbase: true, read: false })
   .pipe(tap((file) =&gt; { <i class="conum" data-value="1"></i><b>(1)</b>
     file.contents = browserify(file.relative, { basedir: 'src', detectGlobals: false }).bundle()

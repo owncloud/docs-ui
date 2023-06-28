@@ -6,7 +6,7 @@ const map = require("map-stream");
 const path = require("path");
 const { promisify } = require("util");
 const requireFromString = require("require-from-string");
-const vfs = require("vinyl-fs");
+const gulp = require("gulp");
 const yaml = require("js-yaml");
 
 module.exports = async (src, dest, siteSrc, siteDest, sink) => {
@@ -17,7 +17,7 @@ module.exports = async (src, dest, siteSrc, siteDest, sink) => {
     registerHelpers(src),
   ]);
 
-  const stream = vfs
+  const stream = gulp
     .src("**/*.html", { base: siteSrc, cwd: siteSrc })
     .pipe(
       map((file, next) => {
@@ -36,7 +36,7 @@ module.exports = async (src, dest, siteSrc, siteDest, sink) => {
         next(null, file);
       })
     )
-    .pipe(vfs.dest(siteDest));
+    .pipe(gulp.dest(siteDest));
 
   if (sink) stream.pipe(sink());
   return stream;
@@ -51,7 +51,7 @@ function loadSampleUiModel(siteSrc) {
 
 function registerPartials(src) {
   return new Promise((resolve, reject) => {
-    vfs
+    gulp
       .src("partials/*.hbs", { base: src, cwd: src })
       .pipe(
         map((file, next) => {
@@ -66,7 +66,7 @@ function registerPartials(src) {
 
 function registerHelpers(src) {
   return new Promise((resolve, reject) => {
-    vfs
+    gulp
       .src("helpers/*.js", { base: src, cwd: src })
       .pipe(
         map((file, next) => {
@@ -83,7 +83,7 @@ function registerHelpers(src) {
 function compileLayouts(src) {
   const layouts = {};
   return new Promise((resolve, reject) => {
-    vfs
+    gulp
       .src("layouts/*.hbs", { base: src, cwd: src })
       .pipe(
         map((file, next) => {
