@@ -13,7 +13,7 @@ def main(ctx):
                 "image": "plugins/s3-cache",
                 "settings": {
                     "endpoint": {
-                        "from_secret": "cache_s3_endpoint",
+                        "from_secret": "cache_s3_server",
                     },
                     "access_key": {
                         "from_secret": "cache_s3_access_key",
@@ -50,7 +50,7 @@ def main(ctx):
                 "image": "plugins/s3-cache",
                 "settings": {
                     "endpoint": {
-                        "from_secret": "cache_s3_endpoint",
+                        "from_secret": "cache_s3_server",
                     },
                     "access_key": {
                         "from_secret": "cache_s3_access_key",
@@ -75,7 +75,7 @@ def main(ctx):
                 "image": "plugins/s3-cache",
                 "settings": {
                     "endpoint": {
-                        "from_secret": "cache_s3_endpoint",
+                        "from_secret": "cache_s3_server",
                     },
                     "access_key": {
                         "from_secret": "cache_s3_access_key",
@@ -122,7 +122,7 @@ def main(ctx):
                 "image": "plugins/slack",
                 "settings": {
                     "webhook": {
-                        "from_secret": "slack_webhook",
+                        "from_secret": "rocketchat_talk_webhook",
                     },
                     "channel": "documentation",
                 },
