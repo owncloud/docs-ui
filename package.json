@@ -45,8 +45,6 @@
     "chokidar": "^3.5.3",
     "core-js": "^3.31.1",
     "prettier": "^3.0.0",
-    "stylelint": "^15.10.1",
-    "upgrading stylelint": "needs to be locked currenty to 14 else we get unmet peer dependency warnings for stylelint-config-*",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-prettier": "^3.0.0"
   },
