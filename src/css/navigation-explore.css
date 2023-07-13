@@ -22,7 +22,7 @@
   height: var(--drawer-height);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
   .navigation-explore .context {
     font-size: 0.75rem;
   }

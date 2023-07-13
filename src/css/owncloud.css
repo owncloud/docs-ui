@@ -129,7 +129,7 @@ blockquote::before {
 /**
  * Supplemental Responsive Styles
  */
-@media screen and (max-width: 600px) {
+@media screen and (width >= 600px) {
   footer div.container div.row-full {
     margin-left: 0;
     width: 100%;
@@ -142,7 +142,7 @@ blockquote::before {
   }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (width >= 601px) {
   footer div.container div.row-full {
     margin-left: 0;
     width: 100%;

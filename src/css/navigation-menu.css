@@ -11,7 +11,7 @@ html.is-clipped--nav {
   height: calc ( 100vh - var(--navbar-height) - var(--toolbar-height) - var(--drawer-height));
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (width >= 800px) {
   .navigation-menu {
     height: calc(100vh - var(--navbar-height) - var(--drawer-height));
   }
