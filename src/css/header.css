@@ -176,7 +176,7 @@ body {
   margin: 0.25rem 0;
 }
 
-@media screen and (width >= 799px) {
+@media screen and (width <= 799px) {
   .navbar-brand .navbar-item {
     align-items: center;
     display: flex;
