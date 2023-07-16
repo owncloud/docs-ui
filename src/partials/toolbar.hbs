@@ -1,11 +1,9 @@
 <div class="toolbar" role="navigation">
   <button class="navigation-toggle"></button>
-  {{#if site.homeUrl}}
-    <a href="{{relativize page.url site.homeUrl}}" class="home-link{{#if page.home}} is-current{{/if}}"></a>
-  {{/if}}
+  {{#with site.homeUrl}}
+    <a href="{{{relativize this}}}" class="home-link{{#if @root.page.home}} is-current{{/if}}"></a>
+  {{/with}}
   {{> breadcrumbs}}
   {{> page-versions}}
-  {{#if page.editUrl}}
-    <div class="edit-this-page"><a href="{{page.editUrl}}" rel="noopener noreferrer" target="_blank">Edit this Page</a></div>
-  {{/if}}
+  {{> edit-this-page}}
 </div>

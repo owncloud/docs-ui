@@ -2,7 +2,7 @@ html.is-clipped--nav {
   overflow-y: hidden;
 }
 
-.navigation-menu {
+.nav-panel-menu {
   flex-grow: 1;
   overflow-y: auto;
   display: flex;
@@ -12,20 +12,20 @@ html.is-clipped--nav {
 }
 
 @media screen and (width >= 800px) {
-  .navigation-menu {
+  .nav-panel-menu {
     height: calc(100vh - var(--navbar-height) - var(--drawer-height));
   }
 }
 
-.navigation-menu::-webkit-scrollbar {
+.nav-panel-menu::-webkit-scrollbar {
   width: 0.25rem;
 }
 
-.navigation-menu::-webkit-scrollbar-thumb {
+.nav-panel-menu::-webkit-scrollbar-thumb {
   background-color: #c1c1c1;
 }
 
-.navigation-menu:not(.is-active) {
+.nav-panel-menu:not(.is-active) {
   display: none;
 }
 

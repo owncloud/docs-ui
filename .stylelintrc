@@ -6,5 +6,6 @@
     "color-function-notation": legacy,
     "alpha-value-notation": number,
     "selector-class-pattern": null,
+    "custom-property-pattern": null,
   }
 }
