@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {{> head defaultPageTitle='Untitled'}}
     {{#unless (eq page.attributes.noindex undefined)}}
     <meta name="robots" content="noindex,nofollow">
     {{/unless}}
@@ -28,11 +29,10 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="black">
     <meta name="msapplication-TileColor" content="#001840">
     <meta name="theme-color" content="#ffffff">
-{{> head}}
   </head>
-  <body class="article">
-{{> header}}
-{{> main}}
-{{> footer}}
+  <body class="article{{#with (or page.attributes.role page.role)}} {{{this}}}{{/with}}">
+    {{> header}}
+    {{> main}}
+    {{> footer}}
   </body>
 </html>
