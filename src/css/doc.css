@@ -126,10 +126,10 @@
   margin: 1rem 0 0;
 }
 
-.doc table.tableblock {
+.doc table.tableblock + * {
   border-collapse: collapse;
   font-size: 0.8em;
-  margin: 2rem 0;
+  margin-top: 2rem 0;
   /* enable table-layout: fixed if you want the table width to be enforced strictly */
   /* alternative is to wrap table in div and set overflow-x: auto on the wrapper */
   /* table-layout: fixed; */
@@ -479,6 +479,10 @@
   font-family: var(--body-font-family);
   font-size: calc(13.5 / var(--rem-base) * 1rem);
   line-height: 1;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
+
 }
 
 .doc .listingblock:hover .source-toolbox {
