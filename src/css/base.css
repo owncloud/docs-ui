@@ -34,6 +34,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   margin: 0;
+/* do not use this atm, it will break tabs. the tab frame will be compressed and looks not good
   tab-size: 4;
   word-wrap: anywhere; /* aka overflow-wrap; used when hyphens are disabled or aren't sufficient */
 }
