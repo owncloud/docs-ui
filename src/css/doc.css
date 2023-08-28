@@ -126,7 +126,8 @@
   margin: 1rem 0 0;
 }
 
-.doc table.tableblock + * {
+/* do not use '.doc table.tableblock + * {' as it will render font sizes not correctly */
+.doc table.tableblock {
   border-collapse: collapse;
   font-size: 0.8em;
   margin-top: 2rem 0;
