@@ -22,7 +22,7 @@
         if (!pane) return // invalid state
         if (!idx) pane.classList.add('is-active')
         var onClick = activateTab
-        var instance = { tabset: tabset, tab: tab, pane: pane }
+        var instance = { tabset, tab, pane }
         var syncId
         if (syncIds && !((syncId = tab.textContent.trim()) in syncIds)) {
           syncIds[(tab.dataset.syncId = syncId)] = true
@@ -58,7 +58,7 @@
     var thisTab = this.tab
     var initialY = tabset.getBoundingClientRect().y
     forEach.call(document.querySelectorAll('.tabs li'), function (tab) {
-      if (tab !== thisTab && tab.dataset.syncId === thisTab.dataset.syncId) activateTab.call({ tab: tab })
+      if (tab !== thisTab && tab.dataset.syncId === thisTab.dataset.syncId) activateTab.call({ tab })
     })
     var shiftedBy = tabset.getBoundingClientRect().y - initialY
     if (shiftedBy && (shiftedBy = Math.round(shiftedBy))) window.scrollBy({ top: shiftedBy, behavior: 'instant' })
@@ -69,6 +69,6 @@
     if (!id) return
     var tab = document.getElementById(~id.indexOf('%') ? decodeURIComponent(id) : id)
     if (!(tab && tab.classList.contains('tab'))) return
-    tab.dataset.syncId ? activateTabSync.call({ tab: tab }) : activateTab.call({ tab: tab })
+    tab.dataset.syncId ? activateTabSync.call({ tab }) : activateTab.call({ tab })
   }
 })()

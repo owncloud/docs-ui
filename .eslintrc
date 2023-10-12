@@ -1,4 +1,7 @@
 {
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
   "extends": "standard",
   "rules": {
     "curly": "off",
