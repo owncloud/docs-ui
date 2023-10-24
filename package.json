@@ -49,7 +49,7 @@
     "stylelint-prettier": "^3.0.0"
   },
   "devDependencies": {
-    "@ronilaukkarinen/gulp-stylelint": "^14.1.1",
+    "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.4.16",
     "browserify": "^17.0.0",
     "cssnano": "^6.0.1",
