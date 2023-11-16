@@ -37,7 +37,7 @@
     "handlebars": "^4.7.8",
     "highlight.js": "^11.9.0",
     "jquery": "^3.7.1",
-    "medium-zoom": "^1.0.8",
+    "medium-zoom": "^1.1.0",
     "nth-check": "^2.0.1"
   },
   "comments": {
