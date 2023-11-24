@@ -181,7 +181,7 @@ yarn preview
 
 ### Preview Using the Seach Bar
 
-Please note that previewingdoes not render the search bar. If you want to render and preview the result containing the search bar, run the following command using either `yarn preview` or `yarn serve` when running from a docs repo:
+Please note that previewing does not render the search bar. If you want to render and preview the result containing the search bar, run the following command using either `yarn preview` or `yarn serve` when running from a docs repo:
 
 ```console
 ELASTICSEARCH_NODE=https://search.owncloud.com \
