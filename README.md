@@ -17,6 +17,21 @@
 
 The `docs-ui` repository is a custom version of the [Antora Default UI][link-antora-default-ui], for the [Antora][link-antora] version of the ownCloud documentation.
 
+**Table of Contents**
+
+* [Contributing](#contributing)
+* [Prerequisites](#prerequisites)
+   * [Git](#git)
+   * [Node](#node)
+   * [Yarn](#yarn)
+   * [Install Dependencies](#install-dependencies)
+   * [Add Packages](#add-packages)
+* [Prepared Yarn Commands](#prepared-yarn-commands)
+* [Preview](#preview)
+   * [Preview Changes Using the ownCloud Documentation](#preview-changes-using-the-owncloud-documentation)
+   * [Previewing Changes using a Demo Antora Build](#previewing-changes-using-a-demo-antora-build)
+   * [Preview Using the Seach Bar](#preview-using-the-seach-bar)
+
 ## Contributing
 
 If you want to make changes, create a "_feature_" branch off of master, make the required changes, and then create a Pull Request (PR) against the _master_ branch.
@@ -62,15 +77,17 @@ nvm ls-remote | grep "Latest LTS"
         v6.17.1   (Latest LTS: Boron)
         v8.17.0   (Latest LTS: Carbon)
        v10.24.1   (Latest LTS: Dubnium)
-       v12.22.1   (Latest LTS: Erbium)
-       v14.17.0   (Latest LTS: Fermium)
+      v12.22.12   (Latest LTS: Erbium)
+       v14.21.3   (Latest LTS: Fermium)
+       v16.20.2   (Latest LTS: Gallium)
+       v18.18.2   (Latest LTS: Hydrogen)
+       v20.10.0   (Latest LTS: Iron)
 ```
 
 Then install a suitable LTS version. You can install as many versions as you like or need, see example below.
 
 ```consle
-nvm install 10.23.0
-nvm install 14.17.0
+nvm install 16.13.2
 ```
 
 List the installed versions
@@ -79,19 +96,22 @@ List the installed versions
 nvm ls
        v10.23.0
        v12.18.2
-->     v14.17.0
+       v14.18.3
         v15.5.1
+->     v16.13.2
          system
-default -> 10.23.0 (-> v10.23.0)
+default -> 16.13.2 (-> v16.13.2)
 ...
 ```
 
-**Info:** The backend to push to the web also uses node v14, see the `.drone.star` file. It is recommended to stay with the same release if possible.
+**Important:** For docs, DO NOT use a version _above_ v10.23.0 and _below_ v14.17.0 as it may later conflict with other dependencies especially with the `yarn preview` command where you will get warnings and it may not work as expected.
+
+**Info:** The backend to push to the web also uses node v16, see the `.drone.star` file. It is recommended to stay with the same release if possible.
 
 Switch to a specific installed version of Node at any time, use the following command:
 
 ```consle
-nvm use 14.17.0
+nvm use 16.13.2
 ```
 
 **Important:** If you have additional concurrent terminals open, you must close these terminals first and reopen them to use the new setup.
@@ -99,7 +119,7 @@ nvm use 14.17.0
 To make a particular Node version default in new terminals, type:
 
 ```consle
-nvm alias default 14.17.0
+nvm alias default 16.13.2
 ```
 
 Now that you have Node installed, you can proceed with installing the Gulp CLI and Yarn.
@@ -128,48 +148,28 @@ yarn add <package-name>
 
 ## Prepared Yarn Commands
 
-To get all prepared yarn commands run the following command:
+To see all prepared yarn commands, run the following command `yarn run`. This will ouptput all commands with their settings, though this makes readability not easy. See the [yarn documentation](https://yarnpkg.com/lang/en/docs/cli/run/) for more information.
 
-```console
-yarn run
+Here is the list of commands and when to use them:
 
-yarn run v1.22.5
-info Commands available from binary scripts: JSONStream, acorn, atob, bin-version-check, browser-pack, browserify, browserslist, color-support, deps-sort, eslint, esparse, esvalidate, executable, find-versions, gifsicle, gulp, handlebars, insert-module-globals, jpegtran, js-yaml, lpad-align, miller-rabin, mime, mkdirp, module-deps, optipng, prettier, rc, rimraf, seek-bunzip, seek-table, semver, sha.js, specificity, strip-bom, strip-dirs, strip-indent, stylelint, svgo, tsc, tsserver, uglifyjs, umd, user-home, uuid, which
-info Project commands
-   - bundle
-      gulp pack
-   - lint
-      gulp lint
-   - preview
-      gulp preview
-question Which command would you like to run?:
-```
+* `yarn bundle`  
+Generate a new `ui-bundle.zip` file for local use
+* `yarn lint`  
+Lint the UI bundle definition
+* `yarn preview`  
+Preview the bundle using the gulp. This previews a demo Antora build.
 
-Please see the [documentation](https://yarnpkg.com/lang/en/docs/cli/run/)
-for more information about the the `yarn run` command.
+## Preview
 
-### Preview Changes Using ownCloud Documentation
+### Preview Changes Using the ownCloud Documentation
 
 If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of `ui-bundle.zip` and use it when generating the ownCloud documentation in your local development machine.
 
-To do this, run the following command in the root directory of your `docs-ui` clone:
+* First create a local `ui-bundle.zip` with the command described above.
+* Then change into the respective documentation repository and run `yarn antora-dev-bundle`.  
+See the [Generating the Documentation](https://github.com/owncloud/docs#generating-the-documentation) description for more details.
 
-```console
-yarn bundle
-```
-
-When built, the UI bundle will be available in directory `build/ui-bundle.zip`
-Assuming that your local copy of the docs-ui repository is at the same level as your local copy of the docs directory, then in your docs repository’s root directory, run the following command:
-
-```console
-yarn antora \
-    --url http://localhost:8080 \
-    --ui-bundle-url ../docs-ui/build/ui-bundle.zip
-```
-
-Follow the [instructions][link-preview] to preview the documentation with the changes made.
-
-## Previewing Changes Locally
+### Previewing Changes using a Demo Antora Build
 
 The following example runs a demo Antora **build** (_not ownCloud_) for the documentation site which can be **accessed** on your local development machine at `http://localhost:5252`.
 
@@ -179,10 +179,13 @@ To view your changes as you are working on them, run the following command:
 yarn preview
 ```
 
-Please note that this command does not render the search bar.
-If you want to render and preview the result containing the search bar, run the following command:
+### Preview Using the Seach Bar
+
+Please note that previewing does not render the search bar. If you want to render and preview the result containing the search bar, run the following command using either `yarn preview` or `yarn serve` when running from a docs repo:
 
 ```console
-ELASTICSEARCH_NODE=https://search.owncloud.com ELASTICSEARCH_READ_AUTH=docs:cADL6DDAKEBrkFMrvfxXEtYm \
-  ELASTICSEARCH_INDEX=docs yarn preview
+ELASTICSEARCH_NODE=https://search.owncloud.com \
+ELASTICSEARCH_READ_AUTH=docs:cADL6DDAKEBrkFMrvfxXEtYm \
+ELASTICSEARCH_INDEX=docs \
+yarn preview
 ```
