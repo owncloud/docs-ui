@@ -1,4 +1,7 @@
-/build/
-/public/
-
-/node_modules/
+yarn-error.log
+build/
+node_modules/
+public/
+tmp/
+.DS_Store
+.vscode/
