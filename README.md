@@ -147,7 +147,7 @@ yarn add <package-name>
 
 ## Prepared Yarn Commands
 
-To see all prepared yarn commands, run the following command `yarn run`. This will ouptput all commands with their settings, though this makes readability not easy. See the [yarn documentation](https://yarnpkg.com/lang/en/docs/cli/run/) for more information.
+To see all prepared yarn commands, run the following command `yarn run`. This will output all commands with their settings, though this makes readability not easy. See the [yarn documentation](https://yarnpkg.com/lang/en/docs/cli/run/) for more information.
 
 Here is the list of commands and when to use them:
 
