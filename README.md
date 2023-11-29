@@ -147,15 +147,15 @@ yarn add <package-name>
 
 ## Prepared Yarn Commands
 
-To see all prepared yarn commands, run the following command `yarn run`. This will ouptput all commands with their settings, though this makes readability not easy. See the [yarn documentation](https://yarnpkg.com/lang/en/docs/cli/run/) for more information.
+To see all prepared yarn commands, run the following command `yarn run`. This will output all commands with their settings, though this makes readability not easy. See the [yarn documentation](https://yarnpkg.com/lang/en/docs/cli/run/) for more information.
 
 Here is the list of commands and when to use them:
 
-* `yarn bundle`  
+* `yarn bundle`
 Generate a new `ui-bundle.zip` file for local use
-* `yarn lint`  
+* `yarn lint`
 Lint the UI bundle definition
-* `yarn preview`  
+* `yarn preview`
 Preview the bundle using the gulp. This previews a demo Antora build.
 
 ## Preview
@@ -165,7 +165,7 @@ Preview the bundle using the gulp. This previews a demo Antora build.
 If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of `ui-bundle.zip` and use it when generating the ownCloud documentation in your local development machine.
 
 * First create a local `ui-bundle.zip` with the command described above.
-* Then change into the respective documentation repository and run `yarn antora-dev-bundle`.  
+* Then change into the respective documentation repository and run `yarn antora-dev-bundle`.
 See the [Generating the Documentation](https://github.com/owncloud/docs#generating-the-documentation) description for more details.
 
 ### Previewing Changes using a Demo Antora Build
