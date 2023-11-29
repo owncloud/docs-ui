@@ -30,7 +30,6 @@ The `docs-ui` repository is a custom version of the [Antora Default UI][link-ant
 * [Preview](#preview)
    * [Preview Changes Using the ownCloud Documentation](#preview-changes-using-the-owncloud-documentation)
    * [Previewing Changes using a Demo Antora Build](#previewing-changes-using-a-demo-antora-build)
-   * [Preview Using the Seach Bar](#preview-using-the-seach-bar)
 
 ## Contributing
 
@@ -176,16 +175,5 @@ The following example runs a demo Antora **build** (_not ownCloud_) for the docu
 To view your changes as you are working on them, run the following command:
 
 ```console
-yarn preview
-```
-
-### Preview Using the Seach Bar
-
-Please note that previewing does not render the search bar. If you want to render and preview the result containing the search bar, run the following command using either `yarn preview` or `yarn serve` when running from a docs repo:
-
-```console
-ELASTICSEARCH_NODE=https://search.owncloud.com \
-ELASTICSEARCH_READ_AUTH=docs:cADL6DDAKEBrkFMrvfxXEtYm \
-ELASTICSEARCH_INDEX=docs \
 yarn preview
 ```
