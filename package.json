@@ -52,7 +52,7 @@
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.4.16",
     "browserify": "^17.0.0",
-    "cssnano": "^6.0.1",
+    "cssnano": "^6.0.2",
     "eslint": "^8.55.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-n": "^16.4.0",
