@@ -26,14 +26,14 @@ def main(ctx):
             },
             {
                 "name": "Dependencies",
-                "image": "owncloudci/nodejs:16",
+                "image": "owncloudci/nodejs:18",
                 "commands": [
                     "yarn install",
                 ],
             },
             {
                 "name": "Lint",
-                "image": "owncloudci/nodejs:16",
+                "image": "owncloudci/nodejs:18",
                 "commands": [
                     "yarn lint",
                 ],
