@@ -5,3 +5,4 @@ public/
 tmp/
 .DS_Store
 .vscode/
+.yarn/
