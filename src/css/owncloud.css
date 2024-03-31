@@ -127,6 +127,25 @@ blockquote::before {
 }
 
 /**
+ * The following three selectors origin from the asciidoc css stylesheet:
+ * https://github.com/asciidoctor/asciidoctor/blob/main/src/stylesheets/asciidoctor.css
+ * They enable using roles like for tables as described in:
+ * https://docs.asciidoctor.org/asciidoc/latest/tables/table-ref/
+ */
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.left {
+  float: left !important;
+}
+
+.right {
+  float: right !important;
+}
+
+/**
  * Supplemental Responsive Styles
  */
 @media screen and (width <= 600px) {
