@@ -40,9 +40,11 @@ def main(ctx):
             },
             {
                 "name": "Build",
-                "image": "owncloudci/nodejs:16",
+                "image": "owncloudci/nodejs:18",
                 "commands": [
                     "yarn bundle",
+                    "file build/ui-bundle.zip",
+                    "ls -l build/ui-bundle.zip"
                 ],
             },
             {
