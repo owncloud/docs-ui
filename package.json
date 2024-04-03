@@ -33,6 +33,7 @@
     "bundle": "gulp pack"
   },
   "dependencies": {
+    "del": "6",
     "elasticsearch-browser": "^16.7.1",
     "handlebars": "^4.7.8",
     "highlight.js": "^11.9.0",
