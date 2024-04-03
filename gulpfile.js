@@ -3,6 +3,7 @@
 const connect = require("gulp-connect");
 const path = require("path");
 const gulp = require("gulp");
+const del = require("del");
 
 const build = require("./tasks/build");
 const buildPreview = require("./tasks/build-preview");
@@ -24,6 +25,10 @@ const jsFiles = [
   "tasks/**/*.js",
   path.join(srcDir, "{helpers,js}/**/*.js"),
 ];
+
+gulp.task("clean", function () {
+  return del(["./public/**", "./build/**"]);
+});
 
 gulp.task("lint:css", () => lintCss(`${srcDir}/css/**/*.css`));
 gulp.task("lint:js", () => lintJs(jsFiles));
@@ -63,6 +68,6 @@ gulp.task(
   )
 );
 
-gulp.task("pack", gulp.series("lint", "build", "bundle"));
+gulp.task("pack", gulp.series("clean", "lint", "build", "bundle"));
 
 gulp.task("default", gulp.series("build"));
