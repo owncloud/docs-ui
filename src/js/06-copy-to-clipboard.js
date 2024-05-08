@@ -50,7 +50,7 @@
         copy.appendChild(img)
       }
       ;(toast = document.createElement('span')).className = 'copy-toast'
-      toast.appendChild(document.createTextNode('Copied!'))
+      toast.appendChild(document.createTextNode('Copied !'))
       copy.appendChild(toast)
       toolbox.appendChild(copy)
     }

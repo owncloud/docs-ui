@@ -25,6 +25,10 @@
     {
       "name": "Thomas Boerger",
       "email": "tboerger@owncloud.com"
+    },
+    {
+      "name": "Alex Ackermann",
+      "email": "alexackermann@kiteworks.com"
     }
   ],
   "scripts": {
