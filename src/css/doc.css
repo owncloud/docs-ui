@@ -554,7 +554,7 @@
 }
 
 .doc .source-toolbox img.copy-icon {
-  filter: invert(50.2%);
+  filter: invert(100%);
 }
 
 .doc .source-toolbox svg.copy-icon {
@@ -702,4 +702,6 @@ kbd,
 .hljs {
   font-size: 0.7rem;
   border-radius: 4px;
+  /* Adjustments to prevent toolbox and content overlay on small screen width */
+  padding-top: 2em !important;
 }
