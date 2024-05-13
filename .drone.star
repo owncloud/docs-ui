@@ -126,7 +126,7 @@ def main(ctx):
                     "webhook": {
                         "from_secret": "rocketchat_talk_webhook",
                     },
-                    "channel": "documentation",
+                    "channel": "builds",
                 },
                 "when": {
                     "ref": [
