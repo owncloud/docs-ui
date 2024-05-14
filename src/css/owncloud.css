@@ -321,3 +321,7 @@ blockquote::before {
 .yellow-background {
   background: #fafa00;
 }
+
+.transparent-background {
+  background: transparent;
+}
