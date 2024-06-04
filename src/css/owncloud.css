@@ -110,7 +110,7 @@ blockquote::before {
   text-align: justify;
 }
 
-#search {
+.search-input {
   display: inline-flex;
   background-color: #fff;
   border: 1px solid #e1e1e1;
