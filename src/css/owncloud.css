@@ -234,6 +234,14 @@ blockquote::before {
   background: #7d7d7d;
 }
 
+.gray-light {
+  color: #bfbfbf;
+}
+
+.gray-light-background {
+  background: #d9d9d9;
+}
+
 .green {
   color: #006000;
 }
