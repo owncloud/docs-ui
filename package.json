@@ -40,7 +40,7 @@
     "del": "6",
     "elasticsearch-browser": "^16.7.1",
     "handlebars": "^4.7.8",
-    "highlight.js": "^11.9.0",
+    "highlight.js": "^11.10.0",
     "jquery": "^3.7.1",
     "medium-zoom": "^1.1.0",
     "nth-check": "^2.0.1"
