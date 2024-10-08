@@ -1,9 +1,10 @@
 "use strict";
 
+import { deleteSync } from 'del';
+
 const connect = require("gulp-connect");
 const path = require("path");
 const gulp = require("gulp");
-const del = require("del");
 
 const build = require("./tasks/build");
 const buildPreview = require("./tasks/build-preview");
@@ -27,7 +28,7 @@ const jsFiles = [
 ];
 
 gulp.task("clean", function () {
-  return del(["./public/**", "./build/**"]);
+  return deleteSync(["./public/**", "./build/**"]);
 });
 
 gulp.task("lint:css", () => lintCss(`${srcDir}/css/**/*.css`));
