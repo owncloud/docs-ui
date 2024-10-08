@@ -3,6 +3,7 @@
   "name": "owncloud-docs-ui",
   "description": "The ownCloud documentation UI",
   "version": "1.0.0",
+  "type": "module",
   "license": "AGPL-3.0",
   "author": "The ownCloud Team <docs@owncloud.com>",
   "homepage": "https://github.com/owncloud/docs-ui#readme",
