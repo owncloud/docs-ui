@@ -435,7 +435,8 @@
 .doc .listingblock .title,
 .doc .openblock .title {
   /* color: #4a4a4a; */
-  color: #191919;
+  /* color: #191919; */
+  color: #7a2518;
   font-size: 0.925rem;
   font-style: italic;
   letter-spacing: -0.005em;
