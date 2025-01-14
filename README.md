@@ -9,7 +9,6 @@
 [link-git]: https://git-scm.com
 [link-node]: https://nodejs.org
 [link-gulp-cli]: http://gulpjs.com
-[link-yarn]: https://yarnpkg.com
 [link-git-package]: https://git-scm.com/downloads
 [link-nvm]: https://github.com/creationix/nvm
 [link-nvm-installation-instructions]: https://github.com/creationix/nvm#installation
@@ -23,10 +22,9 @@ The `docs-ui` repository is a custom version of the [Antora Default UI][link-ant
 * [Prerequisites](#prerequisites)
    * [Git](#git)
    * [Node](#node)
-   * [Yarn](#yarn)
    * [Install Dependencies](#install-dependencies)
    * [Add Packages](#add-packages)
-* [Prepared Yarn Commands](#prepared-yarn-commands)
+* [Prepared npm Commands](#prepared-npm-commands)
 * [Preview](#preview)
    * [Preview Changes Using the ownCloud Documentation](#preview-changes-using-the-owncloud-documentation)
    * [Previewing Changes using a Demo Antora Build](#previewing-changes-using-a-demo-antora-build)
@@ -43,7 +41,6 @@ To preview the UI changes or to create a local version of a `ui-bundle.zip`, you
 - [git][link-git] (command: `git`)
 - [Node][link-node] (command: `node`)
 - [Gulp CLI][link-gulp-cli] (command: `gulp`)
-- [Yarn][link-yarn] (command: `yarn`)
 
 ### git
 
@@ -79,38 +76,35 @@ nvm ls-remote | grep "Latest LTS"
       v12.22.12   (Latest LTS: Erbium)
        v14.21.3   (Latest LTS: Fermium)
        v16.20.2   (Latest LTS: Gallium)
-       v18.18.2   (Latest LTS: Hydrogen)
-       v20.10.0   (Latest LTS: Iron)
+       v18.20.4   (Latest LTS: Hydrogen)
+       v20.18.1   (Latest LTS: Iron)
+       v22.13.0   (Latest LTS: Jod)
 ```
 
 Then install a suitable LTS version. You can install as many versions as you like or need, see example below.
 
 ```consle
-nvm install 16.13.2
+nvm install 18.20.4
 ```
 
 List the installed versions
 
 ```consle
 nvm ls
-       v10.23.0
-       v12.18.2
-       v14.18.3
-        v15.5.1
-->     v16.13.2
-         system
-default -> 16.13.2 (-> v16.13.2)
+->     v18.20.4
+default -> 18.20.4 (-> v18.20.4)
+
 ...
 ```
 
-**Important:** For docs, DO NOT use a version _above_ v10.23.0 and _below_ v14.17.0 as it may later conflict with other dependencies especially with the `yarn preview` command where you will get warnings and it may not work as expected.
+**Important:** For docs, DO NOT use a version _above_ v10.23.0 and _below_ v14.17.0 as it may later conflict with other dependencies especially with the `npm run preview` command where you will get warnings and it may not work as expected.
 
 **Info:** The backend to push to the web also uses node v16, see the `.drone.star` file. It is recommended to stay with the same release if possible.
 
 Switch to a specific installed version of Node at any time, use the following command:
 
 ```consle
-nvm use 16.13.2
+nvm use 18.20.5
 ```
 
 **Important:** If you have additional concurrent terminals open, you must close these terminals first and reopen them to use the new setup.
@@ -118,23 +112,17 @@ nvm use 16.13.2
 To make a particular Node version default in new terminals, type:
 
 ```consle
-nvm alias default 16.13.2
+nvm alias default 18.20.5
 ```
 
-Now that you have Node installed, you can proceed with installing the Gulp CLI and Yarn.
-
-### Yarn
-
-Your system must have installed `yarn`. If this is not the case,
-[install yarn](https://yarnpkg.com/lang/en/docs/install) following the installation
-notes on the referenced site.
+Now that you have Node installed, you can proceed with installing the Gulp CLI and npm.
 
 ### Install Dependencies
 
 Finally, run the following command to install all dependencies:
 
 ```Shell
-yarn install
+npm install
 ```
 
 ### Add Packages
@@ -142,20 +130,20 @@ yarn install
 If a new package needs to be added, type the following:
 
 ```Shell
-yarn add <package-name>
+npm -i <package-name>
 ```
 
-## Prepared Yarn Commands
+## Prepared npm Commands
 
-To see all prepared yarn commands, run the following command `yarn run`. This will output all commands with their settings, though this makes readability not easy. See the [yarn documentation](https://yarnpkg.com/lang/en/docs/cli/run/) for more information.
+To see all prepared npm commands, run the following command `npm run`. This will output all commands with their settings, though this makes readability not easy. See the [npm documentation](https://docs.npmjs.com/cli/v11/using-npm/scripts) for more information.
 
 Here is the list of commands and when to use them:
 
-* `yarn bundle`  
-Generate a new `ui-bundle.zip` file for local use
-* `yarn lint`  
+* `npm run lint`  
 Lint the UI bundle definition
-* `yarn preview`  
+* `npm run bundle`  
+Generate a new `ui-bundle.zip` file for local use
+* `npm run preview`  
 Preview the bundle using the gulp. This previews a demo Antora build.
 
 ## Preview
@@ -165,7 +153,7 @@ Preview the bundle using the gulp. This previews a demo Antora build.
 If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of `ui-bundle.zip` and use it when generating the ownCloud documentation in your local development machine.
 
 * First create a local `ui-bundle.zip` with the command described above.
-* Then change into the respective documentation repository and run `yarn antora-dev-bundle`.  
+* Then change into the respective documentation repository and run `npm run antora-dev-bundle`.  
 See the [Generating the Documentation](https://github.com/owncloud/docs#generating-the-documentation) description for more details.
 
 ### Previewing Changes using a Demo Antora Build
@@ -175,5 +163,5 @@ The following example runs a demo Antora **build** (_not ownCloud_) for the docu
 To view your changes as you are working on them, run the following command:
 
 ```console
-yarn preview
+npm run preview
 ```
