@@ -58,7 +58,7 @@
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.4.20",
     "browserify": "^17.0.1",
-    "chokidar": "^3.5.3",
+    "chokidar": "^4.0.3",
     "cssnano": "^7.0.6",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.31.0",
