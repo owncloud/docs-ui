@@ -28,21 +28,21 @@ def main(ctx):
                 "name": "Dependencies",
                 "image": "owncloudci/nodejs:18",
                 "commands": [
-                    "yarn install",
+                    "npm install",
                 ],
             },
             {
                 "name": "Lint",
                 "image": "owncloudci/nodejs:18",
                 "commands": [
-                    "yarn lint",
+                    "npm run lint",
                 ],
             },
             {
                 "name": "Build",
                 "image": "owncloudci/nodejs:18",
                 "commands": [
-                    "yarn bundle",
+                    "npm run bundle",
                     "file build/ui-bundle.zip",
                     "ls -l build/ui-bundle.zip"
                 ],

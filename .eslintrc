@@ -3,6 +3,7 @@
         "ecmaVersion": "latest"
     },
   "extends": "standard",
+  "plugins": ["n"],
   "rules": {
     "curly": "off",
     "semi": "off",

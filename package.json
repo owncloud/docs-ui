@@ -2,7 +2,7 @@
   "private": true,
   "name": "owncloud-docs-ui",
   "description": "The ownCloud documentation UI",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "AGPL-3.0",
   "author": "The ownCloud Team <docs@owncloud.com>",
   "homepage": "https://github.com/owncloud/docs-ui#readme",
@@ -38,17 +38,18 @@
   },
   "dependencies": {
     "del": "6",
+    "depcheck": "^1.4.7",
     "elasticsearch-browser": "^16.7.1",
     "handlebars": "^4.7.8",
     "highlight.js": "^11.11.1",
     "jquery": "^3.7.1",
-    "medium-zoom": "^1.1.0",
-    "nth-check": "^2.0.1"
+    "medium-zoom": "^1.1.0"
   },
   "comments": {
     "reason": "Removed from devDependencies as nowhere referenced, commented as reminder",
-    "chokidar": "^3.5.3",
     "core-js": "^3.31.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-node": "^11.1.0",
     "prettier": "^3.0.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-prettier": "^3.0.0"
@@ -57,22 +58,22 @@
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.4.20",
     "browserify": "^17.0.1",
+    "chokidar": "^3.5.3",
     "cssnano": "^7.0.6",
-    "eslint": "^8.57.1",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.6.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-connect": "^5.2.0",
-    "gulp-eslint": "^6.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-eslint-new": "^2.4.0",
     "gulp-postcss": "^10.0.0",
     "gulp-svgo": "^2.2.1",
     "gulp-terser": "^2.1.0",
     "gulp-zip": "^5.1.0",
     "js-yaml": "^4.1.0",
+    "mkdirp": "^3.0.1",
     "map-stream": "^0.0.7",
     "merge-stream": "^2.0.0",
     "plugin-error": "^2.0.1",
@@ -95,14 +96,6 @@
     "asciidoc",
     "documentation"
   ],
-  "resolutions": {
-    "gulp-eslint/eslint": "^7.17.0",
-    "glob-parent": "^5.1.2",
-    "set-value": "^4.0.1",
-    "nth-check": "^2.0.1",
-    "ansi-regex": "^5.0.1",
-    "yargs-parser": "^20.2.3"
-  },
   "browserslist": [
     "last 2 version"
   ]
