@@ -1,10 +1,10 @@
-"use strict";
+'use strict'
 
-const gulp = require("gulp");
-const zip = require("gulp-zip");
+const gulp = require('gulp')
+const zip = require('gulp-zip')
 
 module.exports = (src, dest, bundleName) =>
   gulp
-    .src("**/*", { base: src, cwd: src })
+    .src('**/*', { base: src, cwd: src })
     .pipe(zip(`${bundleName}-bundle.zip`))
-    .pipe(gulp.dest(dest));
+    .pipe(gulp.dest(dest))

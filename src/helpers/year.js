@@ -10,20 +10,20 @@
  * Licensed under the MIT license.
  */
 
-'use strict';
+'use strict'
 
 module.exports = (pattern) => {
-  const year = new Date().getUTCFullYear().toString();
+  const year = new Date().getUTCFullYear().toString()
 
   if (typeof pattern !== 'string') {
-    return year;
+    return year
   }
 
   if (/[Yy]{4}/.test(pattern)) {
-    return year;
+    return year
   }
 
   if (/[Yy]{2}/.test(pattern)) {
-    return year.substr(2, 2);
+    return year.substr(2, 2)
   }
-};
+}
