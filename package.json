@@ -72,7 +72,7 @@
     "gulp-postcss": "^10.0.0",
     "gulp-svgo": "^2.2.1",
     "gulp-terser": "^2.1.0",
-    "gulp-zip": "^5.1.0",
+    "gulp-zip": "^6.1.0",
     "js-yaml": "^4.1.0",
     "map-stream": "^0.0.7",
     "merge-stream": "^2.0.0",
