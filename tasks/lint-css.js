@@ -1,11 +1,11 @@
-"use strict";
+'use strict'
 
-const gulp = require("gulp");
-const stylelint = require("@ronilaukkarinen/gulp-stylelint");
+const gulp = require('gulp')
+const stylelint = require('@ronilaukkarinen/gulp-stylelint')
 
 module.exports = (files) =>
   gulp.src(files).pipe(
     stylelint({
-      reporters: [{ formatter: "string", console: true }],
+      reporters: [{ formatter: 'string', console: true }]
     })
-  );
+  )
