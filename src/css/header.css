@@ -16,7 +16,7 @@ body {
   font-size: 0.8333rem;
   height: var(--navbar-height);
   position: fixed;
-  top: 0;
+  inset-block-start: 0;
   width: 100%;
   word-wrap: break-word;
   z-index: 3;
@@ -112,10 +112,10 @@ body {
   background-color: var(--color-navbar-text);
   display: block;
   height: 1px;
-  left: 50%;
   margin-left: -7px;
   position: absolute;
-  top: 50%;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
   width: 15px;
 }
 
@@ -248,8 +248,8 @@ body {
     border: 1px solid #e1e1e1;
     display: none;
     font-size: 0.875rem;
-    top: 100%;
-    left: 0;
+    inset-block-start: 100%;
+    inset-inline-start: 0;
     min-width: 100%;
     position: absolute;
   }
@@ -269,8 +269,8 @@ body {
     transform: rotate(-45deg);
     width: 0.5em;
     margin-top: -0.375em;
-    right: 1.125em;
-    top: 50%;
+    inset-inline-end: 1.125em;
+    inset-block-start: 50%;
   }
 
   .navbar-menu {
@@ -292,8 +292,7 @@ body {
   }
 
   .navbar-dropdown.is-right {
-    left: auto;
-    right: 0;
+    inset-inline: auto 0;
   }
 
   .navbar-dropdown a.navbar-item:hover {
@@ -327,8 +326,8 @@ body {
   position: absolute;
   width: 10px;
   height: 100%;
-  right: 20px;
-  top: 0;
+  inset-inline-end: 20px;
+  inset-block-start: 0;
   justify-content: center;
   align-items: center;
   color: #000;
@@ -338,8 +337,8 @@ body {
 .search .results {
   position: absolute;
   color: initial;
-  right: 20px;
-  top: 100%;
+  inset-inline-end: 20px;
+  inset-block-start: 100%;
   background: #fff;
   border: 1px solid #fafafa;
   border-radius: 0;

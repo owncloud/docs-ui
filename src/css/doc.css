@@ -234,8 +234,8 @@
 
 .doc .admonitionblock .icon {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   font-size: 0.75rem;
   padding: 0 0.5rem;
   height: 1.25rem;
@@ -506,8 +506,8 @@
   color: #DCDCDC;
   display: flex;
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  inset-block-start: 0.5rem;
+  inset-inline-end: 0.5rem;
   font-family: var(--body-font-family);
   font-size: 0.7rem;
   line-height: 1;
@@ -567,8 +567,8 @@
   position: relative;
   display: inline-flex;
   justify-content: center;
-  right: 1.05rem;
-  top: .3rem;
+  inset-inline-end: 1.05rem;
+  inset-block-start: .3rem;
   background-color: var(--doc-font-color);
   border-radius: 0.25em;
   color: var(--color-white);
@@ -580,7 +580,7 @@
 .doc .source-toolbox .copy-toast::after {
   content: "";
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   width: 1em;
   height: 1em;
   border: 0.55em solid transparent;

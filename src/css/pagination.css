@@ -49,7 +49,7 @@ nav.pagination a::after {
   font-size: 1.5em;
   line-height: 0.75;
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   width: 1rem;
 }
 

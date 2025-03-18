@@ -52,9 +52,8 @@
   display: block;
   height: 3px; /* Chrome doesn't always paint the line accurately, so add a little extra */
   position: absolute;
-  bottom: -1.5px;
-  left: 0;
-  right: 0;
+  inset-block-end: -1.5px;
+  inset-inline: 0;
 }
 
 .tabset > .tabs + .content {
