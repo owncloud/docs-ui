@@ -34,8 +34,8 @@
   /* box-shadow: 3px 3px 6px 1px #ccc; */
   padding: 1.3rem 0.5rem 0.35rem;
   position: absolute;
-  top: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   white-space: nowrap;
 }
 
