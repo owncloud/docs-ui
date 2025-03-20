@@ -9,10 +9,15 @@
 @import url("toolbar.css");
 @import url("breadcrumbs.css");
 @import url("page-versions.css");
+@import url("toc.css");
 @import url("doc.css");
 @import url("pagination.css");
 @import url("header.css");
 @import url("footer.css");
+/* these are the css that are provided by owncCloud
+ * note the order which is important for precedence
+ * the last one hits... 
+*/
 @import url("tabs.css");
 @import url("owncloud.css");
 @import url("medium-zoom.css");
