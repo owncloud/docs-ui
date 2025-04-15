@@ -1,17 +1,8 @@
 /**
  * Supplemental Formatting Styles by ownCloud
+ * Note that deviating variables are defined in owncloud-vars.css
  * For the order how they get activated see: https://specifishity.com/
  */
-html {
-  font-family: "Open Sans", sans-serif;
-}
-
-b,
-dt,
-strong,
-th {
-  font-weight: 700;
-}
 
 /**
  * Supplemental (Image-related) Styles, text is forced to be aligned left

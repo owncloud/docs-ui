@@ -1,0 +1,9 @@
+:root {
+  /* owncloud deviations from vars.css */
+  --color-jet-70: #1f2939;
+  --body-font-size: 1.1em;
+  --body-font-size--desktop: 1.2em;
+  --body-line-height: 1.6;
+  --body-font-family: "Open Sans", sans-serif;
+  --body-font-weight-bold: 700;
+}
