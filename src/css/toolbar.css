@@ -1,23 +1,18 @@
-:root {
-  --toolbar-height: 2.5rem;
-}
-
 .toolbar {
-  color: #5d5d5d;
+  color: var(--toolbar-font-color);
   align-items: center;
-  background-color: #fafafa;
-  box-shadow: 0 1px 0 #e1e1e1;
+  background-color: var(--toolbar-background);
+  box-shadow: 0 1px 0 var(--toolbar-border-color);
   display: flex;
-  font-size: 0.75rem;
+  font-size: calc(15 / var(--rem-base) * 1rem);
   height: var(--toolbar-height);
   justify-content: flex-start;
   position: sticky;
   inset-block-start: var(--navbar-height);
-  z-index: 1;
+  z-index: var(--z-index-toolbar);
 }
 
-.toolbar a,
-.toolbar a:visited {
+.toolbar a {
   color: inherit;
 }
 
@@ -26,16 +21,11 @@
   background-size: 49%;
   border: none;
   outline: none;
-  cursor: pointer;
-  display: block;
-  height: 2.5rem;
+  line-height: inherit;
   padding: 0;
-  width: 2.5rem;
+  height: var(--toolbar-height);
+  width: var(--toolbar-height);
   margin-right: -0.25rem;
-}
-
-.nav-toggle::-moz-focus-inner {
-  border: none;
 }
 
 @media screen and (width >= 1024px) {
@@ -50,12 +40,11 @@
 }
 
 .home-link {
-  background: url("../img/home-o.svg") no-repeat 50% 45%;
-  background-size: 50%;
   display: block;
-  height: 2.5rem;
-  padding: 0;
-  width: 2.5rem;
+  background: url("../img/home-o.svg") no-repeat center;
+  height: calc(var(--toolbar-height) / 2);
+  width: calc(var(--toolbar-height) / 2);
+  margin: calc(var(--toolbar-height) / 4);
 }
 
 .home-link:hover,
@@ -75,5 +64,5 @@
 }
 
 .toolbar .edit-this-page a {
-  color: #8e8e8e;
+  color: var(--toolbar-muted-color);
 }
