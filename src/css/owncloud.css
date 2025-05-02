@@ -1,15 +1,225 @@
 /**
- * Supplemental Formatting Styles
- */
-html {
-  font-family: "Open Sans", sans-serif;
+ * Supplemental Formatting Styles by ownCloud
+ * Note that deviating variables are defined in owncloud-vars.css
+ * For the order how they get activated see: https://specifishity.com/
+*/
+
+/* no margin and full width when the screen is small where we do not show the navigation */
+@media screen and (width <= 1023.5px) {
+  .doc {
+  margin: 10px;
+  max-width: 100%
+  }
 }
 
-b,
-dt,
-strong,
-th {
-  font-weight: 700;
+/* redefine the navbar height on small screens, three lines to show because they are too squeezed in the box */
+@media screen and (width <= 572px) {
+  :root{
+  --navbar-height: var(--navbar-height-5xx);
+  }
+}
+
+/* redefine the navbar height on very small screens, four lines to show because they are too squeezed in the box */
+@media screen and (width <= 468px) {
+  :root{
+  --navbar-height: var(--navbar-height-4xx);
+  }
+}
+
+.doc h1,
+.doc h2,
+.doc h3,
+.doc h4,
+.doc h5,
+.doc h6 {
+  color: var(--heading-font-color);
+  hyphens: none;
+  margin: 2rem 0 0;
+  font-family: var(--body-font-family);
+}
+
+.doc p code,
+.doc thead code,
+.doc .colist > table code {
+  font-size: 0.9em;
+  border-radius: 0.2rem;
+  padding: 0.075rem 0.25rem 0.125rem;
+}
+
+.doc table.tableblock {
+  border-collapse: collapse;
+  margin-top: 2rem 0;
+  /* enable table-layout: fixed if you want the table width to be enforced strictly */
+  /* alternative is to wrap table in div and set overflow-x: auto on the wrapper */
+  /* table-layout: fixed; */
+}
+
+.doc td.tableblock > .content {
+  word-wrap: unset; /* do net let line breaks in tables cells occur if not absolutely necessary */
+}
+
+.doc table.spread {
+  width: 100%;
+}
+
+/* we are not using a full grid in tables and need to unset the default
+ * below we set lines between rows (.doc table.tableblock th/td)
+ */
+.doc table.tableblock,
+.doc table.tableblock > * > tr > * {
+  border: unset;
+}
+
+/**
+ * table headlines slight gray frame line and background
+ * border-bottom: 2.5px solid #ddd;
+ * we also unset the padding defined in docs.css
+ */
+.doc table.tableblock th {
+  border-bottom: 2.5px solid #f7f8f7;
+  background: #f7f8f7;
+}
+
+.doc table.tableblock td {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.doc p,
+.doc .tableblock,
+.doc .content {
+  hyphens: auto;
+}
+
+.doc .tableblock p {
+  font-size: inherit;
+}
+
+.doc .admonitionblock > table {
+  border-collapse: collapse;
+}
+
+.doc .admonitionblock td.icon i.icon-important {
+  background-color: #e18114;
+}
+
+.doc .admonitionblock td.icon i.icon-warning {
+  background-color: #d32f2f;
+}
+
+.doc .admonitionblock .icon i::after {
+  content: attr(title);
+  hyphens: none;
+}
+
+.doc .imageblock .title {
+  color: #191919;
+}
+
+.doc .admonitionblock .title,
+.doc .exampleblock .title,
+.doc .imageblock .title,
+.doc .literalblock .title,
+.doc .listingblock .title,
+.doc .openblock .title,
+.doc .videoblock .title,
+.doc table.tableblock caption {
+  color: #7a2518;
+}
+
+/* Other possible colors #248232 (dark green) #2ba84a (brighter green), */
+/* #f7ef99 (soft yellow), #f78e69 (orangey-grayish) */
+.doc .exampleblock > .content,
+.doc details.result > .content {
+  box-shadow: inset 0 0 1.75px #248232;
+}
+
+.doc .sidebarblock {
+  background-color: #ebebeb;
+}
+
+.doc .sidebarblock > .content > .title {
+  color: var(--color-jet-80);
+  font-weight: 500;
+}
+
+.doc pre.highlight > code,
+.doc .listingblock pre:not(.highlight),
+.doc .literalblock pre {
+  padding: 0.75rem;
+}
+
+/* this positions and adds visibility like the source text BASH and the copy icon */ 
+.doc .source-toolbox { 
+  color: #DCDCDC; /* same color as in highlight.js theme */
+  visibility: visible;
+  inset-block-start: 0.5rem;
+  inset-inline-end: 0.5rem;
+}
+
+.doc .source-toolbox .source-lang {
+  line-height: 1.0425;
+}
+
+.doc .source-toolbox .copy-button {
+  cursor: pointer !important;
+  background: transparent;
+}
+
+.doc .source-toolbox img.copy-icon {
+  filter: invert(100%);
+}
+
+.doc .source-toolbox .copy-toast {
+  inset-inline-end: 1.05rem;
+  inset-block-start: .3rem;
+  transition: opacity 0.5s ease 0.75s;
+}
+
+/* When using language "console", a bash prompt (like > or $ or % or # or [test@ubuntu ~]$ ect.)
+ * will activate the meta css tag which prevents the prompt being copied and pasted manually in the
+ * browser. This is also true for up to 3 leading blanks at the beginning and then a prompt symbol!
+ * Rule: if the text to highlight starts with a bash prompt, choose shell (or console),
+ * otherwise choose bash. If you use console but the line does not start with a bash prompt,
+ * highlighting will not work. Therefore check the language used carefully.
+.doc .language-console .hljs-meta {
+  user-select: none;
+}
+*/
+
+.doc .dlist dt {
+  color: var(--color-jet-20);
+}
+
+.doc .dlist dd {
+  margin: 0 0 0.3rem 1.5rem;
+}
+
+.doc .conum[data-value] {
+  border: 1px solid #404040;
+}
+
+.doc .colist {
+  font-size: 0.95rem;
+}
+
+.doc .colist > table tr > td:first-of-type {
+  padding: 0 0.75em;
+  line-height: 1;
+}
+
+.keyseq {
+  font-family: var(---monospace-font-family);
+}
+
+/* for highlight js */
+
+.hljs {
+  font-size: 0.7rem;
+  border-radius: 4px;
+  background: #1e1e1e !important;
+  color: #dcdcdc !important;
+  padding-top: 2em !important;  /* Adjustments to prevent toolbox and content overlay on small screen width */
 }
 
 /**
@@ -57,6 +267,7 @@ caption {
 /**
  * Supplemental Navigation Styles
  */
+
 li.nav-item.is-current-page.is-active a.nav-link {
   text-decoration: underline;
   font-style: italic;
@@ -68,7 +279,7 @@ li.nav-item.is-current-page.is-active ul li.nav-item a.nav-link {
 }
 
 footer {
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 footer div.container p {
@@ -78,15 +289,55 @@ footer div.container p {
 
 footer div.container div.row-full {
   margin: 0 auto;
-  margin-left: 3%;
+  margin-left: 4rem;
   width: 100%;
   clear: both;
   float: left;
+  /* evenly distribute columns */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 footer div.container div.row-full div.col-third {
-  float: left;
-  width: 33%;
+  /* evenly distribute columns */
+  flex: auto;
+  text-align: left;
+}
+
+footer.footer {
+  background-color: var(--color-navbar-bg);
+  color: var(--color-gray-40);
+  padding: 0.5rem 1rem;
+}
+
+.footer a {
+  color: var(--color-gray-70);
+}
+
+.footer-nav h4 {
+  color: var(--color-white);
+  font-weight: normal;
+  margin: 20px;
+}
+
+.footer-nav ul li a {
+  color: #aaa;
+}
+
+/**
+ * Supplemental Responsive Footer Styles
+ */
+@media screen and (width <= 600px) {
+  footer div.container div.row-full {
+    margin-left: 0;
+  }
+
+  footer div.container div.row-full div.col-third {
+    width: 50%;
+    margin: 0 auto;
+    float: none;
+  }
 }
 
 blockquote::before {
@@ -110,6 +361,50 @@ blockquote::before {
   text-align: justify;
 }
 
+.videoblock {
+  margin-top: 20px;
+}
+
+.navbar {
+  background: var(--color-navbar-bg);
+}
+
+.navbar-end .navbar-link:hover {
+    background-color: var(--color-navbar-bg-focus);
+}
+
+nav.pagination .prev::before {
+  content: "Previous Page";
+}
+
+nav.pagination .next::before {
+  content: "Next Page";
+}
+
+/* css for our search function */
+
+@media screen and (width <= 799px) {
+  .search {
+    display: none;
+  }
+}
+
+@media screen and (width >= 769px) {
+  .search-input {
+    width: 200px;
+  }
+}
+
+/* on small screens, have the same padding as on the left (1rem), because we do not use hamburger.
+if we would use a hamburger menu (header-content.hbs), this needs adaption, the hamburger already has a right padding.
+*/
+
+@media screen and (width <= 770px) {
+  .navbar-brand {
+    padding-right: 1rem;
+  }
+}
+
 .search-input {
   display: inline-flex;
   background-color: #fff;
@@ -122,36 +417,89 @@ blockquote::before {
   font-size: 1em;
 }
 
-.videoblock {
-  margin-top: 20px;
+.search {
+  position: relative;
 }
 
-/**
- * Supplemental Responsive Styles
- */
-@media screen and (width <= 600px) {
-  footer div.container div.row-full {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  footer div.container div.row-full div.col-third {
-    width: 50%;
-    margin: 0 auto;
-    float: none;
-  }
+.search .animation {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  inset-inline-end: 20px;
+  inset-block-start: 0;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  display: none;
 }
 
-@media screen and (width >= 601px) {
-  footer div.container div.row-full {
-    margin-left: 0;
-    width: 100%;
-  }
+.search .results {
+  position: absolute;
+  color: initial;
+  inset-inline-end: 20px;
+  inset-block-start: 100%;
+  background: #fff;
+  border: 1px solid #fafafa;
+  border-radius: 0;
+  width: 30vw;
+  box-shadow: inset 0 0 1px #ddd;
+  padding: 0;
+  max-height: 75vh;
+  z-index: 999999;
+  display: none;
+  max-width: 100vh;
+  border-color: #ccc;
+  border-width: 0 1px 1px;
+}
 
-  footer div.container div.row-full div.col-third {
-    width: 33%;
-    margin: 0 auto;
-  }
+.search .results .error {
+  text-align: center;
+}
+
+.search .results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 75vh;
+  overflow-y: scroll;
+}
+
+.search .results li {
+  border-bottom: 1px solid #ececec;
+}
+
+.search .results li a {
+  padding: 0.5em 1em;
+  display: block;
+  color: initial;
+}
+
+.search .results li a:hover {
+  text-decoration: none;
+}
+
+.search .results li:hover {
+  background: #fafafa;
+}
+
+.search .results li label {
+  display: block;
+  font-size: 75%;
+  text-transform: capitalize;
+  float: left;
+}
+
+.search .results li .score {
+  float: right;
+  font-size: 75%;
+}
+
+.search .results li .head {
+  clear: both;
+}
+
+.search .results li .body {
+  font-size: 75%;
 }
 
 /**

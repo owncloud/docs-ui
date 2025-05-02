@@ -1,12 +1,11 @@
-<div class="main-wrapper">
-  {{> nav}}
-
-  <main class="main">
+<main class="article">
+  {{> toolbar}}
+  <div class="content">
     {{#if (eq page.layout '404')}}
       {{> article-404}}
     {{else}}
-      {{> toolbar}}
+      {{> toc}}
       {{> article}}
     {{/if}}
-  </main>
-</div>
+  </div>
+</main>

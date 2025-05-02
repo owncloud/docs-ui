@@ -1,0 +1,19 @@
+:root {
+  /* owncloud deviations from vars.css */
+  --color-jet-70: #1f2939;
+  --body-font-color: var(--color-jet-70);
+  --body-font-size: 1.1em;
+  --body-font-size--desktop: 1.2em;
+  --body-line-height: 1.6;
+  --body-font-family: "Open Sans", sans-serif;
+  --body-font-weight-bold: 700;
+  --doc-margin: 40rem;
+  --doc-max-width: 100%;
+  --doc-max-width--desktop: 100%;
+
+  /* owncloud additions */
+  --color-navbar-bg: #1b223d;
+  --color-navbar-bg-focus: #0e152d;
+  --navbar-height-5xx: calc(80 / var(--rem-base) * 1rem);
+  --navbar-height-4xx: calc(100 / var(--rem-base) * 1rem);
+}

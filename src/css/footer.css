@@ -1,8 +1,9 @@
 footer.footer {
-  font-size: 0.85rem;
-  background-color: var(--color-navbar-bg);
-  color: #8e8e8e;
-  padding: 0.5rem 1rem;
+  background-color: var(--footer-background);
+  color: var(--footer-font-color);
+  font-size: calc(15 / var(--rem-base) * 1rem);
+  line-height: var(--footer-line-height);
+  padding: 1.5rem;
 }
 
 .footer p {
@@ -10,14 +11,5 @@ footer.footer {
 }
 
 .footer a {
-  color: #5d5d5d;
-}
-
-.footer-nav h4 {
-  color: #fff;
-  font-weight: normal;
-}
-
-.footer-nav ul li a {
-  color: #aaa;
+  color: var(--footer-link-font-color);
 }

@@ -1,26 +1,15 @@
-/* This file is a preparation for vars in other css defined via :root
- * These vars should be integrated/moved from existing css into this file.
- * BUT some of these vars are also used in other css defined locally without global scope
- * causing a mess when just activated - needs single treatment, css, by css, by var...
- * See default-ui vars.css from https://gitlab.com/antora/antora-ui-default/-/blob/master/src/css/vars.css
- *
- * Releasing one by another is the best approach not to break things
-*/
-
+/* note that some vars get overwritten (customized) by owncloud-vars.css */
 :root {
   /* colors */
-/*
   --color-white: #fff;
   --color-smoke-10: #fefefe;
   --color-smoke-30: #fafafa;
   --color-smoke-50: #f5f5f5;
   --color-smoke-70: #f0f0f0;
-*/
   --color-smoke-90: #e1e1e1;
   --color-gray-10: #c1c1c1;
   --color-gray-30: #9c9c9c;
   --color-gray-40: #8e8e8e;
-/*
   --color-gray-50: #808080;
   --color-gray-70: #5d5d5d;
   --color-jet-20: #4a4a4a;
@@ -29,7 +18,6 @@
   --color-jet-70: #222;
   --color-jet-80: #191919;
   --color-black: #000;
-*/
   /* fonts */
   --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
   --body-font-size: 1.0625em; /* 17px */
@@ -38,24 +26,17 @@
   --body-line-height: 1.15;
   --body-font-color: var(--color-jet-70);
   --body-font-family: "Roboto", sans-serif;
-  --body-font-weight-bold: 500;
-/*
+  --body-font-weight-bold: 600;
   --monospace-font-family: "Roboto Mono", monospace;
-  --monospace-font-weight-bold: 500;
-*/
+  --monospace-font-weight-bold: 600;
   /* base */
-/*
   --body-background: var(--color-white);
   --panel-background: var(--color-smoke-30);
-*/
   --panel-border-color: var(--color-smoke-90);
-/*
   --scrollbar-track-color: var(--color-smoke-30);
   --scrollbar-thumb-color: var(--color-gray-10);
   --scrollbar_hover-thumb-color: var(--color-gray-30);
-*/
   /* navbar */
-/*
   --navbar-background: var(--color-jet-80);
   --navbar-font-color: var(--color-white);
   --navbar_hover-background: var(--color-black);
@@ -66,7 +47,6 @@
   --navbar-menu-background: var(--color-white);
   --navbar-menu-font-color: var(--body-font-color);
   --navbar-menu_hover-background: var(--color-smoke-50);
-*/
   /* nav */
   --nav-background: var(--panel-background);
   --nav-border-color: var(--color-gray-10);
@@ -75,22 +55,14 @@
   --nav-muted-color: var(--color-gray-70);
   --nav-panel-divider-color: var(--color-smoke-90);
   --nav-secondary-background: var(--color-smoke-70);
-
   /* toolbar */
-/*
   --toolbar-background: var(--panel-background);
-*/
   --toolbar-border-color: var(--panel-border-color);
-/*
   --toolbar-font-color: var(--color-gray-70);
-*/
   --toolbar-muted-color: var(--color-gray-40);
-/*
   --page-version-menu-background: var(--color-smoke-70);
   --page-version-missing-font-color: var(--color-gray-40);
-*/
   /* admonitions */
-/*
   --caution-color: #a0439c;
   --caution-on-color: var(--color-white);
   --important-color: #d32f2f;
@@ -101,9 +73,7 @@
   --tip-on-color: var(--color-white);
   --warning-color: #e18114;
   --warning-on-color: var(--color-white);
-*/
   /* doc */
-/*
   --doc-font-color: var(--color-jet-50);
   --doc-font-size: inherit;
   --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
@@ -142,21 +112,16 @@
   --table-border-color: var(--panel-border-color);
   --table-stripe-background: var(--panel-background);
   --table-footer-background: linear-gradient(to bottom, var(--color-smoke-70) 0%, var(--color-white) 100%);
-*/
   /* toc */
-/*
   --toc-font-color: var(--nav-muted-color);
   --toc-heading-font-color: var(--doc-font-color);
   --toc-border-color: var(--panel-border-color);
   --toc-line-height: 1.2;
-*/
   /* footer */
-/*
   --footer-line-height: var(--doc-line-height);
   --footer-background: var(--color-smoke-90);
   --footer-font-color: var(--color-gray-70);
   --footer-link-font-color: var(--color-jet-80);
-*/
   /* dimensions and positioning */
   --navbar-height: calc(63 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);
@@ -174,9 +139,7 @@
   --toc-width--widescreen: calc(216 / var(--rem-base) * 1rem);
   --doc-max-width: calc(720 / var(--rem-base) * 1rem);
   --doc-max-width--desktop: calc(828 / var(--rem-base) * 1rem);
-
   /* stacking */
-
   --z-index-nav: 1;
   --z-index-toolbar: 2;
   --z-index-page-version-menu: 3;

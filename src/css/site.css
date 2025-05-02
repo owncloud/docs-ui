@@ -1,20 +1,27 @@
 @import url("typeface-open-sans.css");
 @import url("typeface-roboto-mono.css");
 @import url("vars.css");
+@import url("owncloud-vars.css"); /* needs to be added directly after vars */
 @import url("base.css");
-@import url("main.css");
+@import url("body.css");
 @import url("nav.css");
-@import url("nav-panel-menu.css");
-@import url("nav-panel-explore.css");
+@import url("main.css");
 @import url("toolbar.css");
 @import url("breadcrumbs.css");
 @import url("page-versions.css");
+@import url("toc.css");
 @import url("doc.css");
 @import url("pagination.css");
 @import url("header.css");
 @import url("footer.css");
+
+/* these are the css that are provided by owncCloud
+ * note the order which is important for precedence
+ * the last one hits... 
+*/
 @import url("tabs.css");
 @import url("owncloud.css");
 @import url("medium-zoom.css");
+
 /* Theme for highlight.js codeblocks, pick from available themes */
 @import url("./../../node_modules/highlight.js/styles/vs2015.css");
