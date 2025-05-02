@@ -55,7 +55,7 @@
 }
 
 .doc td.tableblock > .content {
-  word-wrap: unset; /* do net let line breakes in tables cells occur id not absolutely necessary */
+  word-wrap: unset; /* do net let line breaks in tables cells occur if not absolutely necessary */
 }
 
 .doc table.spread {
@@ -177,7 +177,7 @@
 }
 
 /* When using language "console", a bash prompt (like > or $ or % or # or [test@ubuntu ~]$ ect.)
- * will activate the meta css tag which prevents that the prompt being copied and pasted manually in the
+ * will activate the meta css tag which prevents the prompt being copied and pasted manually in the
  * browser. This is also true for up to 3 leading blanks at the beginning and then a prompt symbol!
  * Rule: if the text to highlight starts with a bash prompt, choose shell (or console),
  * otherwise choose bash. If you use console but the line does not start with a bash prompt,
