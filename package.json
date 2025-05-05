@@ -86,7 +86,7 @@
     "prettier-eslint": "^16.4.1",
     "require-from-string": "^2.0.1",
     "standard": "^17.1.2",
-    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard": "^38.0.0",
     "tslib": "^2.8.1",
     "typeface-open-sans": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13",
