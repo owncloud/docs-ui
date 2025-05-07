@@ -69,11 +69,12 @@
   display: inline-block;
   margin-right: 50px;
   /*
-  a tabset can be wider than usual, like when embedding a wide table.
-  this would lead to overlapping the right hand sided toc navigation, see main.hbs, if toc is enabled.
-  we therefore need to make the tabset positioned OVER the toc if any.
+  * a tabset can be wider than usual, like when embedding a wide table.
+  * this would lead to overlapping the right hand sided toc navigation, see main.hbs, if toc is enabled.
+  * we therefore need to make the tabset positioned OVER the toc if any.
   */
   position: relative;
+  z-index: 1;
   background: var(--body-background);
 }
 
