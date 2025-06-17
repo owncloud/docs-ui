@@ -12,6 +12,7 @@
   --doc-max-width--desktop: 100%;
 
   /* owncloud additions */
+  --color-title: #7a2518;
   --color-navbar-bg: #1b223d;
   --color-navbar-bg-focus: #0e152d;
   --navbar-height-5xx: calc(80 / var(--rem-base) * 1rem);

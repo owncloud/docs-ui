@@ -124,7 +124,12 @@
 .doc .openblock .title,
 .doc .videoblock .title,
 .doc table.tableblock caption {
-  color: #7a2518;
+  color: var(--color-title);
+}
+
+.doc .olist .title,
+.doc .ulist .title {
+  color: var(--color-title);
 }
 
 /* Other possible colors #248232 (dark green) #2ba84a (brighter green), */
@@ -228,9 +233,10 @@
  * color: #8c8c8c;
  */
 div.paragraph div.title {
-  color: #7a2518;
-  font-size: 85%;
-  font-style: italic;
+  color: var(--color-title);
+  /* font-size: 85%; */
+  font-weight: var(--caption-font-weight);
+  font-style: var(--caption-font-style);
   padding: 2px;
   text-align: left;
 }
@@ -239,7 +245,7 @@ div.paragraph div.title {
  * dlist title same as div.paragraph title
  */
 div.dlist div.title {
-  color: #7a2518;
+  color: var(--color-title);
   font-size: 85%;
   font-style: italic;
   padding: 2px;
@@ -261,8 +267,9 @@ div.dlist div.title {
 caption {
   display: table-caption;
   text-align: left;
-  color: #7a2518;
+  color: var(--color-title);
 }
+
 
 /**
  * Supplemental Navigation Styles
