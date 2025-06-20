@@ -81,7 +81,7 @@
     "postcss": "8",
     "postcss-calc": "^10.1.1",
     "postcss-custom-properties": "^14.0.6",
-    "postcss-import": "^16.1.0",
+    "postcss-import": "^16.1.1",
     "postcss-url": "^10.1.3",
     "prettier-eslint": "^16.4.2",
     "require-from-string": "^2.0.1",
