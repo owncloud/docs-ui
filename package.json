@@ -64,7 +64,7 @@
     "autoprefixer": "^10.4.21",
     "browserify": "^17.0.1",
     "chokidar": "^4.0.3",
-    "cssnano": "^7.0.7",
+    "cssnano": "^7.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.7.0",
