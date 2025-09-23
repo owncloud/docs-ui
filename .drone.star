@@ -26,21 +26,21 @@ def main(ctx):
             },
             {
                 "name": "Dependencies",
-                "image": "owncloudci/nodejs:18",
+                "image": "owncloudci/nodejs:22",
                 "commands": [
                     "npm install",
                 ],
             },
             {
                 "name": "Lint",
-                "image": "owncloudci/nodejs:18",
+                "image": "owncloudci/nodejs:22",
                 "commands": [
                     "npm run lint",
                 ],
             },
             {
                 "name": "Build",
-                "image": "owncloudci/nodejs:18",
+                "image": "owncloudci/nodejs:22",
                 "commands": [
                     "npm run bundle",
                     "file build/ui-bundle.zip",
