@@ -42,11 +42,11 @@ gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
 //  done()
 //})
 
-//gulp.task('build', () => build(srcDir, destDir))
-gulp.task('build', (done) => {
-  build(srcDir, destDir)
-  done()
-})
+gulp.task('build', () => build(srcDir, destDir))
+//gulp.task('build', (done) => {
+//  build(srcDir, destDir)
+//  done()
+//})
 
 gulp.task('build:preview', (done) => {
   buildPreview(
@@ -55,7 +55,7 @@ gulp.task('build:preview', (done) => {
     previewSiteSrcDir,
     previewSiteDestDir,
     connect.reload
-    )
+  )
   done()
 })
 
@@ -72,9 +72,9 @@ gulp.task('serve:site', (done) => {
   done()
 })
 
-gulp.task('preview', gulp.series('build:preview', 'serve:site'))
-
 gulp.task('pack', gulp.series('clean', 'lint', 'build', 'bundle'))
+
+gulp.task('preview', gulp.series('pack', 'build:preview', 'serve:site'))
 
 //gulp.task('default', gulp.series('build'))
 gulp.task('default', gulp.series('bundle'))
