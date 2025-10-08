@@ -34,40 +34,47 @@ gulp.task('lint:css', () => lintCss(`${srcDir}/css/**/*.css`))
 gulp.task('lint:js', () => lintJs(jsFiles))
 gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
 
-gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
-
 gulp.task('format', () => format(jsFiles))
 
-gulp.task('build', () => build(srcDir, destDir))
+gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
+//gulp.task('bundle', (done) => {
+//  pack(destDir, buildDir, bundleName)
+//  done()
+//})
 
-gulp.task(
-  'build:preview',
-  gulp.series('build', () =>
-    buildPreview(
-      srcDir,
-      destDir,
-      previewSiteSrcDir,
-      previewSiteDestDir,
-      connect.reload
+//gulp.task('build', () => build(srcDir, destDir))
+gulp.task('build', (done) => {
+  build(srcDir, destDir)
+  done()
+})
+
+gulp.task('build:preview', (done) => {
+  buildPreview(
+    srcDir,
+    destDir,
+    previewSiteSrcDir,
+    previewSiteDestDir,
+    connect.reload
     )
-  )
-)
+  done()
+})
 
-gulp.task(
-  'preview',
-  gulp.series('build:preview', () =>
-    preview(previewSiteDestDir, {
-      host: '0.0.0.0',
-      port: 5252,
-      livereload: process.env.LIVERELOAD === 'true',
-      watch: {
-        src: [srcDir, previewSiteSrcDir],
-        onChange: () => gulp.start('build:preview')
-      }
-    })
-  )
-)
+gulp.task('serve:site', (done) => {
+  preview(previewSiteDestDir, {
+    host: '0.0.0.0',
+    port: 5252,
+    livereload: process.env.LIVERELOAD === 'true',
+    watch: {
+      src: [srcDir, previewSiteSrcDir],
+      onChange: () => gulp.start('build:preview')
+    }
+  })
+  done()
+})
+
+gulp.task('preview', gulp.series('build:preview', 'serve:site'))
 
 gulp.task('pack', gulp.series('clean', 'lint', 'build', 'bundle'))
 
-gulp.task('default', gulp.series('build'))
+//gulp.task('default', gulp.series('build'))
+gulp.task('default', gulp.series('bundle'))
