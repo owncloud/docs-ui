@@ -32,7 +32,7 @@ module.exports = (src, dest) => {
         {
           filter: '**/~typeface-*/files/*',
           url: (asset) => {
-            const relpath = asset.pathname.substr(1)
+            const relpath = asset.pathname.substring(1)
             const abspath = path.resolve('node_modules', relpath)
             const basename = path.basename(abspath)
             const destpath = path.join(dest, 'font', basename)
