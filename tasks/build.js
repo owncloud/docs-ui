@@ -21,6 +21,10 @@ const gulp = require('gulp')
 
 module.exports = (src, dest) => {
   return new Promise((resolve, reject) => {
+    if (!fs.existsSync(dest)) {
+      mkdirp.sync(dest)
+    }
+
     const opts = { base: src, cwd: src }
     const postcssPlugins = [
       postcssImport(),
