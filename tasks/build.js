@@ -8,7 +8,6 @@ const cssnano = require('cssnano')
 const fs = require('fs')
 const svgo = require('gulp-svgo')
 const map = require('map-stream')
-const merge = require('merge-stream')
 const mkdirp = require('mkdirp')
 const path = require('path')
 const postcss = require('gulp-postcss')
@@ -18,6 +17,7 @@ const postcssUrl = require('postcss-url')
 const postcssVar = require('postcss-custom-properties')
 const terser = require('gulp-terser')
 const gulp = require('gulp')
+const ordered = require('ordered-read-streams');
 
 module.exports = (src, dest) => {
   return new Promise((resolve, reject) => {
@@ -53,7 +53,7 @@ module.exports = (src, dest) => {
       cssnano({ preset: 'default' })
     ]
 
-    let m = merge([
+    let m = ordered([
       gulp
         .src('js/+([0-9])-*.js', opts)
         .pipe(terser())
