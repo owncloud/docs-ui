@@ -36,20 +36,22 @@ gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
 
 gulp.task('format', () => format(jsFiles))
 
-gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
-//gulp.task('bundle', (done) => {
-//  pack(destDir, buildDir, bundleName)
-//  done()
-//})
+//gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
+gulp.task('bundle', async (done) => {
+  await pack(destDir, buildDir, bundleName)
+  done()
+  console.log('end')
+})
 
-gulp.task('build', () => build(srcDir, destDir))
-//gulp.task('build', (done) => {
-//  build(srcDir, destDir)
-//  done()
-//})
+//gulp.task('build', () => build(srcDir, destDir))
+gulp.task('build', async (done) => {
+  await build(srcDir, destDir)
+  done()
+  console.log('xxx')
+})
 
-gulp.task('build:preview', (done) => {
-  buildPreview(
+gulp.task('build:preview', async (done) => {
+  await buildPreview(
     srcDir,
     destDir,
     previewSiteSrcDir,
@@ -59,8 +61,8 @@ gulp.task('build:preview', (done) => {
   done()
 })
 
-gulp.task('serve:site', (done) => {
-  preview(previewSiteDestDir, {
+gulp.task('serve:site', async (done) => {
+  await preview(previewSiteDestDir, {
     host: '0.0.0.0',
     port: 5252,
     livereload: process.env.LIVERELOAD === 'true',

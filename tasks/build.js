@@ -48,7 +48,7 @@ module.exports = (src, dest) => {
     cssnano({ preset: 'default' })
   ]
 
-  return merge([
+  let m = merge([
     gulp
       .src('js/+([0-9])-*.js', opts)
       .pipe(terser())
@@ -80,5 +80,9 @@ module.exports = (src, dest) => {
     gulp.src('layouts/*.hbs', opts),
 
     gulp.src('partials/*.hbs', opts)
-  ]).pipe(gulp.dest(dest))
+  ])
+
+  console.log('before')
+  m.pipe(gulp.dest(dest)).on('end', function() { console.log('written') })
+  console.log('after')
 }

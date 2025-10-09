@@ -7,4 +7,4 @@ module.exports = (src, dest, bundleName) =>
   gulp
     .src('**/*', { base: src, cwd: src })
     .pipe(zip(`${bundleName}-bundle.zip`))
-    .pipe(gulp.dest(dest))
+    .pipe(gulp.dest(dest)).on('end', function() { console.log('written') })
