@@ -3,21 +3,22 @@
 const autoprefixer = require('autoprefixer')
 const browserify = require('browserify')
 const buffer = require('vinyl-buffer')
-const concat = require('gulp-concat')
 const cssnano = require('cssnano')
+const concat = require('gulp-concat')
 const fs = require('fs')
-const svgo = require('gulp-svgo')
+const gulp = require('gulp')
+const log = require('fancy-log')
 const map = require('map-stream')
 const mkdirp = require('mkdirp')
+const ordered = require('ordered-read-streams');
 const path = require('path')
 const postcss = require('gulp-postcss')
 const postcssCalc = require('postcss-calc')
 const postcssImport = require('postcss-import')
 const postcssUrl = require('postcss-url')
 const postcssVar = require('postcss-custom-properties')
+const svgo = require('gulp-svgo')
 const terser = require('gulp-terser')
-const gulp = require('gulp')
-const ordered = require('ordered-read-streams');
 
 module.exports = (src, dest) => {
   return new Promise((resolve, reject) => {
@@ -87,18 +88,14 @@ module.exports = (src, dest) => {
       gulp.src('partials/*.hbs', opts)
     ])
 
-    console.log('before')
-
     m.pipe(gulp.dest(dest))
       .on('end', function() {
-        console.log('written')
+        log('Built sources written to:', `${dest}`)
         resolve()
       })
       .on('error', function(err) {
-        console.error('Build error:', err)
+        log('Build error:', err)
         reject(err)
       })
-
-    console.log('after')
   })
 }

@@ -1,9 +1,9 @@
 'use strict'
 
 const connect = require('gulp-connect')
-const path = require('path')
-const gulp = require('gulp')
 const del = require('del')
+const gulp = require('gulp')
+const path = require('path')
 
 const build = require('./tasks/build')
 const buildPreview = require('./tasks/build-preview')
@@ -36,19 +36,9 @@ gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
 
 gulp.task('format', () => format(jsFiles))
 
-//gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
-gulp.task('bundle', async (done) => {
-  await pack(destDir, buildDir, bundleName)
-  done()
-  console.log('end')
-})
+gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
 
-//gulp.task('build', () => build(srcDir, destDir))
-gulp.task('build', async (done) => {
-  await build(srcDir, destDir)
-  done()
-  console.log('xxx')
-})
+gulp.task('build', () => build(srcDir, destDir))
 
 gulp.task('build:preview', async (done) => {
   await buildPreview(
@@ -79,4 +69,4 @@ gulp.task('pack', gulp.series('clean', 'lint', 'build', 'bundle'))
 gulp.task('preview', gulp.series('pack', 'build:preview', 'serve:site'))
 
 //gulp.task('default', gulp.series('build'))
-gulp.task('default', gulp.series('bundle'))
+//gulp.task('default', gulp.series('bundle'))
