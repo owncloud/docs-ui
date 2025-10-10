@@ -10,7 +10,7 @@ const gulp = require('gulp')
 const log = require('fancy-log')
 const map = require('map-stream')
 const mkdirp = require('mkdirp')
-const ordered = require('ordered-read-streams');
+const ordered = require('ordered-read-streams')
 const path = require('path')
 const postcss = require('gulp-postcss')
 const postcssCalc = require('postcss-calc')
@@ -64,7 +64,7 @@ module.exports = (src, dest) => {
       gulp
         .src('js/vendor/*.js', Object.assign({ read: false }, opts))
         .pipe(
-        // see https://gulpjs.org/recipes/browserify-multiple-destination.html
+          // see https://gulpjs.org/recipes/browserify-multiple-destination.html
           map((file, next) => {
             file.contents = browserify(file.relative, {
               basedir: src,
@@ -90,11 +90,11 @@ module.exports = (src, dest) => {
     ])
 
     m.pipe(gulp.dest(dest))
-      .on('end', function() {
+      .on('end', function () {
         log('Built sources written to:', `${dest}`)
         resolve()
       })
-      .on('error', function(err) {
+      .on('error', function (err) {
         log('Build error:', err)
         reject(err)
       })
