@@ -49,7 +49,7 @@ function loadSampleUiModel (siteSrc) {
   ).then((contents) => yaml.load(contents))
 }
 
-function registerPartials (src) {
+function registerPartials(src) {
   return new Promise((resolve, reject) => {
     gulp
       .src('partials/*.hbs', { base: src, cwd: src })
@@ -64,7 +64,7 @@ function registerPartials (src) {
   })
 }
 
-function registerHelpers (src) {
+function registerHelpers(src) {
   return new Promise((resolve, reject) => {
     gulp
       .src('helpers/*.js', { base: src, cwd: src })
@@ -80,7 +80,7 @@ function registerHelpers (src) {
   })
 }
 
-function compileLayouts (src) {
+function compileLayouts(src) {
   const layouts = {}
   return new Promise((resolve, reject) => {
     gulp

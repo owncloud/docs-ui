@@ -3,82 +3,100 @@
 const autoprefixer = require('autoprefixer')
 const browserify = require('browserify')
 const buffer = require('vinyl-buffer')
-const concat = require('gulp-concat')
 const cssnano = require('cssnano')
+const concat = require('gulp-concat')
 const fs = require('fs')
-const svgo = require('gulp-svgo')
+const gulp = require('gulp')
+const log = require('fancy-log')
 const map = require('map-stream')
-const merge = require('merge-stream')
 const mkdirp = require('mkdirp')
+const ordered = require('ordered-read-streams')
 const path = require('path')
 const postcss = require('gulp-postcss')
 const postcssCalc = require('postcss-calc')
 const postcssImport = require('postcss-import')
 const postcssUrl = require('postcss-url')
 const postcssVar = require('postcss-custom-properties')
+const svgo = require('gulp-svgo')
 const terser = require('gulp-terser')
-const gulp = require('gulp')
 
+// collect all files and folders to create a bundle that will be zipped in the pack step
 module.exports = (src, dest) => {
-  const opts = { base: src, cwd: src }
-  const postcssPlugins = [
-    postcssImport(),
-    postcssUrl([
-      {
-        filter: '**/~typeface-*/files/*',
-        url: (asset) => {
-          const relpath = asset.pathname.substr(1)
-          const abspath = path.resolve('node_modules', relpath)
-          const basename = path.basename(abspath)
-          const destpath = path.join(dest, 'font', basename)
-          if (!fs.existsSync(destpath)) {
-            const dirname = path.dirname(destpath)
-            if (!fs.existsSync(dirname)) {
-              mkdirp.sync(dirname)
+  return new Promise((resolve, reject) => {
+    if (!fs.existsSync(dest)) {
+      mkdirp.sync(dest)
+    }
+
+    const opts = { base: src, cwd: src }
+    const postcssPlugins = [
+      postcssImport(),
+      postcssUrl([
+        {
+          filter: '**/~typeface-*/files/*',
+          url: (asset) => {
+            const relpath = asset.pathname.substring(1)
+            const abspath = path.resolve('node_modules', relpath)
+            const basename = path.basename(abspath)
+            const destpath = path.join(dest, 'font', basename)
+            if (!fs.existsSync(destpath)) {
+              const dirname = path.dirname(destpath)
+              if (!fs.existsSync(dirname)) {
+                mkdirp.sync(dirname)
+              }
+              fs.copyFileSync(abspath, destpath)
             }
-            fs.copyFileSync(abspath, destpath)
+            return path.join('..', 'font', basename)
           }
-          return path.join('..', 'font', basename)
         }
-      }
-    ]),
-    postcssVar(),
-    postcssCalc(),
-    autoprefixer(),
-    cssnano({ preset: 'default' })
-  ]
+      ]),
+      postcssVar(),
+      postcssCalc(),
+      autoprefixer(),
+      cssnano({ preset: 'default' })
+    ]
 
-  return merge([
-    gulp
-      .src('js/+([0-9])-*.js', opts)
-      .pipe(terser())
-      .pipe(concat('js/site.js')),
+    let m = ordered([
+      gulp
+        .src('js/+([0-9])-*.js', opts)
+        .pipe(terser())
+        .pipe(concat('js/site.js')),
 
-    gulp
-      .src('js/vendor/*.js', Object.assign({ read: false }, opts))
-      .pipe(
-        // see https://gulpjs.org/recipes/browserify-multiple-destination.html
-        map((file, next) => {
-          file.contents = browserify(file.relative, {
-            basedir: src,
-            detectGlobals: false
-          }).bundle()
-          next(null, file)
-        })
-      )
-      .pipe(buffer())
-      .pipe(terser()),
+      gulp
+        .src('js/vendor/*.js', Object.assign({ read: false }, opts))
+        .pipe(
+          // see https://gulpjs.org/recipes/browserify-multiple-destination.html
+          map((file, next) => {
+            file.contents = browserify(file.relative, {
+              basedir: src,
+              detectGlobals: false
+            }).bundle()
+            next(null, file)
+          })
+        )
+        .pipe(buffer())
+        .pipe(terser()),
 
-    gulp.src('css/site.css', opts).pipe(postcss(postcssPlugins)),
+      gulp.src('css/site.css', opts).pipe(postcss(postcssPlugins)),
 
-    gulp.src('font/*.woff*(2)', opts),
+      gulp.src('font/*.woff*(2)', Object.assign({ allowEmpty: true }, opts)),
 
-    gulp.src('img/**', opts).pipe(svgo()),
+      gulp.src('img/**', opts).pipe(svgo()),
 
-    gulp.src('helpers/*.js', opts),
+      gulp.src('helpers/*.js', opts),
 
-    gulp.src('layouts/*.hbs', opts),
+      gulp.src('layouts/*.hbs', opts),
 
-    gulp.src('partials/*.hbs', opts)
-  ]).pipe(gulp.dest(dest))
+      gulp.src('partials/*.hbs', opts)
+    ])
+
+    m.pipe(gulp.dest(dest))
+      .on('end', function () {
+        log('Built sources written to:', `${dest}`)
+        resolve()
+      })
+      .on('error', function (err) {
+        log('Build error:', err)
+        reject(err)
+      })
+  })
 }

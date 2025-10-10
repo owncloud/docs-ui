@@ -1,9 +1,9 @@
 'use strict'
 
 const connect = require('gulp-connect')
-const path = require('path')
-const gulp = require('gulp')
 const del = require('del')
+const gulp = require('gulp')
+const path = require('path')
 
 const build = require('./tasks/build')
 const buildPreview = require('./tasks/build-preview')
@@ -26,48 +26,58 @@ const jsFiles = [
   path.join(srcDir, '{helpers,js}/**/*.js')
 ]
 
-gulp.task('clean', function () {
-  return del(['./public/**', './build/**'])
-})
-
+// lint css files
 gulp.task('lint:css', () => lintCss(`${srcDir}/css/**/*.css`))
+
+// lint js files
 gulp.task('lint:js', () => lintJs(jsFiles))
-gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
 
-gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
-
+// properly format defined js files
+// note that this task must be run via 'npx gulp format',
+// because any changes need to be committed and merged
 gulp.task('format', () => format(jsFiles))
 
+// build the bundle, collects all files and folders
 gulp.task('build', () => build(srcDir, destDir))
 
-gulp.task(
-  'build:preview',
-  gulp.series('build', () =>
-    buildPreview(
-      srcDir,
-      destDir,
-      previewSiteSrcDir,
-      previewSiteDestDir,
-      connect.reload
-    )
+// pack the created bundle to a zip file
+gulp.task('pack', () => pack(destDir, buildDir, bundleName))
+
+// clean up target directories
+gulp.task('clean', function () {
+  return del([`./${previewSiteDestDir}/**`, `./${buildDir}/**`])
+})
+
+// build the preview
+gulp.task('build:preview', async (done) => {
+  await buildPreview(
+    srcDir,
+    destDir,
+    previewSiteSrcDir,
+    previewSiteDestDir,
+    connect.reload
   )
-)
+  done()
+})
 
-gulp.task(
-  'preview',
-  gulp.series('build:preview', () =>
-    preview(previewSiteDestDir, {
-      host: '0.0.0.0',
-      port: 5252,
-      livereload: process.env.LIVERELOAD === 'true',
-      watch: {
-        src: [srcDir, previewSiteSrcDir],
-        onChange: () => gulp.start('build:preview')
-      }
-    })
-  )
-)
+// serve the built preview
+gulp.task('serve:site', async (done) => {
+  await preview(previewSiteDestDir, {
+    host: '0.0.0.0',
+    port: 5252,
+    livereload: process.env.LIVERELOAD === 'true',
+    watch: {
+      src: [srcDir, previewSiteSrcDir],
+      onChange: () => gulp.start('build:preview')
+    }
+  })
+  done()
+})
 
-gulp.task('pack', gulp.series('clean', 'lint', 'build', 'bundle'))
+// tasks available via npm run
 
-gulp.task('default', gulp.series('build'))
+gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
+
+gulp.task('bundle', gulp.series('clean', 'lint', 'build', 'pack'))
+
+gulp.task('preview', gulp.series('bundle', 'build:preview', 'serve:site'))

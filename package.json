@@ -34,7 +34,7 @@
   "scripts": {
     "lint": "gulp lint",
     "preview": "gulp preview",
-    "bundle": "gulp pack"
+    "bundle": "gulp bundle"
   },
   "dependencies": {
     "del": "6",
@@ -65,18 +65,19 @@
     "browserify": "^17.0.1",
     "chokidar": "^4.0.3",
     "cssnano": "^7.1.1",
-    "gulp": "^4.0.2",
+    "fancy-log": "^2.0.0",
+    "gulp": "^5.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.7.0",
     "gulp-eslint-new": "^2.5.0",
     "gulp-postcss": "^10.0.0",
     "gulp-svgo": "^2.2.1",
     "gulp-terser": "^2.1.0",
-    "gulp-zip": "^5.1.0",
+    "gulp-zip": "^6.1.0",
     "js-yaml": "^4.1.0",
     "map-stream": "^0.0.7",
-    "merge-stream": "^2.0.0",
     "mkdirp": "^3.0.1",
+    "ordered-read-streams": "^2.0.0",
     "plugin-error": "^2.0.1",
     "postcss": "8",
     "postcss-calc": "^10.1.1",

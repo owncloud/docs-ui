@@ -3,6 +3,7 @@
 const gulp = require('gulp')
 const prettier = require('./lib/gulp-prettier-eslint')
 
+// format all js files
 module.exports = (files) =>
   gulp
     .src(files)
