@@ -20,6 +20,7 @@ const postcssVar = require('postcss-custom-properties')
 const svgo = require('gulp-svgo')
 const terser = require('gulp-terser')
 
+// collect all files and folders to create a bundle that will be zipped in the pack step
 module.exports = (src, dest) => {
   return new Promise((resolve, reject) => {
     if (!fs.existsSync(dest)) {

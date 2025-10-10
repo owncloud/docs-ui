@@ -34,7 +34,7 @@
   "scripts": {
     "lint": "gulp lint",
     "preview": "gulp preview",
-    "bundle": "gulp pack"
+    "bundle": "gulp bundle"
   },
   "dependencies": {
     "del": "6",

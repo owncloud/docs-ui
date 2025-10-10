@@ -5,8 +5,8 @@ const PluginError = require('plugin-error')
 const prettierEslint = require('prettier-eslint')
 const { Transform } = require('stream')
 const map = (transform) => new Transform({ objectMode: true, transform })
-//const map = require('map-stream')
 
+// run the prettier code on all js files defined
 module.exports = () => {
   const report = { changed: 0, unchanged: 0 }
 

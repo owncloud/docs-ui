@@ -1,10 +1,16 @@
 'use strict'
 
+const fs = require('fs')
 const gulp = require('gulp')
 const log = require('fancy-log')
 const zip = require('gulp-zip').default
 
+// pack all files and folders to a zip
 module.exports = (src, dest, bundleName) => new Promise((resolve, reject) => {
+  if (!fs.existsSync(src)) {
+    log('No sources found to pack, did the bundle task run successfully?')
+  }
+
   gulp
     .src('**/*', { base: src, cwd: src })
     .pipe(zip(`${bundleName}-bundle.zip`))

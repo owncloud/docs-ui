@@ -26,20 +26,29 @@ const jsFiles = [
   path.join(srcDir, '{helpers,js}/**/*.js')
 ]
 
-gulp.task('clean', function () {
-  return del(['./public/**', './build/**'])
-})
-
+// lint css files
 gulp.task('lint:css', () => lintCss(`${srcDir}/css/**/*.css`))
-gulp.task('lint:js', () => lintJs(jsFiles))
-gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
 
+// lint js files
+gulp.task('lint:js', () => lintJs(jsFiles))
+
+// properly format defined js files
+// note that this task must be run via 'npx gulp format',
+// because any changes need to be committed and merged
 gulp.task('format', () => format(jsFiles))
 
-gulp.task('bundle', () => pack(destDir, buildDir, bundleName))
-
+// build the bundle, collects all files and folders
 gulp.task('build', () => build(srcDir, destDir))
 
+// pack the created bundle to a zip file
+gulp.task('pack', () => pack(destDir, buildDir, bundleName))
+
+// clean up target directories
+gulp.task('clean', function () {
+  return del([`./${previewSiteDestDir}/**`, `./${buildDir}/**`])
+})
+
+// build the preview
 gulp.task('build:preview', async (done) => {
   await buildPreview(
     srcDir,
@@ -51,6 +60,7 @@ gulp.task('build:preview', async (done) => {
   done()
 })
 
+// serve the built preview
 gulp.task('serve:site', async (done) => {
   await preview(previewSiteDestDir, {
     host: '0.0.0.0',
@@ -64,9 +74,10 @@ gulp.task('serve:site', async (done) => {
   done()
 })
 
-gulp.task('pack', gulp.series('clean', 'lint', 'build', 'bundle'))
+// tasks available via npm run
 
-gulp.task('preview', gulp.series('pack', 'build:preview', 'serve:site'))
+gulp.task('lint', gulp.parallel('lint:css', 'lint:js'))
 
-//gulp.task('default', gulp.series('build'))
-//gulp.task('default', gulp.series('bundle'))
+gulp.task('bundle', gulp.series('clean', 'lint', 'build', 'pack'))
+
+gulp.task('preview', gulp.series('bundle', 'build:preview', 'serve:site'))
