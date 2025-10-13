@@ -38,6 +38,10 @@
   font-family: var(--body-font-family);
 }
 
+.doc h5:not(.discrete) {
+  font-weight: var(--alt-heading-font-weight);
+}
+
 .doc p code,
 .doc thead code,
 .doc .colist > table code {
