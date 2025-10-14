@@ -26,6 +26,9 @@ module.exports = (src, dest) => {
     if (!fs.existsSync(dest)) {
       mkdirp.sync(dest)
     }
+    if (!fs.existsSync(`${src}/static`)) {
+      mkdirp.sync(`${src}/static`)
+    }
 
     const opts = { base: src, cwd: src }
     const postcssPlugins = [
@@ -86,7 +89,12 @@ module.exports = (src, dest) => {
 
       gulp.src('layouts/*.hbs', opts),
 
-      gulp.src('partials/*.hbs', opts)
+      gulp.src('partials/*.hbs', opts),
+
+      gulp.src('static/**/*', { ...opts, base: path.join(src, 'static'), dot: true }),
+
+      gulp.src('ui.yml', { ...opts, allowEmpty: true })
+
     ])
 
     m.pipe(gulp.dest(dest))
