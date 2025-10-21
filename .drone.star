@@ -119,26 +119,6 @@ def main(ctx):
                     ],
                 },
             },
-            {
-                "name": "Notify",
-                "image": "plugins/slack",
-                "settings": {
-                    "webhook": {
-                        "from_secret": "rocketchat_talk_webhook",
-                    },
-                    "channel": "builds",
-                },
-                "when": {
-                    "ref": [
-                        "refs/heads/master",
-                        "refs/tags/**",
-                    ],
-                    "status": [
-                        "success",
-                        "failure",
-                    ],
-                },
-            },
         ],
         "trigger": {
             "ref": [
