@@ -6,6 +6,7 @@ Author Name
 :!table-caption:
 //:page-role: -toc
 :page-pagination:
+:description: A "preview" site for the UI.
 
 [.float-group]
 --
