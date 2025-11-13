@@ -394,13 +394,44 @@ nav.pagination .next::before {
 
 /* css for our search function */
 
-@media screen and (width <= 799px) {
-  .search {
+.navbar-brand .navbar-item.search {
+  flex: auto;
+  justify-content: flex-end;
+}
+
+@media screen and (width <= 768.5px) {
+  .navbar-brand .navbar-item.search {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.search-input {
+  color: #333;
+  font-family: inherit;
+  font-size: 1em;
+  width: 150px;
+  border: 1px solid #e1e1e1;
+  border-radius: 0.15rem;
+  display: inline-flex;
+  background-color: #fff;
+  height: 1.75rem;
+  padding: 0 0.75em;
+  white-space: nowrap;
+}
+
+@media screen and (width <= 374.5px) {
+  .search-input {
     display: none;
   }
 }
 
 @media screen and (width >= 769px) {
+  .navbar-brand .navbar-item.search {
+    padding-right: 0;
+    margin-right: 0.5rem;
+  }
+
   .search-input {
     width: 200px;
   }
@@ -410,22 +441,10 @@ nav.pagination .next::before {
 if we would use a hamburger menu (header-content.hbs), this needs adaption, the hamburger already has a right padding.
 */
 
-@media screen and (width <= 770px) {
+@media screen and (width <= 769px) {
   .navbar-brand {
     padding-right: 1rem;
   }
-}
-
-.search-input {
-  display: inline-flex;
-  background-color: #fff;
-  border: 1px solid #e1e1e1;
-  border-radius: 0.15rem;
-  height: 1.75rem;
-  color: #333;
-  padding: 0 0.75em;
-  white-space: nowrap;
-  font-size: 1em;
 }
 
 .search {
