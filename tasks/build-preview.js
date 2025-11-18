@@ -1,5 +1,6 @@
 'use strict'
 
+const Asciidoctor = require('@asciidoctor/core')()
 const fs = require('fs')
 const handlebars = require('handlebars')
 const map = require('map-stream')
@@ -8,38 +9,71 @@ const { promisify } = require('util')
 const requireFromString = require('require-from-string')
 const gulp = require('gulp')
 const yaml = require('js-yaml')
+const ordered = require('ordered-read-streams')
+const through2 = require('through2');
 
-module.exports = async (src, dest, siteSrc, siteDest, sink) => {
-  const [uiModel, layouts] = await Promise.all([
+const ASCIIDOC_ATTRIBUTES = { experimental: '', icons: 'font', sectanchors: '', 'source-highlighter': 'highlight.js' }
+
+module.exports = (src, siteSrc, siteDest, sink = () => map()) => async (done) => {
+  return Promise.all([
     loadSampleUiModel(siteSrc),
     compileLayouts(src),
     registerPartials(src),
     registerHelpers(src)
-  ])
-
-  const stream = gulp
-    .src('**/*.html', { base: siteSrc, cwd: siteSrc })
-    .pipe(
-      map((file, next) => {
-        const compiledLayout =
-          layouts[file.stem === '404' ? '404.hbs' : 'default.hbs']
+  ]).then(([baseUiModel, layouts]) => {
+    const stream = ordered([
+      gulp.src('**/*.html', { base: siteSrc, cwd: siteSrc }).pipe(through2.obj((file, _, next) => {
+        const compiledLayout = layouts[file.stem === '404' ? '404.hbs' : 'default.hbs']
         const siteRootPath = path.relative(
           path.dirname(file.path),
           path.resolve(siteSrc)
         )
-        uiModel.env = process.env
-        uiModel.siteRootPath = siteRootPath
-        uiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
-        uiModel.uiRootPath = path.join(siteRootPath, '_')
-        uiModel.page.contents = file.contents.toString().trim()
-        file.contents = Buffer.from(compiledLayout(uiModel))
+        baseUiModel.env = process.env
+        baseUiModel.siteRootPath = siteRootPath
+        baseUiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
+        baseUiModel.uiRootPath = path.join(siteRootPath, '_')
+        baseUiModel.page.contents = file.contents.toString().trim()
+        file.contents = Buffer.from(compiledLayout(baseUiModel))
         next(null, file)
-      })
-    )
-    .pipe(gulp.dest(siteDest))
+      })),
+      gulp
+        .src('**/*.adoc', { base: siteSrc, cwd: siteSrc })
+        .pipe(through2.obj((file, _, next) => {
+          const siteRootPath = path.relative(path.dirname(file.path), path.resolve(siteSrc))
+          const uiModel = { ...baseUiModel }
+          uiModel.page = { ...uiModel.page }
+          uiModel.siteRootPath = siteRootPath
+          uiModel.uiRootPath = path.join(siteRootPath, '_')
+          if (file.stem === '404') {
+            uiModel.page = { layout: '404', title: 'Page Not Found' }
+          } else {
+            const doc = Asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
+            uiModel.page.attributes = Object.entries(doc.getAttributes())
+              .filter(([name, val]) => name.startsWith('page-'))
+              .reduce((accum, [name, val]) => {
+                accum[name.slice(5)] = val
+                return accum
+              }, {})
+            uiModel.page.description = doc.getAttribute('description')
+            uiModel.page.layout = doc.getAttribute('page-layout', 'default')
+            uiModel.page.title = doc.getDocumentTitle()
+            uiModel.page.contents = Buffer.from(doc.convert())
+          }
+          file.extname = '.html'
+          try {
+            const layoutName = uiModel.page.layout.endsWith('.hbs') ? uiModel.page.layout : `${uiModel.page.layout}.hbs`
+            file.contents = Buffer.from(layouts[layoutName](uiModel))
+            next(null, file)
+          } catch (e) {
+            next(transformHandlebarsError(e, uiModel.page.layout))
+          }
+        }))
+    ])
 
-  if (sink) stream.pipe(sink())
-  return stream
+    stream.pipe(gulp.dest(siteDest))
+      .on('error', done)
+      .pipe(sink())
+  })
 }
 
 function loadSampleUiModel (siteSrc) {
@@ -97,4 +131,12 @@ function compileLayouts(src) {
       .on('error', reject)
       .on('end', () => resolve(layouts))
   })
+}
+
+function transformHandlebarsError ({ message, stack }, layout) {
+  const m = stack.match(/^ *at Object\.ret \[as (.+?)\]/m)
+  const templatePath = `src/${m ? 'partials/' + m[1] : 'layouts/' + layout}.hbs`
+  const err = new Error(`${message}${~message.indexOf('\n') ? '\n^ ' : ' '}in UI template ${templatePath}`)
+  err.stack = [err.toString()].concat(stack.slice(message.length + 8)).join('\n')
+  return err
 }
