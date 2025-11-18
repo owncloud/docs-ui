@@ -32,7 +32,7 @@ The `docs-ui` repository is a custom version of the [Antora Default UI][link-ant
 
 ## Info
 
-Note that the `.html` files in directory `preview-site-src` are for internal testing purposes only. The files are recreated on each `npm run preview` command, located in the `public/` directory and served from there. There is no need to change or copy them into that folder.
+Note that in directory `preview-site-src`, the `404.html` file is on purpose but `index.html` file is for internal testing purposes only. The file is recreated on each `npm run preview` command, located in the `public/` directory and served from there. There is no need to change or copy it.
 
 ## Contributing
 
