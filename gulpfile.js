@@ -49,16 +49,12 @@ gulp.task('clean', function () {
 })
 
 // build the preview
-gulp.task('build:preview', async (done) => {
-  await buildPreview(
-    srcDir,
-    destDir,
-    previewSiteSrcDir,
-    previewSiteDestDir,
-    connect.reload
-  )
-  done()
-})
+gulp.task('build:preview', buildPreview(
+  srcDir,
+  previewSiteSrcDir,
+  previewSiteDestDir,
+  connect.reload
+))
 
 // serve the built preview
 gulp.task('serve:site', async (done) => {
