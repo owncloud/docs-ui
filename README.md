@@ -18,6 +18,7 @@ The `docs-ui` repository is a custom version of the [Antora Default UI][link-ant
 
 **Table of Contents**
 
+* [Info](#info)
 * [Contributing](#contributing)
 * [Prerequisites](#prerequisites)
    * [Git](#git)
@@ -28,6 +29,10 @@ The `docs-ui` repository is a custom version of the [Antora Default UI][link-ant
 * [Preview](#preview)
    * [Preview Changes Using the ownCloud Documentation](#preview-changes-using-the-owncloud-documentation)
    * [Previewing Changes using a Demo Antora Build](#previewing-changes-using-a-demo-antora-build)
+
+## Info
+
+Note that the `.html` files in directory `preview-site-src` are for internal testing purposes only. The files are recreated on each `npm run preview` command, located in the `public/` directory and served from there. There is no need to change or copy them into that folder.
 
 ## Contributing
 
