@@ -19,7 +19,8 @@ module.exports = (src, siteSrc, siteDest, sink = () => map()) => async (done) =>
     loadSampleUiModel(siteSrc),
     compileLayouts(src),
     registerPartials(src),
-    registerHelpers(src)
+    registerHelpers(src),
+    copyImages(siteSrc, siteDest)
   ]).then(([baseUiModel, layouts]) => {
     const stream = ordered([
       gulp.src('**/*.html', { base: siteSrc, cwd: siteSrc }).pipe(through2.obj((file, _, next) => {
@@ -130,6 +131,21 @@ function compileLayouts(src) {
       )
       .on('error', reject)
       .on('end', () => resolve(layouts))
+  })
+}
+
+function copyImages (src, dest) {
+  return new Promise((resolve, reject) => {
+    gulp
+      .src('**/*.{png,svg}', { base: src, cwd: src })
+      .pipe(gulp.dest(dest))
+      .on('end', function () {
+        resolve()
+      })
+      .on('error', function (err) {
+        console.error('Preview image copy error:', err)
+        reject(err)
+      })
   })
 }
 
