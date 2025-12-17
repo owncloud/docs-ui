@@ -64,7 +64,7 @@
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.4.23",
     "browserify": "^17.0.1",
-    "chokidar": "^4.0.3",
+    "chokidar": "^5.0.0",
     "cssnano": "^7.1.2",
     "fancy-log": "^2.0.0",
     "gulp": "^5.0.1",
