@@ -14,7 +14,7 @@ module.exports = (src, dest, bundleName) =>
 
     gulp
       // encoding: false == avoid any transcoding, and effectively just pass around raw binary data.
-      // if omitted, mage files such as .png will be transcoded and become useless
+      // if omitted, image files such as .png will be transcoded and become useless
       .src('**/*', { base: src, cwd: src, dot: true, encoding: false })
       .pipe(zip(`${bundleName}-bundle.zip`))
       .pipe(gulp.dest(dest))

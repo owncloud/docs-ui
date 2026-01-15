@@ -92,7 +92,7 @@ module.exports = (src, dest) => {
       gulp.src('partials/*.hbs', opts),
 
       // encoding: false == avoid any transcoding, and effectively just pass around raw binary data.
-      // if omitted, mage files such as .png will be transcoded and become useless
+      // if omitted, image files such as .png will be transcoded and become useless
       gulp.src('static/**/*', { ...opts, base: path.join(src, 'static'), dot: true, encoding: false }),
 
       gulp.src('ui.yml', { ...opts, allowEmpty: true })
