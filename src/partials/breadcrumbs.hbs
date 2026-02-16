@@ -1,20 +1,20 @@
-<nav class="breadcrumbs" aria-label="breadcrumbs">
+          <nav class="breadcrumbs" aria-label="breadcrumbs">
   {{#if page.breadcrumbs}}
-    <ul>
+            <ul>
       {{#with page.componentVersion}}
         {{#if (and ./title (ne ./title @root.page.breadcrumbs.0.content))}}
-            <li><a href="{{{relativize ./url}}}">{{{./title}}}</a></li>
+              <li><a href="{{{relativize ./url}}}">{{{./title}}}</a></li>
         {{/if}}
       {{/with}}
       {{#each page.breadcrumbs}}
-    <li>
+              <li>
           {{~#if (and ./url (eq ./urlType 'internal'))~}}
-            <a href="{{{relativize ./url}}}">{{{./content}}}</a>
+              <a href="{{{relativize ./url}}}">{{{./content}}}</a>
           {{~else~}}
-            {{{./content}}}
+              {{{./content}}}
           {{~/if~}}
-        </li>
+              </li>
       {{/each}}
-    </ul>
+            </ul>
   {{/if}}
-</nav>
+          </nav>

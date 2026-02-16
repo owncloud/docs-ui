@@ -1,2 +1,5 @@
+{{#unless (eq page.attributes.noindex undefined)}}
+    <meta name="robots" content="noindex,nofollow">
+{{/unless}}
 {{> head-meta-opengraph}}
 {{> head-meta-twitter}}
