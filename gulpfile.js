@@ -1,7 +1,8 @@
 'use strict'
 
+// del starting with del v7, it is now ESM that needs to be embedded differently (formerly: const del = require('del'))
+const { deleteAsync } = require('del')
 const connect = require('gulp-connect')
-const del = require('del')
 const gulp = require('gulp')
 const path = require('path')
 
@@ -45,7 +46,7 @@ gulp.task('pack', () => pack(destDir, buildDir, bundleName))
 
 // clean up target directories
 gulp.task('clean', function () {
-  return del([`./${previewSiteDestDir}/**`, `./${buildDir}/**`])
+  return deleteAsync([`./${previewSiteDestDir}/**`, `./${buildDir}/**`])
 })
 
 // build the preview
