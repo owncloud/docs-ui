@@ -4,7 +4,6 @@
 const { chokidar } = require('chokidar')
 const connect = require('gulp-connect')
 
-
 module.exports = (serveDir, opts) => {
   let wts
   if (opts) {
