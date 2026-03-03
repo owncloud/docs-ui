@@ -37,7 +37,7 @@
     "bundle": "gulp bundle"
   },
   "dependencies": {
-    "del": "^6.1.1",
+    "del": "^8.0.1",
     "depcheck": "^1.4.7",
     "elasticsearch-browser": "^16.7.1",
     "handlebars": "^4.7.8",
