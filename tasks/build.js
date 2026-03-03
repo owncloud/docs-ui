@@ -16,6 +16,7 @@ const postcss = require('gulp-postcss')
 const postcssCalc = require('postcss-calc')
 const postcssImport = require('postcss-import')
 const postcssUrl = require('postcss-url')
+// With the upgrade of pcss-c-p to v15+: In supported Node versions require(esm) will work without needing to make code changes.
 const postcssVar = require('postcss-custom-properties')
 const svgo = require('gulp-svgo')
 const terser = require('gulp-terser')
