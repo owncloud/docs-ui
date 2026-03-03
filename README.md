@@ -71,56 +71,58 @@ While you can install Node from the official packages, we strongly recommend tha
 Follow the [NVM installation instructions][link-nvm-installation-instructions] to set up NVM on your machine.
 Once you've installed NVM, open a new terminal and install Node using the following command:
 
-```consle
+```Shell
 nvm ls-remote | grep "Latest LTS"
 
-         v4.9.1   (Latest LTS: Argon)
-        v6.17.1   (Latest LTS: Boron)
-        v8.17.0   (Latest LTS: Carbon)
-       v10.24.1   (Latest LTS: Dubnium)
-      v12.22.12   (Latest LTS: Erbium)
-       v14.21.3   (Latest LTS: Fermium)
-       v16.20.2   (Latest LTS: Gallium)
+       ...
        v18.20.4   (Latest LTS: Hydrogen)
        v20.18.1   (Latest LTS: Iron)
-       v22.13.0   (Latest LTS: Jod)
+       v22.22.0   (Latest LTS: Jod)
+       v24.14.0   (Latest LTS: Krypton)
 ```
 
-Then install a suitable LTS version. You can install as many versions as you like or need, see example below.
+Then install a suitable LTS version, preferrable > v20. You can install as many versions as you like or need, see example below.
 
-```consle
-nvm install 18.20.4
+```Shell
+nvm install 22.22.0
 ```
 
 List the installed versions
 
-```consle
+```Shell
 nvm ls
-->     v18.20.4
-default -> 18.20.4 (-> v18.20.4)
+->     v22.22.0
+default -> 22.22.0 (-> v22.22.0)
 
 ...
 ```
 
-**Important:** For docs, DO NOT use a version _above_ v10.23.0 and _below_ v14.17.0 as it may later conflict with other dependencies especially with the `npm run preview` command where you will get warnings and it may not work as expected.
-
-**Info:** The backend to push to the web also uses node v16, see the `.drone.star` file. It is recommended to stay with the same release if possible.
+**Info:** The backend to push to the web also uses node v22, see the `.drone.star` file. It is recommended to stay with the same release if possible.
 
 Switch to a specific installed version of Node at any time, use the following command:
 
-```consle
-nvm use 18.20.5
+```Shell
+nvm use 22.22.0
 ```
 
 **Important:** If you have additional concurrent terminals open, you must close these terminals first and reopen them to use the new setup.
 
 To make a particular Node version default in new terminals, type:
 
-```consle
-nvm alias default 18.20.5
+```Shell
+nvm alias default 22.22.0
 ```
 
 Now that you have Node installed, you can proceed with installing the Gulp CLI and npm.
+
+### Update npm
+
+`npm` should be at minimum version 11.11.0\
+You can check this with `npm -v`. If an update is needed, simply run teh following command. Replace `latest` with a version if you want to lock it.
+
+```Shell
+npm install -g npm@latest
+```
 
 ### Install Dependencies
 
@@ -167,6 +169,6 @@ The following example runs a demo Antora **build** (_not ownCloud_) for the docu
 
 To view your changes as you are working on them, run the following command:
 
-```console
+```Shell
 npm run preview
 ```
