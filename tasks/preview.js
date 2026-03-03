@@ -1,26 +1,27 @@
 'use strict'
 
+// chokidar starting with v5 is now ESM that needs to be embedded differently
+const { chokidar } = require('chokidar')
 const connect = require('gulp-connect')
-const chokidar = require('chokidar')
 
 module.exports = (serveDir, opts) => {
-  let watch
+  let wts
   if (opts) {
     opts = Object.assign({}, opts)
-    watch = opts.watch
-    delete opts.watch
+    wts = opts.wts
+    delete opts.wts
   } else {
     opts = {}
   }
 
   let onStart
-  if (watch && watch.src && watch.onChange) {
+  if (wts && wts.src && wts.onChange) {
     onStart = () => {
-      chokidar
-        .watch(watch.src, { ignoreInitial: true })
-        .on('add', watch.onChange)
-        .on('change', watch.onChange)
-        .on('unlink', watch.onChange)
+      const watcher = chokidar.watch(wts.src, { ignoreInitial: true })
+      watcher
+        .on('add', wts.onChange)
+        .on('change', wts.onChange)
+        .on('unlink', wts.onChange)
     }
   }
 
