@@ -40,7 +40,7 @@
     "del": "^8.0.1",
     "depcheck": "^1.4.7",
     "elasticsearch-browser": "^16.7.1",
-    "handlebars": "^4.7.8",
+    "handlebars": "^4.7.9",
     "highlight.js": "^11.11.1",
     "jquery": "^4.0.0",
     "medium-zoom": "^1.1.0",
