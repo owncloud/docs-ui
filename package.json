@@ -44,7 +44,7 @@
     "highlight.js": "^11.11.1",
     "jquery": "^4.0.0",
     "medium-zoom": "^1.1.0",
-    "npm-check-updates": "19.6.5"
+    "npm-check-updates": "19.6.6"
   },
   "comments": {
     "reason": "Removed from devDependencies as nowhere referenced, commented as reminder",
