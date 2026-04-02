@@ -35,10 +35,10 @@ jobs:
 
       - name: Release
         if: github.ref == 'refs/heads/master'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release delete latest --yes --cleanup-tag 2>/dev/null || true
-          gh release create latest build/ui-bundle.zip \
-            --title "latest" \
-            --notes "Latest build, automatically updated on every push to master."
+        uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2.6.1
+        with:
+          tag_name: latest
+          name: latest
+          body: Latest build, automatically updated on every push to master.
+          make_latest: true
+          files: build/ui-bundle.zip
