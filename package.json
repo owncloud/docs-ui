@@ -15,20 +15,12 @@
   },
   "contributors": [
     {
-      "name": "Matthew Setter",
-      "email": "matthew@matthewsetter.com"
-    },
-    {
       "name": "Martin Mattel",
       "email": "github@diemattels.at"
     },
     {
-      "name": "Thomas Boerger",
-      "email": "tboerger@owncloud.com"
-    },
-    {
-      "name": "Alex Ackermann",
-      "email": "alexackermann@kiteworks.com"
+      "name": "Lukas Hirth",
+      "email": "info@hirt.cz"
     }
   ],
   "scripts": {
@@ -45,20 +37,6 @@
     "jquery": "^4.0.0",
     "medium-zoom": "^1.1.0",
     "npm-check-updates": "19.6.5"
-  },
-  "comments": {
-    "reason": "Removed from devDependencies as nowhere referenced, commented as reminder",
-    "core-js": "^3.31.1",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.6.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-node": "^11.1.0",
-    "prettier": "^3.0.0",
-    "stylelint": "^15.11.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-prettier": "^3.0.0"
   },
   "devDependencies": {
     "@asciidoctor/core": "^3.0.4",
