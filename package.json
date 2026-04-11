@@ -36,7 +36,7 @@
     "highlight.js": "^11.11.1",
     "jquery": "^4.0.0",
     "medium-zoom": "^1.1.0",
-    "npm-check-updates": "20.0.0"
+    "npm-check-updates": "20.0.1"
   },
   "devDependencies": {
     "@asciidoctor/core": "^3.0.4",
