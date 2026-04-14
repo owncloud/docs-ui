@@ -41,7 +41,7 @@
   "devDependencies": {
     "@asciidoctor/core": "^3.0.4",
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
-    "autoprefixer": "^10.4.27",
+    "autoprefixer": "^10.5.0",
     "baseline-browser-mapping": "^2.10.18",
     "browserify": "^17.0.1",
     "chokidar": "^5.0.0",
