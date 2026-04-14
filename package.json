@@ -45,7 +45,7 @@
     "baseline-browser-mapping": "^2.10.18",
     "browserify": "^17.0.1",
     "chokidar": "^5.0.0",
-    "cssnano": "^7.1.4",
+    "cssnano": "^7.1.5",
     "fancy-log": "^2.0.0",
     "gulp": "^5.0.1",
     "gulp-concat": "^2.6.1",
