@@ -19,6 +19,7 @@ static_files:
 - mstile-150x150.png
 - mstile-310x150.png
 - mstile-310x310.png
+- .nojekyll
 - opengraph-android.png
 - opengraph-branding.png
 - opengraph-default.png
