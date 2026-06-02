@@ -10,7 +10,9 @@ const requireFromString = require('require-from-string')
 const gulp = require('gulp')
 const yaml = require('js-yaml')
 const ordered = require('ordered-read-streams')
-const through2 = require('through2');
+
+// through2 is now ESM that needs to be embedded differently in CJS
+const { objectTransform } = require('through2');
 
 const ASCIIDOC_ATTRIBUTES = { experimental: '', icons: 'font', sectanchors: '', 'source-highlighter': 'highlight.js' }
 
@@ -23,7 +25,7 @@ module.exports = (src, siteSrc, siteDest, sink = () => map()) => async (done) =>
     copyImages(siteSrc, siteDest)
   ]).then(([baseUiModel, layouts]) => {
     const stream = ordered([
-      gulp.src('**/*.html', { base: siteSrc, cwd: siteSrc }).pipe(through2.obj((file, _, next) => {
+      gulp.src('**/*.html', { base: siteSrc, cwd: siteSrc }).pipe(objectTransform((file, _, next) => {
         const compiledLayout = layouts[file.stem === '404' ? '404.hbs' : 'default.hbs']
         const siteRootPath = path.relative(
           path.dirname(file.path),
@@ -39,7 +41,7 @@ module.exports = (src, siteSrc, siteDest, sink = () => map()) => async (done) =>
       })),
       gulp
         .src('**/*.adoc', { base: siteSrc, cwd: siteSrc })
-        .pipe(through2.obj((file, _, next) => {
+        .pipe(objectTransform((file, _, next) => {
           const siteRootPath = path.relative(path.dirname(file.path), path.resolve(siteSrc))
           const uiModel = { ...baseUiModel }
           uiModel.page = { ...uiModel.page }
