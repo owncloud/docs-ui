@@ -16,10 +16,16 @@ const postcss = require('gulp-postcss')
 const postcssCalc = require('postcss-calc')
 const postcssImport = require('postcss-import')
 const postcssUrl = require('postcss-url')
-// With the upgrade of pcss-c-p to v15+: In supported Node versions require(esm) will work without needing to make code changes.
-const postcssVar = require('postcss-custom-properties')
-const svgo = require('gulp-svgo')
 const terser = require('gulp-terser')
+// With the upgrade of postcss to v15+: In supported Node versions require(esm) will work without needing to make code changes.
+const postcssVar = require('postcss-custom-properties')
+
+// gulpSvgo and svgo are ESM that needs to be embedded differently in CJS
+// gulpSvgo requires svgo as object with a property but you cant require (import) *, therefore we mimic it
+const { optimize } = require('svgo')
+const svgo = {}
+svgo.optimize = optimize
+const { default: gulpSvgo } = require('@lmcd/gulp-svgo')// gulpSvgo and svgo are ESM that needs to be embedded differently in CJS
 
 // collect all files and folders to create a bundle that will be zipped in the pack step
 module.exports = (src, dest) => {
@@ -84,7 +90,7 @@ module.exports = (src, dest) => {
 
       gulp.src('font/*.woff*(2)', Object.assign({ allowEmpty: true }, opts)),
 
-      gulp.src('img/**', opts).pipe(svgo()),
+      gulp.src('img/**', opts).pipe(gulpSvgo(svgo)),
 
       gulp.src('helpers/*.js', opts),
 
