@@ -36,14 +36,14 @@
     "highlight.js": "^11.11.1",
     "jquery": "^4.0.0",
     "medium-zoom": "^1.1.0",
-    "npm-check-updates": "22.2.1"
+    "npm-check-updates": "22.2.3"
   },
   "devDependencies": {
     "@asciidoctor/core": "^3.0.4",
     "@lmcd/gulp-svgo": "^0.2.0",
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.5.0",
-    "baseline-browser-mapping": "^2.10.33",
+    "baseline-browser-mapping": "^2.10.34",
     "browserify": "^17.0.1",
     "chokidar": "^5.0.0",
     "cssnano": "^8.0.1",
