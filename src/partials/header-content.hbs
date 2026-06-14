@@ -1,7 +1,10 @@
     <header class="header" role="banner">
       <nav class="navbar">
         <div class="navbar-brand">
-          <a class="navbar-item" href="{{{or site.url siteRootPath}}}">{{site.title}}</a>
+          <a class="navbar-item navbar-logo" href="{{{or site.url siteRootPath}}}">
+            <img src="{{{uiRootPath}}}/img/oc-logo.svg" alt="ownCloud">
+            <span class="navbar-title">{{site.title}}</span>
+          </a>
           {{#if env.ELASTICSEARCH_NODE}}
             <div class="navbar-item search">
               <span class="control">
