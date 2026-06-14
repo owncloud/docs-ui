@@ -136,11 +136,10 @@
   color: var(--color-title);
 }
 
-/* Other possible colors #248232 (dark green) #2ba84a (brighter green), */
-/* #f7ef99 (soft yellow), #f78e69 (orangey-grayish) */
+/* accent uses the ownCloud signature teal (see owncloud-vars.css) */
 .doc .exampleblock > .content,
 .doc details.result > .content {
-  box-shadow: inset 0 0 1.75px #248232;
+  box-shadow: inset 0 0 1.75px var(--oc-teal);
 }
 
 .doc .sidebarblock {
@@ -322,6 +321,17 @@ footer.footer {
   padding: 0.5rem 1rem;
 }
 
+/* ownCloud logo above the footer navigation columns */
+.footer .footer-logo {
+  text-align: center;
+  margin: 1rem 0 0.5rem;
+}
+
+.footer .footer-logo img {
+  height: 2rem;
+  width: auto;
+}
+
 .footer a {
   color: var(--color-gray-70);
 }
@@ -358,7 +368,7 @@ blockquote::before {
   font-weight: bold;
   line-height: 0.6em;
   margin-left: -0.6em;
-  color: #1d2d44;
+  color: var(--oc-navy);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 

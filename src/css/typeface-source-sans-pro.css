@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("Source Sans Pro Regular"),
+    local("SourceSansPro-Regular"),
+    url("~typeface-source-sans-pro/files/source-sans-pro-latin-400.woff2") format("woff2"),
+    url("~typeface-source-sans-pro/files/source-sans-pro-latin-400.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local("Source Sans Pro Semibold"),
+    local("SourceSansPro-Semibold"),
+    url("~typeface-source-sans-pro/files/source-sans-pro-latin-600.woff2") format("woff2"),
+    url("~typeface-source-sans-pro/files/source-sans-pro-latin-600.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local("Source Sans Pro Bold"),
+    local("SourceSansPro-Bold"),
+    url("~typeface-source-sans-pro/files/source-sans-pro-latin-700.woff2") format("woff2"),
+    url("~typeface-source-sans-pro/files/source-sans-pro-latin-700.woff") format("woff");
+}

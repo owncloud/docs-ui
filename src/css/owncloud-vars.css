@@ -1,20 +1,41 @@
 :root {
+  /* ownCloud corporate identity palette
+   * Source: owncloud.com (Divi child theme). Keep brand values here as the
+   * single source of truth and reference them via the tokens below.
+   */
+  --oc-navy: #041e42; /* primary brand navy (navbar, footer, headings) */
+  --oc-navy-deep: #052550; /* darker navy for hover/focus surfaces */
+  --oc-teal: #06e3bd; /* signature mint/teal accent */
+  --oc-orange: #e56f35; /* secondary accent */
+  --oc-amber: #f4b223; /* secondary accent / highlights */
+  --oc-link: #4e85c8; /* corporate link blue */
+  --oc-link-hover: #364b68; /* corporate link blue, hover */
+
   /* owncloud deviations from vars.css */
   --color-jet-70: #1f2939;
   --body-font-color: var(--color-jet-70);
   --body-font-size: 1.1em;
   --body-font-size--desktop: 1.2em;
   --body-line-height: 1.6;
-  --body-font-family: "Open Sans", sans-serif;
+  --body-font-family: "Source Sans Pro", sans-serif;
   --body-font-weight-bold: 700;
   --doc-margin: 40rem;
   --doc-max-width: 100%;
   --doc-max-width--desktop: 100%;
 
+  /* override stock vars.css values with brand tokens
+   * (owncloud-vars.css is imported directly after vars.css, so these win)
+   */
+  --heading-font-color: var(--oc-navy); /* was #191919 */
+  --link-font-color: var(--oc-link); /* was #1565c0 (Material blue) */
+  --link_hover-font-color: var(--oc-link-hover); /* was #104d92 */
+  --note-color: var(--oc-link); /* align NOTE admonition to brand blue */
+  --tip-color: var(--oc-teal); /* align TIP admonition to brand teal */
+
   /* owncloud additions */
-  --color-title: #7a2518;
-  --color-navbar-bg: #1b223d;
-  --color-navbar-bg-focus: #0e152d;
+  --color-title: var(--oc-navy); /* was #7a2518 (stock Asciidoctor brown-red) */
+  --color-navbar-bg: var(--oc-navy); /* was #1b223d */
+  --color-navbar-bg-focus: var(--oc-navy-deep); /* was #0e152d */
   --navbar-height-5xx: calc(80 / var(--rem-base) * 1rem);
   --navbar-height-4xx: calc(100 / var(--rem-base) * 1rem);
 }
