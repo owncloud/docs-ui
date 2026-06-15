@@ -63,8 +63,10 @@ The numbered filenames define concatenation order:
 
 ## Key Constraints
 
-- **Node 22** is required (matches CI). Use `nvm use` if you have nvm configured.
+- **Node 22** is required (matches CI and `.nvmrc`). Run `nvm use` to select it. Older
+  versions fail the build: several dependencies (`del`, `postcss-custom-properties`, …) are
+  ESM-only and the gulpfile loads them with `require()`, which only works on Node ≥ 22's
+  support for `require()`-ing ES modules.
 - **npm ≥ 11.11.0** is required.
 - `js/vendor/` files are excluded from ESLint — do not add linting rules targeting them.
 - CSS custom properties are intentionally left un-prefixed (stylelint rule disabled).
-- The `del` and `chokidar` packages are ESM-only; the gulpfile handles this with dynamic `import()`.
