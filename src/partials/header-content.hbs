@@ -6,11 +6,12 @@
             <span class="navbar-title">{{site.title}}</span>
           </a>
           <div class="navbar-item search">
-            {{!-- Pagefind Component UI modal search. pagefind-config points the
-                  components at the index emitted by `pagefind --site` under
-                  siteRootPath; the trigger button opens the modal overlay (also
-                  via the Ctrl/Cmd+K shortcut). --}}
-            <pagefind-config bundle-path="{{{siteRootPath}}}/pagefind/"></pagefind-config>
+            {{!-- Pagefind Component UI modal search. The trigger opens the modal
+                  overlay (also via Ctrl/Cmd+K). bundle-path MUST be absolute/root-
+                  relative: the components dynamic-import() pagefind.js relative to
+                  pagefind-component-ui.js's URL, so a page-relative "./pagefind/"
+                  (siteRootPath on shallow pages) doubles to /pagefind/pagefind/. --}}
+            <pagefind-config bundle-path="/pagefind/"></pagefind-config>
             <pagefind-modal-trigger></pagefind-modal-trigger>
             <pagefind-modal reset-on-close></pagefind-modal>
           </div>
