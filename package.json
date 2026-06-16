@@ -33,7 +33,6 @@
     "depcheck": "^1.4.7",
     "handlebars": "^4.7.9",
     "highlight.js": "^11.11.1",
-    "jquery": "^4.0.0",
     "medium-zoom": "^1.1.0",
     "npm-check-updates": "22.2.3"
   },
