@@ -402,7 +402,7 @@ nav.pagination .next::before {
   content: "Next Page";
 }
 
-/* css for our search function */
+/* css for our search function (Pagefind Component UI modal) */
 
 .navbar-brand .navbar-item.search {
   flex: auto;
@@ -416,34 +416,10 @@ nav.pagination .next::before {
   }
 }
 
-.search-input {
-  color: #333;
-  font-family: inherit;
-  font-size: 1em;
-  width: 150px;
-  border: 1px solid #e1e1e1;
-  border-radius: 0.15rem;
-  display: inline-flex;
-  background-color: #fff;
-  height: 1.75rem;
-  padding: 0 0.75em;
-  white-space: nowrap;
-}
-
-@media screen and (width <= 374.5px) {
-  .search-input {
-    display: none;
-  }
-}
-
 @media screen and (width >= 769px) {
   .navbar-brand .navbar-item.search {
     padding-right: 0;
     margin-right: 0.5rem;
-  }
-
-  .search-input {
-    width: 200px;
   }
 }
 
@@ -457,89 +433,19 @@ if we would use a hamburger menu (header-content.hbs), this needs adaption, the 
   }
 }
 
-.search {
-  position: relative;
-}
-
-.search .animation {
-  position: absolute;
-  width: 10px;
-  height: 100%;
-  inset-inline-end: 20px;
-  inset-block-start: 0;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  display: none;
-}
-
-.search .results {
-  position: absolute;
-  color: initial;
-  inset-inline-end: 20px;
-  inset-block-start: 100%;
-  background: #fff;
-  border: 1px solid #fafafa;
-  border-radius: 0;
-  width: 30vw;
-  box-shadow: inset 0 0 1px #ddd;
-  padding: 0;
-  max-height: 75vh;
-  z-index: 999999;
-  display: none;
-  max-width: 100vh;
-  border-color: #ccc;
-  border-width: 0 1px 1px;
-}
-
-.search .results .error {
-  text-align: center;
-}
-
-.search .results ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-height: 75vh;
-  overflow-y: scroll;
-}
-
-.search .results li {
-  border-bottom: 1px solid #ececec;
-}
-
-.search .results li a {
-  padding: 0.5em 1em;
-  display: block;
-  color: initial;
-}
-
-.search .results li a:hover {
-  text-decoration: none;
-}
-
-.search .results li:hover {
-  background: #fafafa;
-}
-
-.search .results li label {
-  display: block;
-  font-size: 75%;
-  text-transform: capitalize;
-  float: left;
-}
-
-.search .results li .score {
-  float: right;
-  font-size: 75%;
-}
-
-.search .results li .head {
-  clear: both;
-}
-
-.search .results li .body {
-  font-size: 75%;
+/* Pagefind Component UI theming — the modal/trigger web components reset inherited
+   styles (all: initial) and read only their own --pf-* custom properties, so brand
+   overrides must be set on :root. See https://pagefind.app/docs/components/ for the
+   full variable list. */
+:root {
+  --pf-font: var(--body-font-family);
+  --pf-text: var(--color-jet-50);
+  --pf-background: #fff;
+  --pf-border: var(--color-smoke-90);
+  --pf-border-focus: var(--oc-link);
+  --pf-border-radius: 0.15rem;
+  --pf-hover: var(--color-smoke-50);
+  --pf-mark: var(--oc-teal);
 }
 
 /**
