@@ -33,14 +33,14 @@
     "handlebars": "^4.7.9",
     "highlight.js": "^11.11.1",
     "medium-zoom": "^1.1.0",
-    "npm-check-updates": "22.2.3"
+    "npm-check-updates": "22.2.7"
   },
   "devDependencies": {
     "@asciidoctor/core": "^3.0.4",
     "@lmcd/gulp-svgo": "^0.2.0",
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.5.0",
-    "baseline-browser-mapping": "^2.10.37",
+    "baseline-browser-mapping": "^2.10.38",
     "browserify": "^17.0.1",
     "chokidar": "^5.0.0",
     "cssnano": "^8.0.2",
@@ -62,7 +62,7 @@
     "postcss-custom-properties": "^15.0.1",
     "postcss-import": "^16.1.1",
     "postcss-url": "^10.1.4",
-    "prettier-eslint": "^17.0.1",
+    "prettier-eslint": "^17.1.1",
     "require-from-string": "^2.0.2",
     "standard": "^17.1.2",
     "stylelint-config-standard": "^34.0.0",
