@@ -52,7 +52,7 @@
     "gulp-postcss": "^10.0.0",
     "gulp-terser": "^2.1.0",
     "gulp-zip": "^6.1.0",
-    "js-yaml": "^4.2.0",
+    "js-yaml": "^5.0.0",
     "map-stream": "^0.0.7",
     "mkdirp": "^3.0.1",
     "ordered-read-streams": "^2.0.0",
