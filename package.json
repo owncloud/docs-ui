@@ -36,7 +36,7 @@
     "npm-check-updates": "22.2.9"
   },
   "devDependencies": {
-    "@asciidoctor/core": "^3.0.4",
+    "@asciidoctor/core": "^4.0.0",
     "@lmcd/gulp-svgo": "^0.2.0",
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.5.2",
