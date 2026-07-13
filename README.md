@@ -1,176 +1,136 @@
 # ownCloud Documentation UI
 
-**IMPORTANT**
+<!-- OSPO-managed README | Generated: 2026-04-16 | v2 -->
 
-Since April 2026, this repository requires [Commit Signing](https://docs.github.com/articles/about-gpg) and uses [Conventional Commits](https://www.conventionalcommits.org) for commits and the Pull Request title.
+[![License](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE) [![ownCloud OSPO](https://img.shields.io/badge/OSPO-ownCloud-blue)](https://kiteworks.com/opensource)
 
-[link-antora-default-ui]: https://gitlab.com/antora/antora-ui-default
-[link-antora]: https://antora.org
-[link-ui_bundle.zip]: https://minio.owncloud.com/documentation/ui-bundle.zip
-[link-readme]: https://github.com/owncloud/docs
-[link-git]: https://git-scm.com
-[link-node]: https://nodejs.org
-[link-gulp-cli]: http://gulpjs.com
-[link-git-package]: https://git-scm.com/downloads
-[link-nvm]: https://github.com/creationix/nvm
-[link-nvm-installation-instructions]: https://github.com/creationix/nvm#installation
-[link-preview]: https://github.com/owncloud/docs/blob/master/docs/build-the-docs.md#viewing-the-html-documentation
+A custom Antora UI theme for the official ownCloud documentation. This repository is based on the [Antora Default UI](https://gitlab.com/antora/antora-ui-default) and provides the HTML templates, CSS styles, JavaScript behavior, and assets that define the look and feel of the published documentation at [doc.owncloud.com](https://doc.owncloud.com).
 
-The `docs-ui` repository is a custom version of the [Antora Default UI][link-antora-default-ui], for the [Antora][link-antora] version of the ownCloud documentation.
+## Getting Started
 
-**Table of Contents**
+Install dependencies and preview the UI:
 
-* [Info](#info)
-* [Contributing](#contributing)
-* [Prerequisites](#prerequisites)
-   * [Git](#git)
-   * [Node](#node)
-   * [Install Dependencies](#install-dependencies)
-   * [Add Packages](#add-packages)
-* [Prepared npm Commands](#prepared-npm-commands)
-* [Preview](#preview)
-   * [Preview Changes Using the ownCloud Documentation](#preview-changes-using-the-owncloud-documentation)
-   * [Previewing Changes using a Demo Antora Build](#previewing-changes-using-a-demo-antora-build)
+```bash
+npm install
+npm run preview
+```
 
-## Info
+To build the UI bundle for production:
 
-Note that in directory `preview-site-src`, the `404.html` file is on purpose but `index.html` file is for internal testing purposes only. The file is recreated in the `public/` directory on each `preview` build and served from there. There is no need to change or copy it.
+```bash
+npm run bundle
+```
+
+The generated `ui-bundle.zip` in `build/` is consumed by the Antora documentation build.
+
+## Documentation
+
+- [Main Documentation Build](https://github.com/owncloud/docs)
+- [Antora UI Documentation](https://docs.antora.org/antora-ui-default/)
+
+## Part of ownCloud Documentation
+
+This repository provides the UI bundle consumed by the [ownCloud docs](https://github.com/owncloud/docs) Antora build. The output `ui-bundle.zip` is referenced in the docs site playbook. Published documentation is available at [doc.owncloud.com](https://doc.owncloud.com).
+
+## Development Reference
+
+Development workflow and build tooling for the UI bundle:
+
+### Prerequisites
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (v22 LTS recommended; use [NVM](https://github.com/creationix/nvm) to manage versions)
+- npm >= 11.11.0
+
+### Available npm Commands
+
+| Command | Description |
+|---|---|
+| `npm run lint` | Lint the UI bundle definition |
+| `npm run bundle` | Generate a `ui-bundle.zip` for local use |
+| `npm run preview` | Preview the bundle using a demo Antora build at `http://localhost:5252` |
+
+### Preview with ownCloud Documentation
+
+To preview UI changes using the actual ownCloud documentation instead of demo content:
+
+1. Build a local `ui-bundle.zip` with `npm run bundle`
+2. Switch to the target documentation repository
+3. Run `npm run antora-dev-bundle` in the docs repo
+
+See the [Generating the Documentation](https://github.com/owncloud/docs#generating-the-documentation) guide for details.
+
+### Contributing Workflow
+
+Create a feature branch off `master`, make changes, and submit a PR. When merged, the CI pipeline automatically builds and publishes a new `ui-bundle.zip` to `https://minio.owncloud.com/documentation/ui-bundle.zip`.
+
+## Community & Support
+
+**[Star](https://github.com/owncloud/docs-ui)** this repo and **Watch** for release notifications!
+
+- [ownCloud Website](https://owncloud.com)
+- [Community Discussions](https://github.com/orgs/owncloud/discussions)
+- [Matrix Chat](https://app.element.io/#/room/#owncloud:matrix.org)
+- [Documentation](https://doc.owncloud.com)
+- [Enterprise Support](https://owncloud.com/contact-us/)
+- [OSPO Home](https://kiteworks.com/opensource)
 
 ## Contributing
 
-If you want to make changes, create a "_feature_" branch off of master, make the required changes, and then create a Pull Request (PR) against the _master_ branch.
-If the PR is accepted and merged, a new `ui-bundle.zip` package file will be created and published to `https://minio.owncloud.com/documentation/ui-bundle.zip` as part of the build pipeline.
+We welcome contributions! Please read the [Contributing Guidelines](CONTRIBUTING.md)
+and our [Code of Conduct](CODE_OF_CONDUCT.md) before getting started.
 
-## Prerequisites
+### Workflow
 
-To preview the UI changes or to create a local version of a `ui-bundle.zip`, you need to install the following software on your computer.
+- **Rebase Early, Rebase Often!** We use a rebase workflow. Always rebase on the target branch before submitting a PR.
+- **Dependabot**: Automated dependency updates are managed via Dependabot. Review and merge dependency PRs promptly.
+- **Signed Commits**: All commits **must** be PGP/GPG signed. See [GitHub's signing guide](https://docs.github.com/en/authentication/managing-commit-signature-verification).
+- **DCO Sign-off**: Every commit must carry a `Signed-off-by` line:
+  ```
+  git commit -s -S -m "your commit message"
+  ```
+- **GitHub Actions Policy**: Workflows may only use actions that are (a) owned by `owncloud`, (b) created by GitHub (`actions/*`), or (c) verified in the GitHub Marketplace.
 
-- [git][link-git] (command: `git`)
-- [Node][link-node] (command: `node`)
-- [Gulp CLI][link-gulp-cli] (command: `gulp`)
+## Security
 
-### git
+**Do not open a public GitHub issue for security vulnerabilities.**
 
-First, make sure you have git installed.
+Report vulnerabilities at **<https://security.owncloud.com>** -- see [SECURITY.md](SECURITY.md).
 
-```Shell
-git --version
-```
+Bug bounty: [YesWeHack ownCloud Program](https://yeswehack.com/programs/owncloud-bug-bounty-program)
 
-If git is not installed, download and install the [git package][link-git-package] for your system.
+## License
 
-### Node
+This project is licensed under the [AGPL-3.0](LICENSE).
 
-Next, make sure that you have Node installed.
+## About the ownCloud OSPO
 
-```Shell
-node --version
-```
+The [Kiteworks Open Source Program Office](https://kiteworks.com/opensource), operating under
+the [ownCloud](https://owncloud.com) brand, launched on May 5, 2026, to steward the open source
+ecosystem around ownCloud's products. The OSPO ensures transparent governance, license compliance,
+community health, and sustainable collaboration between the open source community and
+[Kiteworks](https://www.kiteworks.com), which acquired ownCloud in 2023.
 
-If this command fails with an error, you don't have Node installed.
-While you can install Node from the official packages, we strongly recommend that you use [NVM][link-nvm] (Node Version Manager) to install and manage Node.
+- **OSPO Home**: <https://kiteworks.com/opensource>
+- **GitHub**: <https://github.com/owncloud>
+- **ownCloud**: <https://owncloud.com>
 
-Follow the [NVM installation instructions][link-nvm-installation-instructions] to set up NVM on your machine.
-Once you've installed NVM, open a new terminal and install Node using the following command:
+For questions about the OSPO or licensing, contact ospo@kiteworks.com.
 
-```Shell
-nvm ls-remote | grep "Latest LTS"
+### License Migration to Apache 2.0
 
-       ...
-       v18.20.4   (Latest LTS: Hydrogen)
-       v20.18.1   (Latest LTS: Iron)
-       v22.22.0   (Latest LTS: Jod)
-       v24.14.0   (Latest LTS: Krypton)
-```
+The OSPO is driving a strategic relicensing of ownCloud repositories toward the
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0), following
+the [Apache Software Foundation's third-party license policy](https://www.apache.org/legal/resolved.html).
 
-Then install a suitable LTS version, preferrable > v20. You can install as many versions as you like or need, see example below.
+Individual repositories will migrate as their audit is completed. The LICENSE file
+in each repo reflects its **current** license status (not the target).
 
-```Shell
-nvm install 22.22.0
-```
+**Current license: AGPL-3.0** (Category X per Apache policy -- cannot be included in Apache-2.0 works).
 
-List the installed versions
+Migration prerequisites for this repository:
 
-```Shell
-nvm ls
-->     v22.22.0
-default -> 22.22.0 (-> v22.22.0)
-
-...
-```
-
-**Info:** The backend to push to the web also uses node v22, see the `.drone.star` file. It is recommended to stay with the same release if possible.
-
-Switch to a specific installed version of Node at any time, use the following command:
-
-```Shell
-nvm use 22.22.0
-```
-
-**Important:** If you have additional concurrent terminals open, you must close these terminals first and reopen them to use the new setup.
-
-To make a particular Node version default in new terminals, type:
-
-```Shell
-nvm alias default 22.22.0
-```
-
-Now that you have Node installed, you can proceed with installing the Gulp CLI and npm.
-
-### Update npm
-
-`npm` should be at minimum version 11.11.0\
-You can check this with `npm -v`. If an update is needed, simply run teh following command. Replace `latest` with a version if you want to lock it.
-
-```Shell
-npm install -g npm@latest
-```
-
-### Install Dependencies
-
-Finally, run the following command to install all dependencies:
-
-```Shell
-npm install
-```
-
-### Add Packages
-
-If a new package needs to be added, type the following:
-
-```Shell
-npm -i <package-name>
-```
-
-## Prepared npm Commands
-
-To see all prepared npm commands, run the following command `npm run`. This will output all commands with their settings, though this makes readability not easy. See the [npm documentation](https://docs.npmjs.com/cli/v11/using-npm/scripts) for more information.
-
-Here is the list of commands and when to use them:
-
-* `npm run lint`  
-Lint the UI bundle definition
-* `npm run bundle`  
-Generate a new `ui-bundle.zip` file for local use
-* `npm run preview`  
-Preview the bundle using the gulp. This previews a demo Antora build.
-
-## Preview
-
-### Preview Changes Using the ownCloud Documentation
-
-If you want to preview your changes to the UI using the ownCloud documentation instead of demo content then you need to build a local copy of `ui-bundle.zip` and use it when generating the ownCloud documentation in your local development machine.
-
-* First create a local `ui-bundle.zip` with the command described above.
-* Then change into the respective documentation repository and run `npm run antora-dev-bundle`.  
-See the [Generating the Documentation](https://github.com/owncloud/docs#generating-the-documentation) description for more details.
-
-### Previewing Changes using a Demo Antora Build
-
-The following example runs a demo Antora **build** (_not ownCloud_) for the documentation site which can be **accessed** on your local development machine at `http://localhost:5252`.
-
-To view your changes as you are working on them, run the following command:
-
-```Shell
-npm run preview
-```
+- **CLA/DCO coverage**: All past contributors must have signed agreements permitting relicensing
+- **Copyleft dependency audit**: All AGPL/GPL dependencies must be replaced or isolated
+- **KDE heritage review**: Any code with KDE-era copyrights requires legal analysis
+- **Complete relicensing**: AGPL-3.0 is a strong copyleft license; migration requires full relicensing of all files, not just a header change
