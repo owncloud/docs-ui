@@ -33,7 +33,7 @@
     "handlebars": "^4.7.9",
     "highlight.js": "^11.11.1",
     "medium-zoom": "^1.1.0",
-    "npm-check-updates": "22.2.9"
+    "npm-check-updates": "23.0.0"
   },
   "devDependencies": {
     "@asciidoctor/core": "^3.0.4",
